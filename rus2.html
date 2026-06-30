@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русский язык 2 класс — Расширенный справочник</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .chapter-title { background: #e67e22; color: white; padding: 12px 20px; border-radius: 6px; font-size: 1.3rem; font-weight: bold; margin: 25px 0 15px 0; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Русский язык — 2 класс</h1>
+        <div class="book-info">Развёрнутый справочник по темам (Учебник В. П. Канакиной, В. Г. Горецкого)</div>
+        <div class="page-title">ПОЛНЫЙ КУРС ИЗУЧЕНИЯ:</div>
+
+        <!-- ГЛАВА 1 -->
+        <div class="chapter-title">Глава 1. Наша речь. Текст и предложение</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 1. Виды речи и текст</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Повторение устной и письменной речи. Диалог (разговор двух лиц) и монолог (речь одного лица). Признаки текста: тема, главная мысль, заголовок. Части текста: начало, основная часть, концовка.</p>
+                <div class="example">Правило оформления диалога: Каждое новое высказывание (реплика) пишется с новой строки, а перед ним ставится знак тире (—).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 2. Предложение и его главные члены</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Виды предложений по цели высказывания (повествовательные, вопросительные, побудительные) и по интонации (восклицательные, невосклицательные). Главные члены предложения — Подлежащее и Сказуемое (грамматическая основа).</p>
+                <div class="example">Разбор: В предложении «Яркое солнце светит» грамматическая основа: <u>солнце</u> (подлежащее) <u>=светит=</u> (сказуемое).</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 2 -->
+        <div class="chapter-title">Глава 2. Звуки и буквы. Главные орфограммы</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 3. Безударные гласные в корне слова</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Самое главное правило начальной школы. Проверяемые и непроверяемые (словарные) гласные звуки в корне слова. Способы подбора проверочных слов.</p>
+                <div class="example">Правило: Чтобы проверить безударный гласный звук в корне, нужно изменить слово или подобрать однокоренное так, чтобы этот гласный стал ударным. Пример: вОда — вОдный.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 4. Парные звонкие и глухие согласные</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Орфограмма слабых позиций согласных звуков на конце слов или перед другими согласными. Подбор проверочных слов.</p>
+                <div class="example">Правило: Чтобы проверить парный согласный, нужно подобрать слово так, чтобы после него стоял гласный звук или звук [н]. Пример: дуБ — дуБы, скаЗка — скаЗочка.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 5. Разделительный мягкий знак (Ь)</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Различие функций Ь: как показатель мягкости согласного (пень) и как разделительный знак.</p>
+                <div class="example">Правило: Разделительный мягкий знак пишется в корне слова после согласных букв перед гласными Е, Ё, Ю, Я, И. Он показывает, что согласный звук не сливается с гласным. Пример: вьга, ручьи, варенье.</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 3 -->
+        <div class="chapter-title">Глава 3. Части речи (Знакомство с грамматикой)</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 6. Имя существительное</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Часть речи, которая обозначает предмет и отвечает на вопросы Кто? или Что? Одушевлённые (кто?) и неодушевлённые (что?) существительные. Собственные имена (пишутся с большой буквы) и нарицательные. Единственное и множественное число.</p>
+                <div class="example">Пример: (Кто?) <u>кот</u> Матроскин, (Что?) <u>город</u> Москва. Матроскин и Москва — собственные имена, пишутся с заглавной буквы.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 7. Имя прилагательное</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Часть речи, обозначающая признак предмета. Вопросы: Какой? Какая? Какое? Какие? Роль прилагательных в нашей речи (делают её точной и красивой). Связь существительного и прилагательного.</p>
+                <div class="example">Пример: Книга (какая?) интересная, карандаш (какой?) острый, облака (какие?) белые.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 8. Глагол</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Часть речи, обозначающая действие предмета. Вопросы: Что делать? Что сделать? Что делает? Что сделал? Роль глаголов в предложении (обычно являются сказуемыми). Частица НЕ с глаголами.</p>
+                <div class="example">Правило: Частица НЕ с глаголами пишется раздельно. Пример: <u>не</u> знал, <u>не</u> выучил, <u>не</u> бегал (исключение — слова, которые без НЕ не употребляются: ненавидеть).</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

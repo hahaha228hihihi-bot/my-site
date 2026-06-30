@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 5 — Архимедова сила (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 5. Архимедова сила и плавание тел (В синем стиле)</h1>
+
+        <!-- Группа 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 55-56. Действие жидкости и газа на погружённое тело</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>На любое тело, погружённое в жидкость или газ, действует снизу вверх выталкивающая сила. Она возникает из-за разности давлений жидкости на нижнюю и верхнюю грани тела (снизу вода давит сильнее, так как там глубже).</p>
+                <div class="example">Опыт: Если подвесить металлический цилиндр к пружине динамометра и опустить в воду, пружина сожмётся — вода начнёт «выталкивать» цилиндр вверх, уменьшая его вес.</div>
+            </div>
+        </div>
+
+        <!-- Группа 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 57-58. Закон Архимеда и его вывод</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Закон Архимеда:</strong> Сила, выталкивающая тело из жидкости или газа, равна весу жидкости или газа в объёме этого тела.</p>
+                <div class="example">Формула: Выталкивающая сила = Плотность жидкости * 9.8 * Объём погружённой части тела. Сила Архимеда направлена противоположно силе тяжести.</div>
+            </div>
+        </div>
+
+        <!-- Группа 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 59. Условия плавания тел</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Поведение тела в жидкости зависит от соотношения между силой тяжести и силой Архимеда (или от плотностей):</p>
+                <p>1. Тело **тонет**, если сила тяжести больше силы Архимеда (плотность тела больше плотности жидкости).</p>
+                <p>2. Тело **плавает внутри** жидкости, если они равны.</p>
+                <p>3. Тело **всплывает** на поверхность, если сила Архимеда больше силы тяжести (плотность тела меньше плотности жидкости).</p>
+                <div class="example">Пример: Кусок железа тонет в воде, но плавает в жидкой ртути, так как плотность ртути намного выше плотности железа.</div>
+            </div>
+        </div>
+
+        <!-- Группа 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 60-61. Плавание судов и воздухоплавание</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Огромные железные корабли не тонут, потому что внутри они полые — их средняя плотность вместе с воздухом меньше плотности воды. Вес вытесненной кораблем воды при погружении до ватерлинии называется **водоизмещением**. В воздухоплавании воздушные шары летят вверх, если они заполнены легким газом (гелием, горячим воздухом), плотность которого меньше плотности окружающей атмосферы.</p>
+                <div class="example">Справка: Разность между силой Архимеда и силой тяжести воздушного шара называется его **подъёмной силой** — она определяет, какой вес груза шар может поднять в небо.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

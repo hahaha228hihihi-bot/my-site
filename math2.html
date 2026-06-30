@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика 2 класс — Расширенный справочник</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        /* Стиль заголовков четвертей */
+        .chapter-title { background: #e67e22; color: white; padding: 12px 20px; border-radius: 6px; font-size: 1.3rem; font-weight: bold; margin: 25px 0 15px 0; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        /* ИСПРАВЛЕНО: Базовое состояние для корректного открытия */
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Математика — 2 класс</h1>
+        <div class="book-info">Развёрнутая программа по четвертям (Учебник М. И. Моро)</div>
+        <div class="page-title">ПОЛНЫЙ КУРС ИЗУЧЕНИЯ:</div>
+
+        <!-- ЧЕТВЕРТЬ 1 -->
+        <div class="chapter-title">Глава 1. Числа от 1 до 100. Нумерация, сложение и вычитание</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 1. Повторение: числа от 1 до 20</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Повторение нумерации чисел первого и второго десятка. Сложение и вычитание без перехода через разряд.</p>
+                <div class="example">Пример: 12 + 5 = 17, 19 - 4 = 15.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Теma 2. Десятки и единицы. Счет до 100</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Понятие разряда. Число 100 состоит из 10 десятков. Запись и чтение любых двузначных чисел. Сравнение чисел.</p>
+                <div class="example">Пример: 37 — это 3 десятка и 7 единиц. Сравнение: 45 > 39.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 3. Новые единицы длины: Миллиметр и Метр</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Знакомство с мелкими и крупными мерами длины. Соотношения между ними.</p>
+                <div class="example">Таблица: 1 см = 10 мм. 1 дм = 10 см. 1 м = 100 см.</div>
+            </div>
+        </div>
+
+        <!-- ЧЕТВЕРТЬ 2 -->
+        <div class="chapter-title">Глава 2. Письменные вычисления и геометрия</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 4. Сложение и вычитание в столбик</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Алгоритм записи чисел друг под другом. Сложение единиц с единицами, десятков с десятками. Переход через разряд.</p>
+                <div class="example">Правило в столбик: Пишем единицы под единицами. Если сумма единиц больше 9, записываем последнюю цифру, а десяток запоминаем.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 5. Уравнения с неизвестным Х</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Что такое уравнение. Нахождение неизвестного слагаемого, уменьшаемого или вычитаемого.</p>
+                <div class="example">Пример: х + 6 = 14. Находим х: х = 14 - 6. Ответ: х = 8.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 6. Геометрия: Углы, прямоугольник и периметр</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Виды углов (прямой, острый, тупой). Свойства сторон прямоугольника. Понятие периметра.</p>
+                <div class="example">Формула периметра многоугольника: сумма длин всех его сторон.</div>
+            </div>
+        </div>
+
+        <!-- ЧЕТВЕРТЬ 3 -->
+        <div class="chapter-title">Глава 3. Умножение и деление. Начальные навыки</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 7. Математический смысл умножения</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Умножение — это замена сложения одинаковых слагаемых. Названия компонентов: множители и произведение.</p>
+                <div class="example">Пример: 4 + 4 + 4 + 4 + 4 = 4 * 5 = 20. Количество одинаковых слагаемых.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 8. Математический смысл деления</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Деление — распределение предметов на равные части. Связь умножения и деления. Делимое, делитель, частное.</p>
+                <div class="example">Правило: Если произведение разделить на один из множителей, то получится другой множитель.</div>
+            </div>
+        </div>
+
+        <!-- ЧЕТВЕРТЬ 4 -->
+        <div class="chapter-title">Глава 4. Таблица умножения и закрепление материала</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 9. Таблица умножения на 2 и на 3</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Составление и заучивание первых табличных случаев умножения и соответствующих им случаев деления.</p>
+                <div class="example">Пример: 2 * 4 = 8, значит 8 : 2 = 4 и 8 : 4 = 2.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 10. Итоговое повторение и задачи в 2 действия</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Решение сложных составных текстовых задач. Порядок выполнения действий в выражениях со скобками.</p>
+                <div class="example">Правило: Первыми всегда выполняются действия в скобках, затем умножение или деление, а в самом конце — сложение или вычитание.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // ИСПРАВЛЕННЫЙ И ТЕСТОВЫЙ СКРИПТ: Работает со 100% гарантией
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            
+            // Если стиль пустой или равен 'none'
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

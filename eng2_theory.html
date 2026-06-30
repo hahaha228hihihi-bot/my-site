@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Английский 2 класс — Теория</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .chapter-title { background: #e67e22; color: white; padding: 12px 20px; border-radius: 6px; font-size: 1.3rem; font-weight: bold; margin: 25px 0 15px 0; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+        
+        /* Стили для сетки алфавита */
+        .abc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(60px, 1fr)); gap: 8px; margin-top: 10px; }
+        .abc-box { background: white; border: 1px solid #fde3cf; text-align: center; padding: 8px; border-radius: 6px; font-weight: bold; }
+        .abc-box span { display: block; font-size: 0.8rem; color: #7f8c8d; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng2.html" class="back-link">← Назад в меню предмета</a>
+        <h1>Английский язык — 2 класс</h1>
+        <div class="page-title">ТЕОРЕТИЧЕСКИЙ СПРАВОЧНИК</div>
+
+        <!-- ГЛАВА 1 -->
+        <div class="chapter-title">Глава 1. Алфавит и правила чтения</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 1. Английский алфавит (The Alphabet)</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>В английском алфавите ровно <strong>26 букв</strong>: 6 гласных и 20 согласных. Вот как они пишутся и называются:</p>
+                <div class="abc-grid">
+                    <div class="abc-box">Aa<span>[еɪ]</span></div>
+                    <div class="abc-box">Bb<span>[биː]</span></div>
+                    <div class="abc-box">Cc<span>[сиː]</span></div>
+                    <div class="abc-box">Dd<span>[диː]</span></div>
+                    <div class="abc-box">Ee<span>[иː]</span></div>
+                    <div class="abc-box">Ff<span>[эф]</span></div>
+                    <div class="abc-box">Gg<span>[джиː]</span></div>
+                    <div class="abc-box">Hh<span>[еɪч]</span></div>
+                    <div class="abc-box">Ii<span>[аɪ]</span></div>
+                    <div class="abc-box">Jj<span>[джеɪ]</span></div>
+                    <div class="abc-box">Kk<span>[кеɪ]</span></div>
+                    <div class="abc-box">Ll<span>[эл]</span></div>
+                    <div class="abc-box">Mm<span>[эм]</span></div>
+                    <div class="abc-box">Nn<span>[эн]</span></div>
+                    <div class="abc-box">Oo<span>[əʊ]</span></div>
+                    <div class="abc-box">Pp<span>[пиː]</span></div>
+                    <div class="abc-box">Qq<span>[кьюː]</span></div>
+                    <div class="abc-box">Rr<span>[аː]</span></div>
+                    <div class="abc-box">Ss<span>[эс]</span></div>
+                    <div class="abc-box">Tt<span>[тиː]</span></div>
+                    <div class="abc-box">Uu<span>[юː]</span></div>
+                    <div class="abc-box">Vv<span>[виː]</span></div>
+                    <div class="abc-box">Ww<span>[ˈdʌbljuː]</span></div>
+                    <div class="abc-box">Xx<span>[экс]</span></div>
+                    <div class="abc-box">Yy<span>[ваɪ]</span></div>
+                    <div class="abc-box">Zz<span>[зед]</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 2. Открытый и закрытый слог</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Английские гласные читаются по-разному в зависимости от типа слога:</p>
+                <p>1. <strong>Открытый слог</strong> заканчивается на гласную букву. В нём буква читается точно так же, как называется в алфавите.</p>
+                <p>2. <strong>Закрытый слог</strong> заканчивается на согласную. Звук становится коротким.</p>
+                <div class="example">Пример буквы A: в открытом слоге — L<u>a</u>ke (озеро), в закрытом слоге — C<u>a</u>t (кошка).</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 2 -->
+        <div class="chapter-title">Глава 2. Начальная грамматика</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 3. Глагол "to be" (Быть, являться)</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Самый важный глагол в английском языке. На русский язык он часто не переводится, но в предложении обязан стоять. Имеет три формы:</p>
+                <p>• <strong>AM</strong> — для местоимения I (я).</p>
+                <p>• <strong>IS</strong> — для He, She, It (он, она, оно).</p>
+                <p>• <strong>ARE</strong> — для We, You, They (мы, ты/вы, они).</p>
+                <div class="example">Примеры: I <u>am</u> a pupil (Я ученик). She <u>is</u> happy (Она счастлива). We <u>are</u> a family (Мы семья).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 4. Множественное число существительных</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Чтобы сделать из одного предмета много, к концу английского слова нужно просто прибавить букву <strong>-S</strong> или <strong>-ES</strong>.</p>
+                <div class="example">Пример: a cat (одна кошка) — cat<u>s</u> (много кошек), a box (коробка) — box<u>es</u> (коробки).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 5. Местоимения (Pronouns)</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p>Слова, которые заменяют имена предметов:</p>
+                <p>• <strong>I</strong> [ай] — Я</p>
+                <p>• <strong>He</strong> [хи] — Он / <strong>She</strong> [ши] — Она / <strong>It</strong> [ит] — Оно (для неодушевленных предметов и животных)</p>
+                <p>• <strong>We</strong> [ви] — Мы / <strong>You</strong> [ю] — Ты, Вы / <strong>They</strong> [зэй] — Они</p>
+                <div class="example">Важно: Если мы говорим про собаку или стол, англичане скажут <u>It</u>. А <u>He</u> и <u>She</u> — только про людей.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

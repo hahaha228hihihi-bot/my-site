@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 2 — Строение вещества (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 2. Первоначальные сведения о строении вещества (Углублённый курс)</h1>
+
+        <!-- Параграф 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 6. Строение вещества</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Все окружающие нас тела состоят из отдельных частиц, между которыми есть свободные промежутки. При нагревании тела расширяются, так как увеличиваются промежутки между частицами, а при охлаждении — сжимаются.</p>
+                <div class="example">Пример: Железный рельс или мост летом становится чуть длиннее из-за расширения промежутков между атомами металла.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 7. Молекулы</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Молекула — это наименьшая частица данного вещества, сохраняющая его основные свойства. Молекулы одного и того же вещества абсолютно одинаковы (например, молекула чистой воды из океана такая же, как в чайнике).</p>
+                <div class="example">Пример: Вода, лед и водяной пар имеют разные свойства, но состоят из одних и тех же молекул воды. Разница лишь в их расположении.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 8 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 8. Атомы. Строение атома</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Молекулы состоят из еще более мелких частиц — атомов. На углубленном уровне изучается, что в центре атома находится положительно заряженное ядро, вокруг которого вращаются отрицательные электроны.</p>
+                <div class="example">Факт: Слово «атом» переводится как «неделимый», но физика доказала, что он делим и состоит из протонов, нейтронов и электронов.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 9 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 9. Размеры молекул. Оценка размеров</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Молекулы невероятно малы. Чтобы примерно оценить их размер, проводят опыт с каплей масла на воде. Капля растекается тончайшей пленкой толщиной всего в одну молекулу, зная площадь которой можно узнать диаметр частицы.</p>
+                <div class="example">Пример: Размер молекулы воды составляет примерно 0,0000000003 метра (три десятимиллиардные доли метра).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 10 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 10. Диффузия в газах, жидкостях и твердых телах</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Диффузия — явление, при котором молекулы одного вещества сами проникают в промежутки между молекулами другого. Быстрее всего она идет в газах, медленнее в жидкостях, и очень долго — в твердых телах.</p>
+                <div class="example">Пример: Если свинцовую и золотую пластины сильно прижать друг к другу, через 5 лет золото проникнет в свинец на 1 миллиметр.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 11 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 11. Зависимость скорости диффузии от температуры</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Скорость диффузии напрямую связана с температурой. При нагревании молекулы начинают двигаться быстрее, чаще сталкиваются и гораздо активнее перемешиваются друг с другом.</p>
+                <div class="example">Пример: Сахар в горячем чае растворяется и распределяется по всему стакану за пару секунд, а в холодном — осядет на дно.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 12 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 12. Взаимное притяжение и отталкивание молекул</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Между молекулами одновременно действуют силы притяжения и отталкивания. На расстояниях, превышающих размеры молекул, заметно притяжение. При попытке сжать вещество молекулы сближаются и начинают резко отталкиваться.</p>
+                <div class="example">Пример: Склеить разбитую вазу без клея нельзя, так как мы не можем сблизить осколки на расстояние действия молекулярного притяжения.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 13 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 13. Агрегатные состояния вещества</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Вещество может переходить в три основных агрегатных состояния: твердое, жидкое и газообразное. При этом сами молекулы не меняются — меняется лишь характер их движения и связи между ними.</p>
+                <div class="example">Свойства: Твердые тела сохраняют и форму, и объем. Жидкости сохраняют объем, но принимают форму сосуда. Газы занимают весь предоставленный объем.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 14 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 14. Свойства газов, жидкостей и твердых телах</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>В газах молекулы летают свободно. В жидкостях — упакованы плотно, но могут перескакивать с места на место. В твердых телах молекулы жестко закреплены в узлах кристаллической решетки и лишь слегка колеблются.</p>
+                <div class="example">Сжимаемость: Газы легко сжать (уменьшив пустые промежутки), а жидкости и твердые тела практически несжимаемы.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика 1 класс — Темы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.2rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Математика — 1 класс</h1>
+        <div class="book-info">Базовые темы (По учебнику М. И. Моро)</div>
+        <div class="page-title">ВЫБЕРИТЕ ТЕМУ СПРАВОЧНИКА:</div>
+
+        <!-- Тема 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">1. Подготовка к изучению чисел (Сравнение предметов)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Понятия: много, один, ни одного. Сравнение предметов по размеру (больше, меньше, одинаковые), по форме и по цвету. Пространственные отношения (выше, ниже, слева, справа, сверху, снизу).</p>
+                <div class="example">Пример: Слева от яблока лежит один карандаш, а справа — много. Зелёный круг больше, чем красный.</div>
+            </div>
+        </div>
+
+        <!-- Тема 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">2. Числа от 1 до 10. Нумерация</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Названия, последовательность и написание чисел от 1 до 10. Число ноль. Состав каждого числа (например, 5 — это 3 и 2). Знаки «больше» (&gt;), «меньше» (&lt;) и «равно» (=).</p>
+                <div class="example">Пример: Сравнение чисел: 5 &gt; 3 (пять больше трёх). Состав числа 4: это 1 и 3, или 2 и 2.</div>
+            </div>
+        </div>
+
+        <!-- Тема 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">3. Сложение и вычитание в пределах 10</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Действия сложения (+) и вычитания (-). Названия компонентов: слагаемое, слагаемое, сумма. Решение простых задач в одно действие.</p>
+                <div class="example">Пример: 3 + 2 = 5. Задача: У Вани было 4 синих шара и 1 красный. Сколько всего шаров? Ответ: 4 + 1 = 5 шаров.</div>
+            </div>
+        </div>
+
+        <!-- Тема 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">4. Начальные геометрические понятия</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Точка, линия (кривая, прямая, ломаная). Отрезок (часть прямой, ограниченная двумя точками). Измерение длины отрезка в сантиметрах с помощью линейки. Многоугольники (треугольник, квадрат).</p>
+                <div class="example">Пример: Длина этого отрезка равна 5 см. Квадрат — фигура, у которой 4 угла и все стороны равны.</div>
+            </div>
+        </div>
+
+        <!-- Тема 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">5. Числа от 11 до 20. Десяток</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Понятие «десяток». Образование, названия и запись чисел от 11 до 20. Сложение и вычитание вида 10 + 5, 15 - 5. Случаи сложения с переходом через десяток (например, 8 + 5).</p>
+                <div class="example">Пример: Число 13 — это 1 десяток и 3 единицы. Разбор примера: 8 + 5 = 8 + 2 + 3 = 10 + 3 = 13.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+
+</body>
+</html>

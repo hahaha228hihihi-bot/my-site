@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 4 — Давление (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        /* СИНИЙ СТИЛЬ: Заголовки, рамки и ссылки */
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        
+        /* Голубоватый блок для примеров */
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 4. Давление твёрдых тел, жидкостей и газов (В синем стиле)</h1>
+
+        <!-- Группа 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 31-32. Давление твёрдых тел. Увеличение и уменьшение давления</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Давление — физическая величина, равная отношению силы давления к площади поверхности. Формула: Давление = Сила / Площадь. Измеряется в Паскалях (Па). Чтобы уменьшить давление, увеличивают площадь опоры.</p>
+                <div class="example">Пример: Лыжи не дают человеку провалиться в глубокий снег, так как они распределяют его вес на большую площадь и снижают давление.</div>
+            </div>
+        </div>
+
+        <!-- Группа 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 33-35. Давление газов и жидкостей. Закон Паскаля</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Давление газа создается ударами молекул. Закон Паскаля: давление, производимое на жидкость или газ, передается в любую точку без изменений по всем направлениям. Давление внутри жидкости зависит от её плотности и глубины.</p>
+                <div class="example">Формула гидростатического давления: Давление жидкости = Плотность * 9.8 * Глубина столба жидкости.</div>
+            </div>
+        </div>
+
+        <!-- Группа 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 36-42. Сообщающиеся сосуды и атмосферное давление</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>В сообщающихся сосудах уровни однородной жидкости всегда равны. Наша планета окружена атмосферой, которая давит на всё вокруг. Опыт Торричелли доказал существование атмосферного давления с помощью трубки с ртутью.</p>
+                <div class="example">Справка: Измеряется прибором под названием барометр-анероид. Нормальное атмосферное давление на уровне земли — около 760 миллиметров ртутного столба.</div>
+            </div>
+        </div>
+
+        <!-- Группа 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 43-45. Изменение давления. Манометры</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Для измерения давлений, которые больше или меньше атмосферного, используют специальные приборы — манометры. Они бывают жидкостными (U-образная трубка) и металлическими (с деформирующейся пружинной трубкой внутри).</p>
+                <div class="example">Пример: Металлические манометры ты точно видел на автомобильных насосах для проверки давления воздуха в шинах машин.</div>
+            </div>
+        </div>
+
+        <!-- Группа 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 46-48. Поршневой жидкостный насос</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Действие поршневых водяных насосов основано на работе атмосферного давления. Когда поршень идет вверх, под ним создается пустота (разрежение), и атмосферное давление выталкивает воду из колодца вверх по трубе через систему клапанов.</p>
+                <div class="example">Важный факт: Обычный поршневой насос не способен поднять воду с глубины более 10.3 метров, так как именно на эту высоту атмосферное давление может поднять столб чистой воды.</div>
+            </div>
+        </div>
+
+        <!-- Группа 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 49-51. Гидравлический пресс и его устройство</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Гидравлическая машина — это два сообщающихся цилиндра разного диаметра, заполненных маслом и закрытых поршнями. Благодаря закону Паскаля, сила, действующая на большой поршень, во столько раз больше силы на малом поршне, во сколько площадь большого поршня больше площади малого.</p>
+                <div class="example">Правило: Гидравлический пресс дает гигантский выигрыш в силе. Давя на маленький поршень пальцем, на большом поршне можно поднять тяжелый легковой автомобиль!</div>
+            </div>
+        </div>
+
+        <!-- Группа 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 52-54. Применение давления в технике</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Законы давления используются в гидравлических тормозах машин, пневматических инструментах (отбойных молотках), шлюзах рек, водопроводах городов и в работе тяжелых строительных экскаваторов.</p>
+                <div class="example">Справка: Вся мощь ковша огромного экскаватора держится на гидроцилиндрах, куда мощные насосы загоняют масло под очень высоким давлением.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#d35400">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>Школьный Архив — Все классы и предметы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        header { background: #d35400; color: white; text-align: center; padding: 40px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.3rem; margin-bottom: 10px; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 25px; color: #555; font-size: 1.3rem; }
+        
+        .class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 40px; }
+        .class-btn { background: white; border: 2px solid #ff9f43; color: #e67e22; padding: 15px 10px; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold; text-align: center; }
+        .class-btn:hover { background: #ff9f43; color: white; transform: translateY(-2px); }
+        .class-btn.active { background: #e67e22; border-color: #e67e22; color: white; }
+        
+        .subjects-panel { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: none; }
+        .subjects-panel h2 { color: #d35400; margin-bottom: 20px; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .subject-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; align-items: start; }
+        .subject-item { background: #fffcf9; padding: 15px; border-radius: 8px; border-left: 5px solid #ff9f43; text-decoration: none; color: #333; font-weight: 500; transition: all 0.2s; display: block; min-height: 54px; }
+        .subject-item:hover { background: #fdf2e9; transform: translateX(5px); }
+        .not-available-msg { font-size: 1.2rem; color: #7f8c8d; text-align: center; padding: 20px 0; font-style: italic; font-weight: 500; width: 100%; grid-column: 1 / -1; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>📚 Мой Школьный Архив</h1>
+        <p>Полный справочник учебных материалов с 1 по 11 класс</p>
+    </header>
+
+    <div class="container">
+        <p class="section-title">Выбери класс, чтобы увидеть полный список предметов:</p>
+        <div class="class-grid">
+            <button class="class-btn" onclick="showClass(1)">1 класс</button>
+            <button class="class-btn" onclick="showClass(2)">2 класс</button>
+            <button class="class-btn" onclick="showClass(3)">3 класс</button>
+            <button class="class-btn" onclick="showClass(4)">4 класс</button>
+            <button class="class-btn" onclick="showClass(5)">5 класс</button>
+            <button class="class-btn" onclick="showClass(6)">6 класс</button>
+            <button class="class-btn" onclick="showClass(7)">7 класс</button>
+            <button class="class-btn" onclick="showClass(8)">8 класс</button>
+            <button class="class-btn" onclick="showClass(9)">9 класс</button>
+            <button class="class-btn" onclick="showClass(10)">10 класс</button>
+            <button class="class-btn" onclick="showClass(11)">11 класс</button>
+        </div>
+        <div class="subjects-panel" id="subjectsPanel">
+            <h2 id="panelTitle">Предметы</h2>
+            <div class="subject-list" id="subjectList"></div>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            1: ["Обучение грамоте", "Русский язык", "Литературное чтение", "Математика", "Окружающий мир"],
+            2: ["Русский язык", "Литературное чтение", "Математика", "Окружающий мир", "Иностранный язык"],
+            3: ["Русский язык", "Литературное чтение", "Математика", "Окружающий мир", "Иностранный язык"],
+            4: ["Русский язык", "Литературное чтение", "Математика", "Окружающий мир", "Иностранный язык"],
+            5: ["Русский язык", "Литература", "Математика", "История", "ОДНКНР", "География", "Биология", "Информатика", "Иностранный язык"],
+            6: ["Русский язык", "Литература", "Математика", "История", "Обществознание", "География", "Биология", "Информатика", "Иностранный язык"],
+            7: ["Русский язык", "Литература", "Алгебра", "Геометрия", "Вероятность и статистика", "Информатика", "История", "Обществознание", "География", "Физика", "Биология", "Иностранный язык"]
+        };
+
+        function showClass(classNumber) {
+            const panel = document.getElementById('subjectsPanel');
+            panel.style.display = 'block';
+            document.getElementById('panelTitle').innerText = `Предметы за ${classNumber} класс`;
+            const listContainer = document.getElementById('subjectList');
+            listContainer.innerHTML = '';
+            
+            if (classNumber >= 8) {
+                const message = document.createElement('div');
+                message.className = 'not-available-msg';
+                message.innerText = '🔒 Этот класс пока недоступен. Материалы появятся в новом учебном году!';
+                listContainer.appendChild(message);
+            } else {
+                data[classNumber].forEach(subject => {
+                    const item = document.createElement('a');
+                    item.className = 'subject-item';
+                    item.innerText = `📖 ${subject}`;
+                    
+                    if (subject === "Обучение грамоте" && classNumber === 1) {
+                        item.href = "gramota1.html";
+                    } else if (subject === "Математика" && classNumber === 1) {
+                        item.href = "math1.html";
+                    } else if (subject === "Русский язык" && classNumber === 1) {
+                        item.href = "rus1.html";
+                    } else if (subject === "Окружающий мир" && classNumber === 1) {
+                        item.href = "okr1.html";
+                    } else if (subject === "Литературное чтение" && classNumber === 1) {
+                        item.href = "chtenie1.html";
+                    } 
+                    else if (subject === "Математика" && classNumber === 2) {
+                        item.href = "math2.html";
+                    } else if (subject === "Русский язык" && classNumber === 2) {
+                        item.href = "rus2.html";
+                    } else if (subject === "Окружающий мир" && classNumber === 2) {
+                        item.href = "okr2.html";
+                    } else if (subject === "Литературное чтение" && classNumber === 2) {
+                        item.href = "chtenie2.html";
+                    } else if (subject === "Иностранный язык" && classNumber === 2) {
+                        item.href = "eng2.html";
+                    }
+                    else if (subject === "Физика" && classNumber === 7) {
+                        item.href = "fizika7.html";
+                    } else if (subject === "Русский язык" && classNumber === 7) {
+                        item.href = "rus7.html";
+                    } else {
+                        item.href = "#";
+                    }
+                    listContainer.appendChild(item);
+                });
+            }
+
+            const buttons = document.querySelectorAll('.class-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            const clickedBtn = Array.from(buttons).find(btn => btn.textContent === classNumber + " класс");
+            if (clickedBtn) clickedBtn.classList.add('active');
+            panel.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <!-- Подключение мобильного манифеста -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Скрипт активации работы без интернета -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('Приложение готово к работе офлайн!'))
+                    .catch(err => console.log('Ошибка активации офлайн-режима', err));
+            });
+        }
+    </script>
+
+</body>
+</html>

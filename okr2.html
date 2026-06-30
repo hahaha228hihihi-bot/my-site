@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Окружающий мир 2 класс — Расширенный справочник</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .chapter-title { background: #e67e22; color: white; padding: 12px 20px; border-radius: 6px; font-size: 1.3rem; font-weight: bold; margin: 25px 0 15px 0; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1><h1>📖 Окружающий мир — 2 класс</h1></h1>
+        <div class="book-info">Развёрнутый справочник по темам (Учебник А. А. Плешакова)</div>
+        <div class="page-title">ПОЛНЫЙ КУРС ИЗУЧЕНИЯ:</div>
+
+        <!-- ГЛАВА 1 -->
+        <div class="chapter-title">Глава 1. Где мы живем. Земля и космос</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 1. Наша родная страна и вселенная</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Наша Родина — Российская Федерация. Что такое государственные символы (Герб, Флаг, Гимн). Народы России. Что мы видим на небе ночью: звезды и созвездия. Знакомство со звездами Сириус и Полярная звезда, созвездиями Большая Медведица, Орион, Лебедь, Кассиопея.</p>
+                <div class="example">Важно запомнить: Наш флаг состоит из трех полос: белой, синей и красной. Полярная звезда всегда указывает строго на север.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 2. Карта, глобус и план местности</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Что такое глобус (модель Земли). Как читать физическую карту мира и России. Стороны горизонта (Север, Юг, Восток, Запад). Как устроен и работает компас. Что такое план местности.</p>
+                <div class="example">Справка: На карте и глобусе синим цветом обозначают воду (океаны, моря, реки), зеленым и коричневым — сушу (равнины и горы). Синяя стрелка компаса всегда показывает на север.</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 2 -->
+        <div class="chapter-title">Глава 2. Природа вокруг нас. Погода и времена года</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 3. Что такое погода и термометр</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Из чего складывается погода (температура воздуха, осадки, ветер, облачность). Наука метеорология. Как устроен термометр и как правильно измерять температуру воздуха, воды и тела человека.</p>
+                <div class="example">Правило счета: На шкале термометра есть ноль. Температуру выше нуля называют теплом (пишут со знаком +), а ниже нуля — морозом (пишут со знаком -).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 4. Растения и животные (Дикие и домашние)</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Различие между дикорастущими и культурными растениями. Различие между дикими и домашними животными. Группы животных: насекомые, рыбы, птицы, звери (млекопитающие), земноводные и пресмыкающиеся.</p>
+                <div class="example">Пример: Культурные растения (помидоры, яблони) сажает и выращивает человек, а дикорастущие (одуванчик, береза) растут сами. Животные птицы покрыты перьями, а звери — шерстью.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 5. Красная книга и охрана природы</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Почему нужно беречь природу. Что такое Красная книга (список редких и исчезающих видов растений и животных). Правила поведения в лесу и у водоемов.</p>
+                <div class="example">Правило: В лесу нельзя ломать ветки деревьев, рвать охапками редкие цветы, разорять птичьи гнезда и оставлять после себя мусор.</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 3 -->
+        <div class="chapter-title">Глава 3. Здоровье и безопасность человека</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 6. Строение тела и режим дня человека</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Внешнее и внутреннее строение тела человека (голова, шея, туловище, руки и ноги; головной мозг, сердце, легкие, желудок). Зачем нужен режим дня. Правила гигиены и здорового питания.</p>
+                <div class="example">Запомни: Сердце работает как мотор и гоняет кровь по всему телу, а легкие помогают нам дышать. Сон должен длиться не менее 9-10 часов.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 7. Безопасность дома и на улице</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Опасные предметы дома (электричество, газ, острые ножи, лекарства). Правила дорожного движения для пешеходов. Как вести себя, если ты остался один дома или встретил незнакомца на улице. Телефоны экстренных служб.</p>
+                <div class="example">Важные номера: 101 — Пожарная служба, 102 — Полиция, 103 — Скорая помощь, 112 — Единый номер спасения.</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 4 -->
+        <div class="chapter-title">Глава 4. Путешествия по городам и странам</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 8. Наша страна на карте. Города России</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Путешествие по Москве (Кремль, Красная площадь) и Санкт-Петербургу (Эрмитаж, река Нева). Знакомство с крупными городами нашей Родины. Что такое Золотое кольцо России.</p>
+                <div class="example">Справка: Москва — столица нашей огромной Родины. Основал Москву князь Юрий Долгорукий.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 9. Страны мира и их столицы</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Знакомство с политической картой. Наши ближайшие соседи (Финляндия, Китай, Белоруссия и др.). Путешествие по крупным зарубежным странам (Франция, Великобритания, США, Япония), их главные достопримечательности.</p>
+                <div class="example">Пример: Столица Франции — Париж (там находится Эйфелева башня), столица Великобритании — Лондон (там находится Биг-Бен).</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

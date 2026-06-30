@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Литературное чтение 1 класс — Темы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.2rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Литературное чтение — 1 класс</h1>
+        <div class="book-info">Ключевые разделы (По учебнику Л. Ф. Климановой)</div>
+        <div class="page-title">ВЫБЕРИТЕ РАЗДЕЛ УЧЕБНИКА:</div>
+
+        <!-- Раздел 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">1. Жили-были буквы (Стихи и загадки)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Игровые и шуточные стихотворения про буквы алфавита. Авторы: В. Данько, С. Маршак, Г. Сапгир, Б. Заходер. Развитие фантазии и умения находить рифмы.</p>
+                <div class="example">Пример: Стихи, где буквы оживают, спорят между собой или прячутся в словах, помогая запомнить азбуку в игровой форме.</div>
+            </div>
+        </div>
+
+        <!-- Раздел 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">2. Сказки, загадки, небылицы (Народное творчество)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Устное народное творчество (фольклор). Понятие о народных сказках, потешках, загадках, пословицах и скороговорках. Различие между авторской и народной сказкой.</p>
+                <div class="example">Пример: Русские народные сказки «Теремок», «Рукавиччка», «Петушок и бобовое зёрнышко». Изучение пословиц о дружбе и труде.</div>
+            </div>
+        </div>
+
+        <!-- Раздел 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">3. Братья наши меньшие (О животных)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Рассказы и стихотворения о домашних и диких животных, бережном отношении к природе. Авторы: Е. Чарушин, М. Пришвин, В. Бианки, С. Михалков.</p>
+                <div class="example">Пример: Рассказ Е. Чарушина «Томка» или стихи А. Барто. Главная мысль раздела — люди должны защищать животных и заботиться о них.</div>
+            </div>
+        </div>
+
+        <!-- Раздел 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">4. Апрель, апрель! Звенит капель... (О временах года)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Красивые поэтические произведения русских поэтов о смене сезонов, красоте родной природы, весеннем пробуждении и праздниках. Авторы: А. Плещеев, С. Маршак, И. Токмакова.</p>
+                <div class="example">Пример: Стихотворение С. Маршака «Апрель» («Апрель, апрель! На дворе звенит капель...»). Умение видеть красоту природы через слова.</div>
+            </div>
+        </div>
+
+        <!-- Раздел 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">5. И в шутку и всерьёз (Весёлые рассказы)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Смешные, поучительные и добрые истории про детей, школу, дружбу и проказы. Авторы: Н. Носов, В. Драгунский, Б. Житков, Э. Успенский.</p>
+                <div class="example">Пример: Рассказы Н. Носова «Затейники» или «Живая шляпа». Истории учат честности, дружбе и умению смотреть на себя с юмором.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+
+</body>
+</html>

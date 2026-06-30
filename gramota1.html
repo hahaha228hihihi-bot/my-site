@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучение грамоте 1 класс — Темы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.2rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Обучение грамоте — 1 класс</h1>
+        <div class="book-info">Базовые темы (По «Русской Азбуке» В. Г. Горецкого)</div>
+        <div class="page-title">ВЫБЕРИТЕ ТЕМУ СПРАВОЧНИКА:</div>
+
+        <!-- Тема 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">1. Добуквенный (подготовительный) период</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Знакомство с понятиями «речь», «предложение», «слово», «слог». Составление предложений по картинкам. Деление слов на части (слоги) с помощью хлопков. Определение ударного слога в слове.</p>
+                <div class="example">Пример: Слово ма-ма состоит из 2 слогов, первый слог — ударный. Предложение состоит из слов, которые пишутся отдельно друг от друга.</div>
+            </div>
+        </div>
+
+        <!-- Тема 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">2. Звуковой анализ слов (Гласные и согласные)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Различение звуков на слух. Гласные звуки (воздух идет свободно, их можно пропеть) и согласные звуки (воздух встречает преграду). Согласные звуки делятся на твёрдые и мягкие, а также на звонкие и глухие.</p>
+                <div class="example">Цветовые схемы: Гласные звуки обозначаются красным квадратом. Твёрдые согласные — синим квадратом. Мягкие согласные — зелёным квадратом.</div>
+            </div>
+        </div>
+
+        <!-- Тема 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">3. Буквенный (основной) период</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Знакомство с буквами русского алфавита. Понимание того, что буква — это графический знак для записи звука. Слияние букв в слоги (например, согласный + гласный: ма, па, ли). Чтение первых коротких слов и простых предложений.</p>
+                <div class="example">Разбор: Буква «А» обозначает гласный звук [а]. Буква «М» может обозначать твёрдый согласный [м] в слове «мыло» или мягкий [м'] в слове «мишка».</div>
+            </div>
+        </div>
+
+        <!-- Теma 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">4. Чтение предложений и текстов</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Формирование навыка слогового чтения с постепенным переходом на чтение целыми словами. Понимание прочитанного, ответы на вопросы по тексту. Соблюдение пауз на точках в конце предложений.</p>
+                <div class="example">Пример: Чтение простых текстов типа: «У мамы Рома. Рома мал. Рома вырос.» Понимание главных героев рассказа.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+
+</body>
+</html>

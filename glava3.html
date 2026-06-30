@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 3 — Взаимодействие тел (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        /* СИНИЙ СТИЛЬ: Заголовки, рамки и ссылки */
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        
+        /* Голубоватый блок для примеров */
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 3. Взаимодействие тел (Все параграфы в синем стиле)</h1>
+
+        <!-- Параграфы 15-16 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 15-16. Механическое движение. Равномерное и неравномерное движение</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Механическое движение — изменение положения тела относительно других тел. Путь — длина траектории. При равномерном движении тело за любые равные промежутки времени проходит одинаковые пути.</p>
+                <div class="example">Пример: Стрелка механических часов движется равномерно, а падающий с дерева лист — неравномерно.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 17-19 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 17-19. Скорость, расчёт пути, времени и графики</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Скорость — векторная величина. Формулы: Скорость = Путь / Время. Путь = Скорость * Время. Время = Путь / Скорость. Для неравномерного движения ищут среднюю скорость (весь путь делить на всё время).</p>
+                <div class="example">Перевод единиц: Чтобы перевести км/ч в м/с, нужно разделить число на 3.6 (например, 36 км/ч = 10 м/с).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 20 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 20. Явление инерции</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Инерция — это явление сохранения скорости тела постоянной, если на него не действуют другие тела. Если внешние воздействия уравновешены, тело покоится или движется прямолинейно и равномерно.</p>
+                <div class="example">Пример: Книга лежит на письменном столе неподвижно, так как притяжение Земли уравновешено упругостью стола.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 21-22 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 21-22. Взаимодействие тел. Масса тела</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>При взаимодействии оба тела меняют свою скорость. Тело, которое при столкновении меняет скорость медленнее, называют более инертным. Масса — это мера инертности тела. Основная единица — килограмм (кг).</p>
+                <div class="example">Пример: Если взрослый на роликах оттолкнет ребенка, ребенок отлетит дальше и быстрее, потому что его масса меньше, и он менее инертен.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 23-24 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 23-24. Плотность вещества. Расчёт массы и объёма</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Плотность — это физическая величина, равная отношению массы тела к его объёму. Формулы: Плотность = Масса / Объём. Масса = Плотность * Объём. Объём = Масса / Плотность.</p>
+                <div class="example">Справка: Плотность чистой воды равна 1000 кг/м3 (или 1 г/см3). Это значит, что кубический метр воды весит ровно одну тонну.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 25-26 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 25-26. Сила. Сила тяжести и явление тяготения</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сила — мера взаимодействия тел. Это векторная величина (имеет направление, точку приложения и модуль). Измеряется в Ньютонах (Н). Сила тяжести — сила, с которой Земля притягивает к себе любое тело: Сила тяжести = масса * 9.8.</p>
+                <div class="example">Факт: На Луне сила тяжести примерно в 6 раз меньше, чем на Земле, потому что масса Луны гораздо меньше земной.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 27 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 27. Сила упругости. Закон Гука</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>При деформации (изменении формы или размеров) возникает сила упругости, направленная против деформации. Закон Гука: сила упругости прямо пропорциональна удлинению тела (растяжению или сжатию).</p>
+                <div class="example">Формула: Сила упругости = Жесткость прибора * Удлинение. На этом законе работает пружинный динамометр — прибор для измерения силы.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 28 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 28. Вес тела. Отличие веса от силы тяжести</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Вес тела — это сила, с которой тело (из-за притяжения к Земле) давит на опору или растягивает подвес. Сила тяжести приложена к самому телу, а вес приложен к опоре!</p>
+                <div class="example">Важно: В состоянии космической невесомости сила тяжести на орбите продолжает действовать на космонавта, но его вес равен нулю, так как нет опоры под ногами.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 29-30 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 29-30. Сила трения. Трение в природе и технике</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сила трения возникает при соприкосновении поверхностей и направлена против движения. Причины трения: шероховатость поверхностей и взаимное притяжение молекул. Виды: трение покоя, скольжения и качения (самое маленькое).</p>
+                <div class="example">Пример: Чтобы уменьшить вредное трение в деталях машин, используют смазку или заменяют трение скольжения на трение качения (ставят подшипники).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

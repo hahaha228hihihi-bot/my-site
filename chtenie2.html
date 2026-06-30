@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Литературное чтение 2 класс — Расширенный справочник</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .chapter-title { background: #e67e22; color: white; padding: 12px 20px; border-radius: 6px; font-size: 1.3rem; font-weight: bold; margin: 25px 0 15px 0; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Литературное чтение — 2 класс</h1>
+        <div class="book-info">Развёрнутый справочник по темам (Учебник Л. Ф. Климановой, В. Г. Горецкого)</div>
+        <div class="page-title">ПОЛНЫЙ КУРС ИЗУЧЕНИЯ:</div>
+
+        <!-- ГЛАВА 1 -->
+        <div class="chapter-title">Глава 1. Устное народное творчество и басни</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 1. Русские народные сказки и фольклор</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Виды устного народного творчества (пословицы, поговорки, потешки, прибаутки). Волшебные сказки, сказки о животных и бытовые сказки. Понятие о зачине, концовке и повторяющихся сюжетах в народных сказках.</p>
+                <div class="example">Примеры сказок: «У страха глаза велики», «Лиса и журавль», «Каша из топора». Главная мысль народных сказок — добро всегда побеждает зло, а смекалка помогает в беде.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 2. Басни Ивана Андреевича Крылова</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Что такое басня. Кто такие герои басен (чаще всего это животные, под видом которых высмеиваются недостатки людей). Что такое мораль басни (главный поучительный вывод в начале или конце произведения).</p>
+                <div class="example">Примеры басен: «Лебедь, Рак и Щука», «Стрекоза и Муравей». Мораль учит нас быть трудолюбивыми и делать всё дружно.</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 2 -->
+        <div class="chapter-title">Глава 2. Стихи и рассказы великих писателей</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 3. Русские писатели — детям</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Творчество классиков русской литературы. Стихи Александра Сергеевича Пушкина о природе. Рассказы и басни Льва Николаевича Толстого для детей.</p>
+                <div class="example">Произведения: А. С. Пушкин «У лукоморья дуб зелёный...», «В тот год осенняя погода...». Л. Н. Толстой «Старый дед и внучек», «Филипок» (рассказ о мальчике, который очень хотел учиться в школе).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 4. Поэтическая тетрадь (Стихи о природе)</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Стихотворения известных поэтов о временах года, красоте русской зимы, весенней капели и золотой осени. Нахождение в тексте сравнений и красивых описаний.</p>
+                <div class="example">Авторы и стихи: Ф. И. Тютчев «Зима недаром злится...», А. А. Плещеев «Весна», С. А. Есенин «Берёза» («Белая берёза под моим окном принакрылась снегом, точно серебром...»).</div>
+            </div>
+        </div>
+
+        <!-- ГЛАВА 3 -->
+        <div class="chapter-title">Глава 3. О братьях наших меньших и весёлые истории</div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 5. Рассказы о животных</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Произведения писателей-натуралистов, которые наблюдали за повадками зверей и птиц в дикой природе и дома. Воспитание сострадания и любви к животным.</p>
+                <div class="example">Авторы и рассказы: М. М. Пришвин «Ребята и утята», В. В. Бианки «Музыкант», Б. С. Житков «Храбрый утёнок». Рассказы учат защищать тех, кто слабее нас.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header"><div class="topic-name">Тема 6. Юмористические рассказы Николая Носова</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Весёлые, но поучительные истории из жизни обычных школьников и ребят. Умение находить смешные моменты и понимать, какие поступки героев правильные, а какие — нет.</p>
+                <div class="example">Рассказы: Н. Н. Носов «Затейники», «Живая шляпа», «На горке». Истории учат дружбе, честности, трудолюбию и умению отвечать за свои дела.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

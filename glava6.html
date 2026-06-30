@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 6 — Механическая работа и энергия (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 6. Работа, мощность и энергия. Простые механизмы (В синем стиле)</h1>
+
+        <!-- Группа 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 62-63. Механическая работа и её единицы</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Механическая работа</strong> совершается только тогда, когда на corpo действует сила и оно под действием этой силы перемещается.</p>
+                <p>Формула: Работа = Сила * Пройденный путь. Измеряется в Джоулях (Дж). Если сила направлена в сторону движения, работа положительна. Если против (например, сила трения) — отрицательна. Если тело никуда не движется, работа равна нулю.</p>
+                <div class="example">Пример: Штангист держит тяжелую штангу над головой неподвижно. Сила огромная, но перемещения нет, поэтому с точки зрения физики механическая работа равна нулю!</div>
+            </div>
+        </div>
+
+        <!-- Группа 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 64. Мощность и её единицы</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Мощность</strong> — это величина, показывающая скорость совершения работы. Она равна отношению работы ко времени, за которое эта работа была совершена.</p>
+                <p>Формула: Мощность = Работа / Время. Измеряется в Ваттах (Вт). Также на практике используется старая единица — лошадиная сила (л. с.), которая примерно равна 735 Ваттам.</p>
+                <div class="example">Пример: Строительный кран поднимет поддон с кирпичами на 10-й этаж за пару секунд, а рабочий будет таскать их целый день. Работа одинаковая, но мощность крана в тысячи раз выше.</div>
+            </div>
+        </div>
+
+        <!-- Группа 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 65-66. Простые механизмы. Рычаг и его равновесие</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Простые механизмы служат для того, чтобы преобразовывать силу (выигрывать в силе). К ним относятся: рычаг, блок, ворот, наклонная плоскость, клин, винт.</p>
+                <p><strong>Рычаг</strong> — это твердое тело, способное вращаться вокруг неподвижной опоры. Кратчайшее расстояние от оси вращения до линии действия силы называется плечом силы. Рычаг находится в равновесии, когда плечи обратно пропорциональны силам: Сила 1 / Сила 2 = Плечо 2 / Плечо 1. Произведение силы на ее плечо называется Моментом силы.</p>
+                <div class="example">Пример: Обычные ножницы, кусачки, лом, качели-балансир и даже весла лодки — всё это примеры работы рычагов.</div>
+            </div>
+        </div>
+
+        <!-- Группа 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 67. Блоки. Подвижный и неподвижный блок</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Блок</strong> — это колесо с желобом для веревки, закрепленное в обойме. Бывает двух видов:</p>
+                <p>1. **Неподвижный блок**: его ось закреплена. Он НЕ дает выигрыша в силе, но позволяет менять направление действия силы.</p>
+                <p>2. **Подвижный блок**: его ось движется вместе с грузом. Он дает **выигрыш в силе в 2 раза**, но при этом нам приходится вытягивать в 2 раза больше веревки.</p>
+                <div class="example">Пример: Системы подвижных и неподвижных блоков (полиспасты) стоят внутри каждого подъемного крана, позволяя маленькому электродвигателю поднимать многотонные блоки.</div>
+            </div>
+        </div>
+
+        <!-- Группа 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 68. Золотое правило механики. КПД</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Золотое правило механики:</strong> Ни один из простых механизмов не дает выигрыша в работе. Во сколько раз мы выигрываем в силе, во столько же раз проигрываем в расстоянии.</p>
+                <p>Из-за сил трения и веса самих механизмов полезная работа всегда чуть меньше полной затраченной работы. Отношение полезной работы к полной называется Коэффициентом полезного действия (КПД) и измеряется в процентах. КПД любого реального механизма всегда меньше 100%.</p>
+                <div class="example">Формула: КПД = (Полезная работа / Полная работа) * 100%.</div>
+            </div>
+        </div>
+
+        <!-- Группа 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 69. Механическая энергия. Энергия движущегося тела</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Энергия</strong> — величина, показывающая, какую работу может совершить тело. Бывает двух видов:</p>
+                <p>1. **Потенциальная энергия**: энергия взаимодействия тел или частей тела (например, поднятый над землей камень или сжатая пружина).</p>
+                <p>2. **Кинетическая энергия**: энергия, которой обладает любое движущееся тело. Чем больше масса и скорость тела, тем больше его кинетическая энергия.</p>
+                <div class="example">Закон сохранения: Энергия никуда не исчезает и не появляется из ничего, она лишь переходит из одного вида в другой (например, при падении мяча потенциальная энергия переходит в кинетическую).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
