@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика 4 класс — Полный курс по урокам</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Математика — 4 класс</h1>
+        <div class="book-info">Развёрнутый академический справочник по урокам (М. И. Моро)</div>
+        <div class="page-title">ПОЛНАЯ ПРОГРАММА ИЗУЧЕНИЯ:</div>
+
+        <!-- Блок 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 1-15. Четырёхзначные числа и повторение 3 класса</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Повторение нумерации чисел в пределах 1000. Письменные приёмы сложения, вычитания, умножения и деления в столбик. Нахождение неизвестных компонентов арифметических действий.</p>
+                <div class="example">Пример: 345 * 2 = 690; 844 : 4 = 211. Решение уравнений вида х * 6 = 600, откуда х = 600 : 6 = 100.</div>
+            </div>
+        </div>
+
+        <!-- Блок 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 16-40. Числа, которые больше 1000. Нумерация млн и млрд</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Понятие о классах и разрядах. Класс единиц, класс тысяч, класс миллионов и класс миллиардов. Чтение, запись, сравнение многозначных чисел. Увеличение и уменьшение многозначного числа в 10, 100, 1000 раз.</p>
+                <div class="example">Разбор разрядов: В числе 145 200 содержится 145 тысяч и 200 единиц. Представление в виде суммы разрядных слагаемых: 100 000 + 40 000 + 5 000 + 200.</div>
+            </div>
+        </div>
+
+        <!-- Блок 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 41-55. Новые величины: Скорость, Скорость сближения, Класс массы</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Новые единицы массы: Тонна (т) и Центнер (ц). Новые единицы площади: Квадратный километр (км²), квадратный миллиметр (мм²). Знакомство с величиной «Скорость» и единицами её измерения (км/ч, м/с).</p>
+                <div class="example">Соотношения: 1 ц = 100 кг. 1 т = 10 ц = 1000 kg. Скорость — это расстояние, пройденное телом за единицу времени.</div>
+            </div>
+        </div>
+
+        <!-- Блок 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 56-75. Задачи на движение. Формулы пути и скорости</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Взаимосвязь между скоростью, временем и расстоянием. Решение задач на движение в одном направлении, навстречу друг другу (нахождение скорости сближения) и в противоположных направлениях.</p>
+                <div class="example">Три главных формулы:<br>• Расстояние (s) = Скорость (v) * Время (t)<br>• Скорость (v) = s : t<br>• Время (t) = s : v</div>
+            </div>
+        </div>
+
+        <!-- Блок 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 76-95. Умножение и деление многозначных чисел на однозначное</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Алгоритмы письменного умножения и деления многозначных чисел в столбик, когда второй множитель или делитель — однозначное число. Умножение чисел, оканчивающихся нулями.</p>
+                <div class="example">Пример: 14200 * 5 = 71000. В столбик нули оставляем справа, умножаем 142 на 5, а затем приписываем два нуля к ответу.</div>
+            </div>
+        </div>
+
+        <!-- Блок 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 96-115. Умножение и деление на двузначные и трёхзначные числа</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Самая сложная тема 4 класса. Письменное умножение на двузначное и трёхзначное число (образование промежуточных неполных произведений). Письменное деление в столбик на двузначное число методом подбора первой цифры частного.</p>
+                <div class="example">Правило: При умножении на двузначное число второе неполное произведение начинаем подписывать строго под разрядом десятков!</div>
+            </div>
+        </div>
+
+        <!-- Блок 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 116-132. Итоговое повторение курса начальной школы и ВПР</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Повторение всех изученных тем с 1 по 4 класс. Решение сложных геометрических задач на нахождение площади и периметра необычных фигур. Подготовка к Всероссийской проверочной работе (ВПР).</p>
+                <div class="example">Итог начальной школы: Выпускник 4 класса умеет свободно оперировать числами до миллиона, решать задачи на движение, вычислять периметр и площадь прямоугольника, а также работать с таблицами и диаграммами.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Окружающий мир 4 класс — Полный курс по урокам</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Окружающий мир — 4 класс</h1>
+        <div class="book-info">Развёрнутый академический справочник по урокам (А. А. Плешаков)</div>
+        <div class="page-title">ПОЛНАЯ ПРОГРАММА ИЗУЧЕНИЯ:</div>
+
+        <!-- Блок 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 1-12. Земля как планета. География России</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Земля в космическом пространстве. Карта звёздного неба. Глобус и географическая карта мира. Равнины и горы России (Восточно-Европейская равнина, Уральские горы, Кавказ). Моря, озёра и реки нашей Родины (Байкал, Волга, Енисей).</p>
+                <div class="example">Запомни: Озеро Байкал — самое глубокое пресное озеро в мире. Уральские горы делят материк Евразию на две части света — Европу и Азию.</div>
+            </div>
+        </div>
+
+        <!-- Блок 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 13-28. Природные зоны России (От тундры до пустынь)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Изучение смены природных зон с севера на юг из-за неравномерного распределения солнечного тепла. Ледяная зона (Арктика), Тундра, Тайга, Смешанные леса, Степи, Пустыни и Черноморское побережье Кавказа. Растения и животные каждой зоны.</p>
+                <div class="example">Шпаргалка зон:<br>
+                • Арктика: белый медведь, морж, полярный мак.<br>
+                • Тундра: северный олень, лемминг, карликовая берёза.<br>
+                • Тайга: кедр, ель, бурый медведь, соболь.<br>
+                • Степи: ковыль, суслик, дрофа.</div>
+            </div>
+        </div>
+
+        <!-- Блок 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 29-35. Природные сообщества. Наш край</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Что такое природное сообщество. Жизнь леса, луга, пресного водоёма. Полезные ископаемые твоего края (нефть, уголь, железная руда, торф). Почва и охрана природы в твоем регионе. Сельское хозяйство.</p>
+                <div class="example">Правило экологии: В природном сообществе все организмы связаны пищевыми связями. Если уничтожить хищников, травоядные размножатся и съедят всю растительность, что погубит всё сообщество.</div>
+            </div>
+        </div>
+
+        <!-- Блок 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 36-42. Страницы истории: Древняя Русь</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Начало исторического блока. Как историки узнают о прошлом (археология, летописи). Жизнь древних славян. Первые русские князья. Крещение Руси князем Владимиром в 988 году. Древний Киев и Новгород.</p>
+                <div class="example">Исторический факт: Первую русскую летопись «Повесть временных лет» написал монах Нестор в Киево-Печерском монастыре. По ней мы знаем историю Древней Руси.</div>
+            </div>
+        </div>
+
+        <!-- Блок 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 43-48. Борьба за независимость. Московское государство</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Нашествие Батыя на Русь и монгольское иго. Александр Невский и Ледовое побоище (1242 год). Иван Калита и возвышение Москвы. Дмитрий Донской и великая Куликовская битва (1380 год). Освобождение от ордынской зависимости при Иване Третьем.</p>
+                <div class="example">Дата: Куликовская битва состоялась 8 сентября 1380 года. Князь Дмитрий получил прозвище «Донской» за победу у реки Дон. Это был первый шаг к свободе Руси.</div>
+            </div>
+        </div>
+
+        <!-- Блок 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 49-55. Российская империя: От Петра Первого до Николая Второго</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Начало книгопечатания на Руси (Иван Фёдоров). Реформы Петра Первого, провозглашение России Империей, строительство Санкт-Петербурга. Великие полководцы Суворов и Кутузов. Отечественная война 1812 года. Бородинское сражение.</p>
+                <div class="example">Запомни: Пётр Первый стал первым русским императором. Он открыл первую общедоступную газету, ввёл новый календарь и создал мощный флот России.</div>
+            </div>
+        </div>
+
+        <!-- Блок 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 56-68. Советский Союз. Великая Отечественная война и ВПР</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Революция 1917 года и создание СССР. Великая Отечественная война (1941–1945 гг.). Героизм советского народа, оборона Москвы, блокада Ленинграда, Сталинградская битва. День Победы — 9 Мая. Полет Юрия Гагарина в космос (1961 год). Современная Россия, Конституция и права человека. Подготовка к ВПР.</p>
+                <div class="example">Главный итог курса: Выпускник 4 класса знает карту природных зон своей страны, ориентируется в ключевых исторических событиях России от древности до наших дней и готов к сдаче ВПР.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Окружающий мир 3 класс</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Окружающий мир — 3 класс</h1>
+        <div class="book-info">Краткий академический справочник (А. А. Плешаков)</div>
+        <div class="page-title">ПРОГРАММА ИЗУЧЕНИЯ:</div>
+
+        <!-- Уроки 1-4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 1-4. Как устроен мир. Человек и общество</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Природа живая и неживая. Человек как часть живой природы, его отличие от животных (наличие разума). Понятие об обществе. Государство, флаг, герб и гимн России. Карта нашей Родины.</p>
+                <div class="example">Запомни: Народы России образуют единое общество. Семья, школа, класс — это тоже маленькие части большого общества.</div>
+            </div>
+        </div>
+
+        <!-- Уроки 5-8 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 5-8. Мир глазами эколога. Природа под охраной</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Изучение экологии как науки о связях в природе. Понятие «невидимые нити». Охрана окружающей среды, заповедники, национальные парки и Красная книга.</p>
+                <div class="example">Термин: Экология переводится как «наука о доме». Экологическая безопасность — это защита человека от вредного воздействия загрязнённой среды.</div>
+            </div>
+        </div>
+
+        <!-- Уроки 9-11 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 9-11. Тела, вещества и частицы</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Различие между телами (любыми предметами) и веществами (из чего они состоят). Теория о том, что все вещества состоят из крошечных невидимых частиц.</p>
+                <div class="example">Пример: Стакан — это тело, а стекло — это вещество. Кусочек сахара растворяется в воде, потому что его частицы перемешиваются с частицами воды.</div>
+            </div>
+        </div>
+
+        <!-- Уроки 12-15 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 12-15. Воздух и его охрана</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Изучение состава воздуха (азот, кислород, углекислый газ) и его главных свойств. Расширение воздуха при нагревании и сжатие при охлаждении. Охрана атмосферы.</p>
+                <div class="example">Свойства: Воздух прозрачный, бесцветный, не имеет запаха, плохо проводит тепло. Живым существам для дыхания необходим именно кислород.</div>
+            </div>
+        </div>
+
+        <!-- Уроки 16-19 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 16-19. Вода. Свойства воды и круговорот</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Свойства воды: прозрачность, бесцветность, текучесть, способность растворять вещества. Расширение воды при замерзании. Большой круговорот воды в природе.</p>
+                <div class="example">Факт: Вода — самое удивительное вещество на Земле. Она постоянно испаряется с поверхности океанов, превращается в облака и выпадает дождём.</div>
+            </div>
+        </div>
+
+        <!-- Уроки 20-23 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 20-23. Почва и её удивительный состав</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Что такое почва. Изучение состава почвы: перегной (гумус), песок, глина, минеральные соли, вода и воздух. Главное свойство почвы — её плодородие.</p>
+                <div class="example">Правило: Чем больше в почве перегноя (остатков растений и листьев), тем она темнее, плодороднее, и тем лучше на ней растут культурные растения.</div>
+            </div>
+        </div>
+
+        <!-- Уроки 24-29 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 24-29. Царство растений. Питание и дыхание</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Разнообразие растений: водоросли, мхи, папоротники, хвойные, цветковые. Процесс дыхания растений (поглощают кислород) и процесс питания на свету (поглощают углекислый газ и выделяют кислород).</p>
+                <div class="example">Секрет природы: Только зеленые растения умеют под действием солнечного света производить сахар и крахмал из воды и углекислого газа!</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

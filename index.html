@@ -86,6 +86,7 @@
                     item.className = 'subject-item';
                     item.innerText = `📖 ${subject}`;
                     
+                    // Твоя проверенная логика переходов
                     if (subject === "Обучение грамоте" && classNumber === 1) {
                         item.href = "gramota1.html";
                     } else if (subject === "Математика" && classNumber === 1) {
@@ -97,6 +98,7 @@
                     } else if (subject === "Литературное чтение" && classNumber === 1) {
                         item.href = "chtenie1.html";
                     } 
+                    // Ссылки для 2 класса
                     else if (subject === "Математика" && classNumber === 2) {
                         item.href = "math2.html";
                     } else if (subject === "Русский язык" && classNumber === 2) {
@@ -108,6 +110,33 @@
                     } else if (subject === "Иностранный язык" && classNumber === 2) {
                         item.href = "eng2.html";
                     }
+                    // Ссылки для 3 класса
+                    else if (subject === "Математика" && classNumber === 3) {
+                        item.href = "math3.html";
+                    } else if (subject === "Русский язык" && classNumber === 3) {
+                        item.href = "rus3.html";
+                    } else if (subject === "Окружающий мир" && classNumber === 3) {
+                        item.href = "okr3.html";
+                    } else if (subject === "Литературное чтение" && classNumber === 3) {
+                        item.href = "chtenie3.html";
+                    } else if (subject === "Иностранный язык" && classNumber === 3) {
+                        item.href = "eng3.html";
+                    }
+                    // Ссылки для 4 класса
+                    else if (subject === "Математика" && classNumber === 4) {
+                        item.href = "math4.html";
+                    } else if (subject === "Русский язык" && classNumber === 4) {
+                        item.href = "rus4.html";
+                    } else if (subject === "Окружающий мир" && classNumber === 4) {
+                        item.href = "okr4.html";
+                    } else if (subject === "Иностранный язык" && classNumber === 4) {
+                        item.href = "eng4.html";
+                    }
+                    // ВОТ ОНА — ОДНА ТОЧЕЧНАЯ СТРОЧКА ДЛЯ ВХОДА В МАТЕМАТИКУ 5 КЛАССА
+                    else if (subject === "Математика" && classNumber === 5) {
+                        item.href = "math5.html";
+                    }
+                    // Ссылки для 7 класса
                     else if (subject === "Физика" && classNumber === 7) {
                         item.href = "fizika7.html";
                     } else if (subject === "Русский язык" && classNumber === 7) {
@@ -135,11 +164,3 @@
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('sw.js')
-                    .then(reg => console.log('Приложение готово к работе офлайн!'))
-                    .catch(err => console.log('Ошибка активации офлайн-режима', err));
-            });
-        }
-    </script>
-
-</body>
-</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русский язык 3 класс — Полный курс</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #d35400; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Русский язык — 3 класс</h1>
+        <div class="book-info">Полный академический курс по урокам и главам (Канакина, Горецкий)</div>
+        <div class="page-title">ПОЛНАЯ ПРОГРАММА (УРОКИ 1-149):</div>
+
+        <!-- Группа 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 1-14. Наша речь. Текст, предложение и слово</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Повторение видов речи (устная, письменная, внутренняя). Изучение структуры текста, типов предложений по цели высказывания и интонации. Определение главных и второстепенных членов (грамматическая основа).</p>
+                <div class="example">Орфограмма: Заглавная буква в начале предложения, знаки препинания (. ? !). Разбор словосочетаний по вопросам от главных слов к зависимым.</div>
+            </div>
+        </div>
+
+        <!-- Группа 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 15-32. Звуки и буквы. Гласные и согласные</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Углублённое изучение фонетики. Алфавит и его практическое применение. Безударные гласные в корне слова, парные звонкие и глухие согласные. Обозначение мягкости согласных буквами Е, Ё, Ю, Я, И, Ь.</p>
+                <div class="example">Золотые правила: Безударный гласный проверяй ударением (стрАна — стрАны). Парный согласный проверяй гласным звуком (рыБка — рыБа).</div>
+            </div>
+        </div>
+
+        <!-- Группа 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 33-52. Состав слова (Морфемика). Корень, приставка и суффикс</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Разбор слова по составу. Определение окончания, основы, корня, приставки и суффикса. Образование однокоренных слов с помощью значащих морфем. Правописание неизменяемых приставок.</p>
+                <div class="example">Схема разбора: Сначала находим изменяемую часть — окончание. Отрезаем его — получаем основу. Выделяем общую часть родственных слов — корень. Находим приставку перед корнем и суффикс после него.</div>
+            </div>
+        </div>
+
+        <!-- Группа 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 53-76. Правописание частей слова. Разделительные Ъ и Ь</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сложные правила правописания. Непроизносимые согласные в корне слова (честный, солнце). Удвоенные согласные на стыке морфем. Четкое различие между разделительным твердым знаком (Ъ) и разделительным мягким знаком (Ь).</p>
+                <div class="example">Правило веку: Разделительный Ъ пишется строго ПОСЛЕ приставок на согласную перед гласными Е, Ё, Ю, Я (подЪезд, объявление). Разделительный Ь пишется В КОРНЕ слова (вьюга, соловьи).</div>
+            </div>
+        </div>
+
+        <!-- Группа 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 77-104. Части речи. Имя существительное и падежи</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Большой раздел морфологии. Род и число существительных. Мягкий знак после шипящих на конце слов. Изменение имен существительных по шести падежам (склонение). Определение падежных окончаний.</p>
+                <div class="example">Секрет шипящих: На конце существительных женского рода после шипящих Ь пишется всегда (дочь, мышь, ночь). У мужского рода Ь не пишется никогда (грач, камыш, луч).</div>
+            </div>
+        </div>
+
+        <!-- Группа 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 105-120. Имя прилагательное</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Связь имени прилагательного с именем существительным. Изменение прилагательных по родам и числам. Зависимость падежа прилагательного от падежа главного слова. Роль в тексте.</p>
+                <div class="example">Шпаргалка: Какого рода и падежа существительное — такого же рода и падежа будет и связанное с ним прилагательное (синему морю — средний род, дательный падеж).</div>
+            </div>
+        </div>
+
+        <!-- Группа 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 121-149. Местоимение, Глагол и итоговое повторение</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Знакомство с личными местоимениями (1, 2, 3 лица). Изучение глагола как части речи, обозначающей действие. Изменение глаголов по временам (настоящее, прошедшее, будущее). Не с глаголами. Итоговое повторение курса.</p>
+                <div class="example">Грамматика: Частица НЕ с глаголами пишется раздельно (не выучил, не пришел). Местоимения с предлогами тоже пишутся раздельно (обо мне, к тебе).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

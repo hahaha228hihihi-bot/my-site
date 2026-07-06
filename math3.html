@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика 3 класс — Полный курс по урокам</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e67e22; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #fde3cf; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e67e22; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Назад на Главную</a>
+        <h1>📖 Математика — 3 класс</h1>
+        <div class="book-info">Развёрнутый академический справочник по урокам (М. И. Моро)</div>
+        <div class="page-title">ПОЛНАЯ ПРОГРАММА ИЗУЧЕНИЯ:</div>
+
+        <!-- Блок 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 1-12. Повторение. Числа от 1 до 100</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Повторение приёмов устных вычислений, изученных во 2 классе. Решение простых уравнений. Закрепление навыков решения текстовых задач в два действия.</p>
+                <div class="example">Пример: 45 + 23 = 68; 76 - 39 = 37. Уравнение: х - 8 = 20, откуда х = 20 + 8 = 28.</div>
+            </div>
+        </div>
+
+        <!-- Блок 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 13-35. Табличное умножение и деление от 4 до 9</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Составление и полное заучивание таблицы умножения и деления с числами 4, 5, 6, 7, 8, 9. Взаимосвязь между компонентами умножения и деления. Задачи на нахождение четвёртого пропорционального.</p>
+                <div class="example">Запомни: 7 * 8 = 56, значит 56 : 7 = 8 и 56 : 8 = 7. Если число увеличиваем "в" несколько раз — умножаем, если "на" несколько единиц — складываем.</div>
+            </div>
+        </div>
+
+        <!-- Блок 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 36-45. Порядок действий. Понятие о долях</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Правила порядка выполнения действий в выражениях без скобок и со скобками. Образование и обозначение долей (половина, треть, четверть). Сравнение долей. Задачи на нахождение доли числа и числа по его доле.</p>
+                <div class="example">Правило: В выражениях со скобками сначала выполняют действия в скобках, затем умножение/деление, а после — сложение/вычитание. Найти 1/4 от 24: нужно 24 : 4 = 6.</div>
+            </div>
+        </div>
+
+        <!-- Блок 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 46-60. Внетабличное умножение и деление</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Умножение и деление круглых чисел (умножение десятков). Умножение двузначного числа на однозначное (12 * 4). Деление двузначного числа на двузначное методом подбора (48 : 12). Деление с остатком и его проверка.</p>
+                <div class="example">Пример деления с остатком: 19 : 5 = 3 (остаток 4). Проверка: 3 * 5 + 4 = 19. Остаток всегда должен быть строго меньше делителя!</div>
+            </div>
+        </div>
+
+        <!-- Блок 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 61-75. Числа от 1 до 1000. Нумерация трёхзначных чисел</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Новая разрядная единица — сотня. Счёт сотнями. Получение, чтение и запись трёхзначных чисел. Представление числа в виде суммы разрядных слагаемых. Сравнение трёхзначных чисел. Римские цифры.</p>
+                <div class="example">Разбор разрядов: В числе 473 содержится 4 сотни, 7 десятков и 3 единицы. Разрядные слагаемые: 473 = 400 + 40 + 3.</div>
+            </div>
+        </div>
+
+        <!-- Блок 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 76-90. Единицы величин. Понятие площади фигуры</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Новая единица массы — грамм (г). Новые единицы времени — сутки, год. Понятие площади геометрической фигуры. Квадратный сантиметр, квадратный дециметр, квадратный метр. Нахождение площади и периметра прямоугольника.</p>
+                <div class="example">Формулы: Периметр прямоугольника P = (a + b) * 2. Площадь прямоугольника S = a * b (длину умножаем на ширину). Соотношение: 1 кг = 1000 г.</div>
+            </div>
+        </div>
+
+        <!-- Блок 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 91-105. Письменные вычисления в столбик и деление уголком</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Алгоритмы письменного сложения, вычитания, умножения и деления («уголком») трёхзначных чисел в столбик. Приёмы проверки деления умножением и умножения делением.</p>
+                <div class="example">Правило: При делении трёхзначного числа в столбик вычисления всегда начинаем с самого высшего разряда — с сотен. Если сотен не хватает, берём десятки.</div>
+            </div>
+        </div>
+
+        <!-- ДОБАВЛЕННЫЙ Блок 8 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 106-115. Усложнённые уравнения и новые фигуры</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Решение сложных составных уравнений в два действия (например, вида х + 5 = 24 : 2). Знакомство с окружностью и кругом. Инструмент циркуль. Радиус и диаметр окружности. Виды треугольников (разносторонние, равнобедренные, равносторонние).</p>
+                <div class="example">Шпаргалка: Радиус (r) — это расстояние от центра до любой точки окружности. Диаметр (d) равен двум радиусам: d = r * 2. У равнобедренного треугольника равны только две стороны, а у равностороннего — все три.</div>
+            </div>
+        </div>
+
+        <!-- ДОБАВЛЕННЫЙ Блок 9 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Уроки 116-136. Итоговое повторение и закрепление курса 3 класса</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Большое обобщение всех знаний за учебный год. Повторение табличного и внетабличного умножения, геометрии, единиц времени и массы. Решение нестандартных логических задач и подготовка к годовой контрольной работе.</p>
+                <div class="example">Итог года: В 3 классе мы полностью освоили всю таблицу умножения, научились считать и делить уголком числа до 1000, узнали, как находить площадь фигур и вычислять доли чисел.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

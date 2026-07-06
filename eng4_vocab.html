@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Английский 4 класс — Большой Словарь и Глаголы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        
+        .tab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .tab-btn { background: white; border: 2px solid #ff9f43; color: #e67e22; padding: 15px; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold; text-align: center; transition: all 0.2s; }
+        .tab-btn:hover { transform: translateY(-2px); }
+        .tab-btn.active { background: #e67e22; border-color: #e67e22; color: white; }
+        .content-panel { display: none; }
+        
+        .category-title { background: #ff9f43; color: white; padding: 8px 15px; border-radius: 6px; font-size: 1.1rem; font-weight: bold; margin: 20px 0 10px 0; }
+        .list-card { background: #fffcf9; border: 1px solid #fde3cf; border-left: 6px solid #ff9f43; padding: 15px; border-radius: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .word-eng { font-size: 1.2rem; font-weight: bold; color: #d35400; }
+        .word-trans { font-size: 1rem; color: #7f8c8d; font-style: italic; }
+        .word-rus { font-size: 1.1rem; font-weight: 500; color: #333; }
+        
+        .verb-row { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 10px; width: 100%; }
+        .verb-form { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .verb-form span { color: #7f8c8d; font-size: 0.9rem; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng4.html" class="back-link">← Назад в меню предмета</a>
+        <h1>Английский язык — 4 класс</h1>
+        <div class="page-title">СЛОВАРЬ И ТАБЛИЦА НЕПРАВИЛЬНЫХ ГЛАГОЛОВ</div>
+
+        <div class="tab-grid">
+            <button class="tab-btn" id="btn-words" onclick="switchTab('words')">📝 РАСШИРЕННЫЙ СЛОВАРЬ</button>
+            <button class="tab-btn" id="btn-verbs" onclick="switchTab('verbs')">⚡ НЕПРАВИЛЬНЫЕ ГЛАГОЛЫ</button>
+        </div>
+
+        <!-- ВКЛАДКА 1: СЛОВА -->
+        <div class="content-panel" id="panel-words">
+            
+            <div class="category-title">🧑‍⚕️ Профессии и работа (Professions)</div>
+            <div class="list-card"><div><span class="word-eng">Baker</span> <span class="word-trans">[ˈbeɪkə]</span></div><div class="word-rus">Пекарь</div></div>
+            <div class="list-card"><div><span class="word-eng">Postman</span> <span class="word-trans">[ˈpəʊstmən]</span></div><div class="word-rus">Почтальон</div></div>
+            <div class="list-card"><div><span class="word-eng">Greengrocer</span> <span class="word-trans">[ˈɡriːnˌɡrəʊsə]</span></div><div class="word-rus">Продавец овощей</div></div>
+            <div class="list-card"><div><span class="word-eng">Station</span> <span class="word-trans">[ˈsteɪʃn]</span></div><div class="word-rus">Станция, вокзал</div></div>
+            <div class="list-card"><div><span class="word-eng">Hospital</span> <span class="word-trans">[ˈhɒspɪtl]</span></div><div class="word-rus">Больница</div></div>
+
+            <div class="category-title">🦁 Животные в зоопарке (Zoo animals)</div>
+            <div class="list-card"><div><span class="word-eng">Giraffe</span> <span class="word-trans">[dʒɪˈrɑːf]</span></div><div class="word-rus">Жираф</div></div>
+            <div class="list-card"><div><span class="word-eng">Monkey</span> <span class="word-trans">[ˈmʌŋki]</span></div><div class="word-rus">Обезьяна</div></div>
+            <div class="list-card"><div><span class="word-eng">Lizard</span> <span class="word-trans">[ˈlɪzəd]</span></div><div class="word-rus">Ящерица</div></div>
+            <div class="list-card"><div><span class="word-eng">Crocodile</span> <span class="word-trans">[ˈkrɒkədaɪl]</span></div><div class="word-rus">Крокодил</div></div>
+            <div class="list-card"><div><span class="word-eng">Seal</span> <span class="word-trans">[siːl]</span></div><div class="word-rus">Тюлень</div></div>
+
+            <div class="category-title">⏰ Мой распорядок дня (My Day)</div>
+            <div class="list-card"><div><span class="word-eng">Have breakfast</span> <span class="word-trans">[hæv ˈbrekfəst]</span></div><div class="word-rus">Завтракать</div></div>
+            <div class="list-card"><div><span class="word-eng">Go to bed</span> <span class="word-trans">[ɡəʊ tuː bed]</span></div><div class="word-rus">Ложиться спать</div></div>
+            <div class="list-card"><div><span class="word-eng">In the morning</span> <span class="word-trans">[ɪn ðə ˈmɔːnɪŋ]</span></div><div class="word-rus">Утром</div></div>
+            <div class="list-card"><div><span class="word-eng">In the evening</span> <span class="word-trans">[ɪn ðə ˈiːvnɪŋ]</span></div><div class="word-rus">Вечером</div></div>
+        </div>
+
+        <!-- ВКЛАДКА 2: ГЛАГОЛЫ -->
+        <div class="content-panel" id="panel-verbs">
+            <div class="list-card" style="background: #fde3cf; border-left-color: #e67e22; font-weight: bold;">
+                <div class="verb-row">
+                    <div>1-я форма (Infinitive)</div>
+                    <div>2-я форма (Past Simple)</div>
+                    <div>Перевод</div>
+                </div>
+            </div>
+            <div class="list-card">
+                <div class="verb-row">
+                    <div class="verb-form">give <span>[ɡɪv]</span></div>
+                    <div class="verb-form" style="color: #d35400;">gave <span>[ɡeɪv]</span></div>
+                    <div class="word-rus">давать, дарить</div>
+                </div>
+            </div>
+            <div class="list-card">
+                <div class="verb-row">
+                    <div class="verb-form">take <span>[teɪk]</span></div>
+                    <div class="verb-form" style="color: #d35400;">took <span>[tʊk]</span></div>
+                    <div class="word-rus">брать, брать с собой</div>
+                </div>
+            </div>
+            <div class="list-card">
+                <div class="verb-row">
+                    <div class="verb-form">write <span>[raɪt]</span></div>
+                    <div class="verb-form" style="color: #d35400;">wrote <span>[rəʊt]</span></div>
+                    <div class="word-rus">писать, записывать</div>
+                </div>
+            </div>
+            <div class="list-card">
+                <div class="verb-row">
+                    <div class="verb-form">read <span>[riːd]</span></div>
+                    <div class="verb-form" style="color: #d35400;">read <span>[red]</span></div>
+                    <div class="word-rus">читать</div>
+                </div>
+            </div>
+            <div class="list-card">
+                <div class="verb-row">
+                    <div class="verb-form">buy <span>[baɪ]</span></div>
+                    <div class="verb-form" style="color: #d35400;">bought <span>[bɔːt]</span></div>
+                    <div class="word-rus">покупать, купить</div>
+                </div>
+            </div>
+            <div class="list-card">
+                <div class="verb-row">
+                    <div class="verb-form">sing <span>[sɪŋ]</span></div>
+                    <div class="verb-form" style="color: #d35400;">sang <span>[sæŋ]</span></div>
+                    <div class="word-rus">петь</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function switchTab(tabId) {
+            document.getElementById('panel-words').style.display = 'none';
+            document.getElementById('panel-verbs').style.display = 'none';
+            document.getElementById('btn-words').classList.remove('active');
+            document.getElementById('btn-verbs').classList.remove('active');
+            
+            document.getElementById('panel-' + tabId).style.display = 'block';
+            if (tabId === 'words') document.getElementById('btn-words').classList.add('active');
+            if (tabId === 'verbs') document.getElementById('btn-verbs').classList.add('active');
+        }
+        window.onload = function() { switchTab('words'); };
+    </script>
+</body>
+</html>
