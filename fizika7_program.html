@@ -33,11 +33,11 @@
         
         /* Зелёный стиль для базового уровня */
         .style-base { border: 2px solid #2cc36b; border-left: 8px solid #2cc36b; color: #218c4e; }
-        .style-base:hover { background: #2cc36b; color: white; }
+        .style-base:hover { background: #2cc36b; color: white !important; }
         
-        /* ИСПРАВЛЕНО: Синий стиль с правильным цветом при наведении */
+        /* Синий стиль для углубленного уровня */
         .style-pro { border: 2px solid #3498db; border-left: 8px solid #3498db; color: #1f618d; }
-        .style-pro:hover { background: #3498db; color: #ffffff !important; } /* Текст гарантированно станет белым */
+        .style-pro:hover { background: #3498db; color: #ffffff !important; }
     </style>
 </head>
 <body>
@@ -80,19 +80,34 @@
             panel.style.display = 'block';
             grid.innerHTML = '';
             
+            // Настройка стилей и маркеров в зависимости от уровня
             let styleClass = (level === 'base') ? 'style-base' : 'style-pro';
+            let marker = (level === 'base') ? '🟢' : '🔹';
             
-            if (author === 'peryshkin' && level === 'pro') {
-                // ИСПРАВЛЕНО: заменили оранжевый ромбик на универсальную синюю/белую точку
-                grid.innerHTML = `
-                    <a href="glava1.html" class="chapter-link ${styleClass}">🔹 Глава 1. Физические методы изучения природы (Параграфы 1-5)</a>
-                    <a href="glava2.html" class="chapter-link ${styleClass}">🔹 Глава 2. Первоначальные сведения о строении вещества (Параграфы 6-14)</a>
-                    <a href="glava3.html" class="chapter-link ${styleClass}">🔹 Глава 3. Взаимодействие тел (Параграфы 15-30)</a>
-                    <a href="glava4.html" class="chapter-link ${styleClass}">🔹 Глава 4. Давление твёрдых тел, жидкостей и газов (Параграфы 31-54)</a>
-                    <a href="glava5.html" class="chapter-link ${styleClass}">🔹 Глава 5. Архимедова сила и плавание тел (Параграфы 55-61)</a>
-                    <a href="glava6.html" class="chapter-link ${styleClass}">🔹 Глава 6. Работа, мощность и энергия. Простые механизмы (Параграфы 62-69)</a>
-                `;
+            // Проверяем автора Перышкина
+            if (author === 'peryshkin') {
+                if (level === 'base') {
+                    // Список глав для БАЗОВОГО уровня Перышкина
+                    grid.innerHTML = `
+                        <a href="base_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Введение (Параграфы 1-6)</a>
+                        <a href="base_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Первоначальные сведения о строении вещества (Параграфы 7-13)</a>
+                        <a href="base_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Взаимодействие тел (Параграфы 14-28)</a>
+                        <a href="base_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Давление твёрдых тел, жидкостей и газов (Параграфы 29-52)</a>
+                        <a href="base_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Работа и мощность. Энергия (Параграфы 53-62)</a>
+                    `;
+                } else if (level === 'pro') {
+                    // Список глав для УГЛУБЛЕННОГО уровня Перышкина
+                    grid.innerHTML = `
+                        <a href="glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Физические методы изучения природы (Параграфы 1-5)</a>
+                        <a href="glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Первоначальные сведения о строении вещества (Параграфы 6-14)</a>
+                        <a href="glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Взаимодействие тел (Параграфы 15-30)</a>
+                        <a href="glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Давление твёрдых тел, жидкостей и газов (Параграфы 31-54)</a>
+                        <a href="glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Архимедова сила и плавание тел (Параграфы 55-61)</a>
+                        <a href="glava6.html" class="chapter-link ${styleClass}">${marker} Глава 6. Работа, мощность и энергия. Простые механизмы (Параграфы 62-69)</a>
+                    `;
+                }
             } else {
+                // Если выбран другой автор (например, Белага), которого ещё нет
                 grid.innerHTML = `
                     <div style="text-align: center; color: #7f8c8d; font-style: italic; padding: 20px; width: 100%;">
                         🔒 Этот раздел учебника находится в разработке!

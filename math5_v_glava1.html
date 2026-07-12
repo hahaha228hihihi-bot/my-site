@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика 5 класс (Виленкин) — Глава 1 (Сложная)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #faf4f4; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #c0392b; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #f9d5d2; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e74c3c; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fff8f8; border: 1px solid #f9d5d2; border-left: 6px solid #e74c3c; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e74c3c; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #c0392b; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #f9d5d2; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e74c3c; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="math5_chapters.html?author=vilenkin" class="back-link">← Назад к списку глав</a>
+        <h1>📐 Математика — 5 класс (Виленкин)</h1>
+        <div class="book-info">Развёрнутый академический справочник по урокам средней школы [6.1]</div>
+        <div class="page-title">ГЛАВА 1. МАТЕМАТИЧЕСКИЙ ЯЗЫК, УРАВНЕНИЯ И СВОЙСТВА ЧИСЕЛ</div>
+
+        <!-- Тема 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Тема 1. Числовые и буквенные выражения. Переменная</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Понятие математического языка. Выражение, содержащее буквы, называется буквенным выражением. Буквы в нём называют переменными. Если вместо букв подставить конкретные числа, получится числовое выражение, значение которого можно вычислить.</p>
+                <div class="example">Пример: Найти значение выражения 340 - x, если x = 125. <br>Решение: Подставляем число вместо переменной: 340 - 125 = 215. Число 215 — значение выражения.</div>
+            </div>
+        </div>
+
+        <!-- Тема 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Тема 2. Сложные уравнения в несколько действий</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Уравнения, где для нахождения неизвестного нужно выполнить два или три шага. Чтобы решить такое уравнение, нужно сначала определить последнее действие и найти целую скобку или блок с неизвестным как единый компонент.</p>
+                <div class="example">Разбор уравнения: (x - 12) * 4 = 48. <br>1. Считаем скобку (x - 12) неизвестным множителем: x - 12 = 48 : 4. <br>2. Получаем простое уравнение: x - 12 = 12. <br>3. Находим x как неизвестное уменьшаемое: x = 12 + 12 = 24. Ответ: x = 24.</div>
+            </div>
+        </div>
+
+        <!-- Тема 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Тема 3. Свойства умножения и деления. Распределительный закон</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Переместительное, сочетательное и распределительное свойства. Распределительное свойство (раскрытие скобок и вынесение общего множителя за скобки) — главный инструмент для быстрого устного счёта сложных примеров.</p>
+                <div class="example">Формула: (a + b) * c = a * c + b * c. <br>Пример быстрого счёта: 17 * 35 + 17 * 65. Выносим общий множитель 17 за скобки: 17 * (35 + 65) = 17 * 100 = 1700. Посчитали устно!</div>
+            </div>
+        </div>
+
+        <!-- Тема 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Тема 4. Деление с остатком. Формула проверки</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Деление, при котором получается нецелый результат. Понятие делимого, делителя, неполного частного и остатка. Строгое математическое свойство: остаток всегда должен быть меньше делителя.</p>
+                <div class="example">Формула проверки: Делимое = Делитель * Неполное частное + Остаток. <br>Пример: Разделим 43 на 5. Получаем 43 : 5 = 8 (остаток 3). Проверяем по формуле: 5 * 8 + 3 = 40 + 3 = 43. Всё верно! Остаток (3) меньше делителя (5).</div>
+            </div>
+        </div>
+
+        <!-- Тема 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Тема 5. Текстовые задачи на движение и совместную работу</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Алгоритмы моделирования реальных ситуаций. Нахождение скорости сближения и удаления при одновременном движении. Задачи на работу (производительность, время и общий объём работы).</p>
+                <div class="example">Задача на работу: Мастер делает 15 деталей в час, а ученик — 10 деталей в час. Сколько деталей они сделают вместе за 3 часа? <br>Решение: 1) Находим совместную производительность: 15 + 10 = 25 дет/час. 2) Находим общую работу за 3 часа: 25 * 3 = 75 деталей.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

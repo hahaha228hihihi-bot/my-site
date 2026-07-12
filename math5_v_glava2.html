@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Математика 5 класс (Виленкин) — Глава 2 (Полная)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #faf4f4; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #c0392b; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .book-info { color: #7f8c8d; font-size: 1rem; margin-bottom: 15px; font-style: italic; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 2px; font-size: 1.3rem; margin-bottom: 30px; font-weight: bold; border-bottom: 2px solid #f9d5d2; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e74c3c; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fff8f8; border: 1px solid #f9d5d2; border-left: 6px solid #e74c3c; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #e74c3c; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #c0392b; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #f9d5d2; line-height: 1.6; color: #444; }
+        .example { background: #fdf2e9; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #e74c3c; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="math5_chapters.html?author=vilenkin" class="back-link">← Назад к списку глав</a>
+        <h1>📐 Математика — 5 класс (Виленкин)</h1>
+        <div class="book-info">Развёрнутый академический справочник по урокам средней школы [6.1]</div>
+        <div class="page-title">ГЛАВА 2. СЛОЖЕНИЕ И ВЫЧИТАНИЕ НАТУРАЛЬНЫХ ЧИСЕЛ (УРОКИ 6-12)</div>
+
+        <!-- Параграф 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 6. Сложение натуральных чисел и его свойства</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Действие сложения. Числа, которые складывают, называются слагаемыми, а результат — суммой. Переместительное свойство: от перестановки слагаемых сумма не меняется. Сочетательное свойство: чтобы к сумме двух чисел прибавить третье, можно к первому числу прибавить сумму второго и третьего.</p>
+                <div class="example">Законы: a + b = b + a и (a + b) + c = a + (b + c). Если к числу прибавить 0, получится то же самое число (а + 0 = а). Применяется для удобной группировки чисел при счете.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 7. Вычитание натуральных чисел</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Действие вычитания как обратное сложению. Компоненты: уменьшаемое, вычитаемое, разность. Разность показывает, на сколько первое число больше второго (или второе меньше первого).</p>
+                <div class="example">Правило нуля: Если из числа вычесть 0, получится само число (а - 0 = а). Если из числа вычесть его же, получится 0 (а - а = 0). Из меньшего числа нельзя вычесть большее в натуральных числах.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 8 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 8. Свойства вычитания (Вычитание суммы и из суммы)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> 1. Чтобы из числа вычесть сумму, можно вычесть сначала одно слагаемое, а потом другое. 2. Чтобы из суммы вычесть число, можно вычесть его из любого слагаемого (которое больше этого числа) и прибавить оставшееся слагаемое.</p>
+                <div class="example">Формулы: a - (b + c) = a - b - c и (a + b) - c = (a - c) + b. <br>Пример быстрого устного счета: (389 + 64) - 89. Проще сначала из 389 вычесть 89: 300 + 64 = 364.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 9 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 9. Решение текстовых задач на сложение и вычитание</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Задачи на нахождение суммы, остатка, а также на разностное сравнение ("на сколько больше/меньше") и увеличение/уменьшение числа на несколько единиц. Умение составлять краткую запись или схему.</p>
+                <div class="example">Задача: На первой полке 45 книг, а на второй на 15 книг меньше. Сколько книг на двух полках вместе? <br>Решение: 1) На второй полке: 45 - 15 = 30 книг. 2) Вместе: 45 + 30 = 75 книг. Ответ: 75 книг.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 10 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 10. Числовые и буквенные выражения</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Выражение, составленное из чисел, знаков действий и скобок, называется числовым. Выражение, содержащее буквы, называется буквенным. Буквы выполняют роль переменных, вместо которых можно подставлять любые допустимые числа.</p>
+                <div class="example">Пример: Дано выражение 78 - (x + 12). Найдем его значение, если x = 28. <br>Решение: Подставляем число: 78 - (28 + 12) = 78 - 40 = 38. Число 38 — это значение выражения.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 11 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 11. Уравнения и их корни</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Уравнение — это равенство, содержащее букву, значение которой нужно найти. Значение буквы, при котором из уравнения получается верное числовое равенство, называется корнем уравнения. Решить уравнение — значит найти все его корни (или доказать, что их нет).</p>
+                <div class="example">Правила нахождения компонентов:<br>
+                • Чтобы найти неизвестное слагаемое, нужно из суммы вычесть известное слагаемое.<br>
+                • Чтобы найти неизвестное уменьшаемое, нужно к разности прибавить вычитаемое.<br>
+                • Чтобы найти неизвестное вычитаемое, нужно из уменьшаемого вычесть разность.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 12 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 12. Координатный луч и координаты точек</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p><strong>Что изучается:</strong> Построение координатного луча. Нам нужны: точка начала отсчета (О), направление (стрелка) и единичный отрезок. Координата точки — это число, показывающее, сколько единичных отрезков отложено от начала луча до этой точки.</p>
+                <div class="example">Важный закон: Из двух натуральных чисел на координатном луче меньшее число всегда располагается левее, а большее — правее! Обозначение: К(4) означает, что точка К находится на отметке 4.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (!details.style.display || details.style.display === 'none') {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            } else {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            }
+        }
+    </script>
+</body>
+</html>

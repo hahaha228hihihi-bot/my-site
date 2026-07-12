@@ -9,7 +9,6 @@
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #faf4f4; color: #333; padding-bottom: 60px; }
         .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         
-        /* КРАСНЫЙ СТИЛЬ СРЕДНЕЙ ШКОЛЫ */
         h1 { color: #c0392b; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
         .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #f9d5d2; padding-bottom: 10px; }
         .back-link { display: inline-block; margin-bottom: 20px; color: #e74c3c; text-decoration: none; font-weight: bold; }
@@ -19,7 +18,6 @@
         .chapters-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
         .chapter-link { display: block; background: #fff8f8; padding: 18px; border-radius: 10px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: all 0.2s; border: 2px solid #ff8282; border-left: 8px solid #e74c3c; color: #c0392b; }
         
-        /* При наведении карточка полностью заливается красным, а текст гарантированно БЕЛЫЙ */
         .chapter-link:hover { transform: translateX(5px); background: #e74c3c; color: #ffffff !important; }
         .not-ready { text-align: center; color: #7f8c8d; font-style: italic; padding: 20px; width: 100%; }
     </style>
@@ -44,8 +42,8 @@
         if(author === 'vilenkin') {
             document.getElementById('mainTitle').innerText = "Математика — Н. Я. Виленкин";
             grid.innerHTML = `
-                <a href="math5_v_glava1.html" class="chapter-link">🔻 Глава 1. Натуральные числа и нумерация</a>
-                <a href="#" onclick="alert('Этот раздел в разработке!')" class="chapter-link">🔻 Глава 2. Сложение и вычитание натуральных чисел</a>
+                <a href="math5_v_glava1.html" class="chapter-link">🔻 Глава 1. Математический язык и выражения</a>
+                <a href="math5_v_glava2.html" class="chapter-link">🔻 Глава 2. Сложение и вычитание натуральных чисел</a>
                 <a href="#" onclick="alert('Этот раздел в разработке!')" class="chapter-link">🔻 Глава 3. Умножение и деление натуральных чисел</a>
                 <a href="#" onclick="alert('Этот раздел в разработке!')" class="chapter-link">🔻 Глава 4. Площади и объёмы фигур</a>
                 <a href="#" onclick="alert('Этот раздел в разработке!')" class="chapter-link">🔻 Глава 5. Обыкновенные дроби</a>
