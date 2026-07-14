@@ -125,9 +125,19 @@
                     }
                     else if (subject === "Физика" && classNumber === 7) {
                         item.href = "fizika7.html";
-                    } else if (subject === "Русский язык" && classNumber === 7) {
+                    } 
+                    else if (subject === "Русский язык" && classNumber === 7) {
                         item.href = "rus7.html";
-                    } else {
+                    } 
+                    else if (subject === "Иностранный язык" && classNumber === 7) {
+                        item.href = "#";
+                        item.style.borderLeftColor = "#8e44ad"; // Фиолетовый цвет для английского
+                        item.onclick = function(e) {
+                            e.preventDefault();
+                            toggleEnglish7Menu(item);
+                        };
+                    } 
+                    else {
                         item.href = "#";
                     }
                     listContainer.appendChild(item);
@@ -140,14 +150,24 @@
             if (clickedBtn) clickedBtn.classList.add('active');
             panel.scrollIntoView({ behavior: 'smooth' });
         }
-    </script>
-    <link rel="manifest" href="manifest.json">
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js');
-            });
-        }
-    </script>
-</body>
-</html>
+
+        // Функция для раскрытия меню выбора Английского 7 класса
+        function toggleEnglish7Menu(anchorElement) {
+            const existingMenu = document.getElementById('eng7-submenu');
+            if (existingMenu) {
+                existingMenu.remove();
+                return;
+            }
+
+            const menu = document.createElement('div');
+            menu.id = 'eng7-submenu';
+            menu.style.gridColumn = '1 / -1';
+            menu.style.background = '#f5f3f8';
+            menu.style.padding = '20px';
+            menu.style.borderRadius = '8px';
+            menu.style.marginTop = '5px';
+            menu.style.border = '1px solid #ebdef0';
+            menu.style.borderLeft = '6px solid #8e44ad';
+
+            menu.innerHTML = `
+                <h3 style="color: #6c3483; margin-bottom: 15px; font-size: 1.1rem; font-family: 'Segoe UI', Arial, sans-serif;">Выбери учебник и направление:</h3>
