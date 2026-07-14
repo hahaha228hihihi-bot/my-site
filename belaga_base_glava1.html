@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Базовый уровень — Глава 1</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d5f5e3; border-left: 6px solid #2ecc71; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 1. Физика и мир, в котором мы живём (Базовый уровень)</h1>
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const data = [
+            { num: "1-2", name: "Что изучает физика. Физические явления. Наблюдения и опыты", text: "Физика изучает мир вокруг нас: тела и изменения, которые с ними происходят. Эти изменения называют физическими явлениями (механические, тепловые, звуковые, световые, электрические). Знания о них получают двумя путями: наблюдениями (просто смотрим за природой) и опытами (проводим эксперименты в лаборатории с помощью приборов).", ex: "Пример: Наблюдение за дождем — это наблюдение. Нагревание воды на горелке в классе — это опыт." },
+            { num: "3-4", name: "Физические величины. Измерение величин. Точность и погрешность", text: "Физическая величина — это то, что можно измерить (длина, время, масса). Измерить — значит сравнить с образцом (единицей измерения). В физике используют систему СИ (метр, секунда, килограмм). Ни один прибор не измеряет идеально точно, всегда есть небольшая неточность — погрешность измерения.", ex: "Правило: Погрешность измерения обычно считают равной половине цены деления шкалы прибора." },
+            { num: "5", name: "Физика и техника", text: "Физика и техника помогают друг другу. Физические открытия позволяют инженерам создавать новые крутые гаджеты, машины и станки. А новая техника помогает ученым делать новые открытия.", ex: "Пример: Изучение электричества помогло создать телефоны, компьютеры и освещение." },
+            { num: "6", name: "Строение вещества. Молекулы и атомы", text: "Все тела вокруг нас кажутся сплошными, но на самом деле они состоят из крошечных частиц — молекул и атомов. Между ними есть свободное место (промежутки). Эти частицы постоянно и очень быстро двигаются в разные стороны. Чем горячее тело, тем быстрее двигаются его молекулы.", ex: "Явление: Диффузия — это когда молекулы одного вещества сами перемешиваются с молекулами другого (так запах духов разносится по комнате)." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        data.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграфы ${t.num}. ${t.name}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

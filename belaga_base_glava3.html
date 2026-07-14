@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Базовый уровень — Глава 3</title>
+    <style>
+        /* Стили аналогичны */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d5f5e3; border-left: 6px solid #2ecc71; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 3. Силы и основы динамики (Базовый уровень)</h1>
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const data = [
+            { num: "14-15", name: "Сила. Сила тяжести", text: "Сила (F) — это мера того, как одно тело действует на другое. Из-за силы меняется скорость тела или оно сжимается/растягивается. Сила тяжести — это сила, с которой Земля притягивает к себе все предметы вокруг. Она всегда направлена вниз, к центру Земли.", ex: "Формула: F_тяж = m * g, где g ≈ 9.8 Н/кг (сила притяжения на 1 кг массы)." },
+            { num: "16-17", name: "Сила упругости. Закон Гука. Динамометр", text: "Сила упругости появляется, когда мы растягиваем или сжимаем тело (деформируем его). Эта сила хочет вернуть телу прежнюю форму. Силу измеряют специальным прибором — динамометром (внутри него стоит пружина со шкалой).", ex: "Закон Гука: Сила упругости тем больше, чем сильнее растянута пружина: F_упр = k * x." },
+            { num: "18-19", name: "Вес тела. Невесомость", text: "Вес тела (P) — это сила, с которой тело давит на пол (опору) или тянет вниз нитку, на которой висит (подвес). Если опору убрать, тело начнет падать, и его вес исчезнет. Такое состояние называют невесомостью.", ex: "Важно: Масса измеряется в кг, а вес — это сила, он измеряется в Ньютонах (Н)." },
+            { num: "20-21", name: "Сложение сил. Равнодействующая", text: "Обычно на предмет действует сразу несколько сил. Их можно заменить одной общей силой — равнодействующей. Если силы тянут в одну сторону, они складываются. Если в разные — из большей силы вычитают меньшую.", ex: "Пример: Если два человека тянут канат вправо с силами 30 Н и 20 Н, общая сила равна 30 + 20 = 50 Н." },
+            { num: "22-28", name: "Сила трения и сопротивление среды", text: "Трение появляется, когда две поверхности трутся друг о друга. Трение мешает движению. Бывает трение покоя (когда предмет трудно сдвинуть), трение скольжения (когда санки едут по снегу) и трение качения (колеса). В воде и воздухе тоже есть трение — его называют сопротивлением среды.", ex: "Пример: Чтобы уменьшить трение в деталях машин, используют смазочные масла." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        data.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграфы ${t.num}. ${t.name}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
