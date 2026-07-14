@@ -3,42 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Физика 7 класс — Глава 3</title>
+    <title>Глава 3 — Взаимодействие тел</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
-        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
-        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2faf5; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #218c4e; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4efdf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
-        
-        .chapters-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
-        
-        .chapter-link { display: block; background: #fffcf9; padding: 18px; border-radius: 10px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: all 0.2s; }
-        .chapter-link:hover { transform: translateX(5px); }
-        
-        .style-base { border: 2px solid #2cc36b; border-left: 8px solid #2cc36b; color: #218c4e; }
-        .style-base:hover { background: #2cc36b; color: white !important; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4efdf; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+        .btn-toggle:hover { background: #218c4e; }
+        .btn-toggle:active { transform: scale(0.95); }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4efdf; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="javascript:history.back()" class="back-link">← Вернуться к списку глав</a>
-        <h1>Глава 3. Взаимодействие тел</h1>
-        <div class="page-title">БАЗОВЫЙ УРОВЕНЬ — СПИСОК ПАРАГРАФОВ</div>
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 3. Взаимодействие тел (Параграфы 14-28)</h1>
 
-        <div class="chapters-grid">
-            <a href="b3_p14.html" class="chapter-link style-base">🟢 Параграфы 15-16. Механическое движение. Равномерное и неравномерное движение</a>
-            <a href="b3_p17.html" class="chapter-link style-base">🟢 Параграфы 17-19. Скорость, расчёт пути, времени и графики</a>
-            <a href="b3_p20.html" class="chapter-link style-base">🟢 Параграф 20. Явление инерции</a>
-            <a href="b3_p21.html" class="chapter-link style-base">🟢 Параграфы 21-22. Взаимодействие тел. Масса тела</a>
-            <a href="b3_p23.html" class="chapter-link style-base">🟢 Параграфы 23-24. Плотность вещества. Расчёт массы и объёма</a>
-            <a href="b3_p25.html" class="chapter-link style-base">🟢 Параграфы 25-26. Сила. Сила тяжести и явление тяготения</a>
+        <!-- Из-за большого объема параграфов (14-28) они объединены по ключевым темам программы -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 14-17. Механическое движение. Скорость</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Механическое движение — изменение положения тела относительно других тел с течением времени. Скорость тела определяет, какой путь оно проходит за единицу времени. Формула скорости: v = s / t. Единица скорости в СИ — м/с.</p>
+                <div class="example">Пример: Автомобиль едет равномерно, если за любые равные промежутки времени проходит одинаковые расстояния.</div>
+            </div>
         </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 18-20. Инерция и взаимодействие тел. Масса</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Инерция — явление сохранения скорости тела при отсутствии внешних воздействий. Масса (m) — физическая величина, являющаяся мерой инертности тела. Измеряется в килограммах (кг). При взаимодействии тел их скорости меняются тем меньше, чем больше масса тела.</p>
+                <div class="example">Пример: Пассажир отклоняется назад при резком старте автобуса с места (проявление инерции).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 21-22. Плотность вещества</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Плотность (ρ) — это масса вещества, содержащаяся в единице объема. Формула плотности: ρ = m / V. В системе СИ измеряется в кг/м³. Плотность зависит от рода вещества и его агрегатного состояния.</p>
+                <div class="example">Формула: Чтобы найти массу тела, зная плотность и объем, используют формулу: m = ρ · V.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 23-25. Сила. Сила тяжести и сила упругости</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сила (F) — мера взаимодействия тел. Измеряется в Ньютонах (Н). Сила тяжести — сила, с которой Земля притягивает к себе тела (Fт = mg). Сила упругости возникает при деформации тела и направлена против направления смещения частиц.</p>
+                <div class="example">Закон Гука: Сила упругости прямо пропорциональна растяжению (деформации) тела: Fупр = kx.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 26-28. Вес тела. Сила трения</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Вес тела (P) — сила, с которой тело давит на опору или растягивает подвес из-за притяжения к Земле. Сила трения возникает при движении одного тела по поверхности другого. Различают трение покоя, скольжения и качения.</p>
+                <div class="example">Пример: Санки останавливаются после спуска с горы из-за действия силы трения скольжения о снег.</div>
+            </div>
+        </div>
+
     </div>
 
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+                button.style.background = '#27ae60';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+                button.style.background = '#218c4e';
+            }
+        }
+    </script>
 </body>
 </html>

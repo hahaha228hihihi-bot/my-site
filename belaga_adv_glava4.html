@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 4. Статика и гидроаэромеханика</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 4. Статика и гидроаэромеханика (Параграфы 29-52)</h1>
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const ch4Data = [
+            { id: "29-34", title: "Давление твёрдых тел и способы его изменения. Давление газов", text: "Давление (p) характеризует распределение силы перпендикулярно площади поверхности. Механическое давление твёрдых тел регулируется изменением контактной площади. В газах давление имеет принципиально иную природу: оно создаётся колоссальным числом хаотических кинетических ударов микрочастиц (молекул) о внутренние стенки сосуда. Давление газа одинаково во всех точках объёма при неизменной температуре.", ex: "Формула: p = F / S. Единица: Паскаль (1 Па = 1 Н/м²). Газовое давление возрастает при изохорном нагревании (увеличивается скорость молекул) и при сжатии (растёт концентрация частиц)." },
+            { id: "35", title: "Закон Паскаля", text: "Фундаментальный гидростатический закон: внешнее давление, оказываемое на покоящуюся жидкость или газ, передаётся в любую точку этой среды абсолютно одинаково по всем пространственным направлениям без каких-либо изменений. Это обусловлено высокой подвижностью молекул жидкостей и газов.", ex: "Применение: На законе Паскаля основана работа гидравлического пресса. Силы на поршнях соотносятся как их площади: F2 / F1 = S2 / S1, что даёт колоссальный выигрыш в силе." },
+            { id: "36-40", title: "Расчёт весового давления жидкости. Гидростатический парадокс", text: "Поскольку слои жидкости обладают массой, они давят друг на друга под действием гравитации, создавая весовое гидростатическое давление. Оно линейно зависит только от плотности жидкой среды и высоты столба жидкости над точкой измерения. Форма сосуда не влияет на давление на его дно — это явление называется гидростатическим парадоксом.", ex: "Формула: p = ρ * g * h, где ρ — плотность жидкости (кг/м³), h — глубина погружения (м)." },
+            { id: "41-44", title: "Атмосферное давление. Опыт Торричелли и сообщающиеся сосуды", text: "Земная атмосфера удерживается гравитацией и давит на поверхность весом вышележащих слоёв воздуха. Опыт Э. Торричелли (с ртутной трубкой) доказал существование атмосферного давления, уравновесив вес воздуха весом столба жидкого металла. В сообщающихся сосудах любой геометрической формы уровни однородной покоящейся жидкости всегда устанавливаются строго в одной горизонтальной плоскости, так как гидростатические давления в коленах обязаны быть равны.", ex: "Физическая константа: Нормальное атмосферное давление составляет 760 мм рт. ст. или порядка 101.3 кПа. При подъёме в горы давление падает (примерно на 1 мм рт. ст. на каждые 12 метров подъёма)." },
+            { id: "45-52", title: "Архимедова выталкивающая сила. Условия плавания тел, воздухоплавание и судоходство", text: "На тело, погружённое в жидкую или газообразную среду, действует выталкивающая Архимедова сила. Она возникает из-за разности гидростатических давлений жидкости на нижнюю и верхнюю грани тела (снизу давление всегда больше, так как глубина больше). Архимедова сила направлена вертикально вверх и численно строго равна весу вытесненного объёма жидкой/газовой среды.", ex: "Закон Архимеда: F_арх = ρ_жидк * g * V_погр. Условия плавания: если ρ_тела < ρ_жидк — тело всплывает; если ρ_тела = ρ_жидк — плавает внутри; если ρ_тела > ρ_жидк — тонет. Суда плавают благодаря тому, что средняя плотность металлического корпуса с воздушными трюмами меньше плотности воды." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        ch4Data.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграфы ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

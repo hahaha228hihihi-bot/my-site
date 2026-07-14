@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 5. Энергетические законы в механике</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 5. Энергетические законы в механике (Параграфы 53-62)</h1>
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const topics = [
+            { num: "53-54", name: "Механическая работа и мощность", text: "Механическая работа (A) совершается силой только в случае перемещения тела под её непосредственным действием. Работа — скалярное произведение векторов силы и перемещения; она отрицательна, если сила направлена против движения (сила трения), и равна нулю, если вектор силы ортогонален вектору перемещения. Мощность (N) отражает интенсивность и скорость выполнения этой работы во времени.", ex: "Формулы: A = F * s * cos(α). Мощность N = A / t или N = F * v. Единицы измерения: Джоуль (Дж) и Ватт (Вт)." },
+            { num: "55-57", name: "Потенциальная и кинетическая энергия. Закон сохранения энергии", text: "Механическая энергия — мера способности тела совершить механическую работу. Кинетическая энергия (E_к) — энергия движения, которой обладают любые массивные движущиеся объекты. Потенциальная энергия (E_п) — энергия скрытого взаимодействия конфигурации системы (поднятое над землей тело, сжатая пружина). В изолированных механических системах при отсутствии диссипативных сил (трения) полная механическая энергия системы строго сохраняется во времени.", ex: "Формулы: E_к = (m * v²) / 2; E_п = m * g * h. Полный закон сохранения: E_мех = E_к + E_п = const. При наличии трения механическая энергия частично переходит во внутреннюю (тепловую)." },
+            { id: "58-59", num: "58-59", name: "Простые механизмы. Рычаг и момент силы", text: "Простые механизмы служат трансформаторами механических сил для получения силового выигрыша. Рычаг — жесткое тело с закрепленной осью вращения. Кратчайшее перпендикулярное расстояние от оси до линии действия силы называется плечом силы (l). Вращательное свойство силы количественно описывается моментом силы (M). Рычаг статичен, если алгебраическая сумма моментов всех приложенных сил равна нулю.", ex: "Формула момента: M = F * l (Н·м). Условие равновесия (правило моментов): F1 * l1 = F2 * l2. Во сколько раз выигрываем в силе, во столько же раз проигрываем в плече." },
+            { num: "60-61", name: "Подвижные и неподвижные блоки. Наклонная плоскость", text: "Блоки представляют собой колеса с желобом для троса. Неподвижный блок эквивалентен равноплечему рычагу: выигрыша в силе не дает, но изменяет вектор её направления. Подвижный блок дает двукратный силовой выигрыш. Наклонная плоскость (а также её модификации — клин и винт) позволяет поднимать сверхтяжелые грузы на высоту с помощью значительно меньшего тягового усилия.", ex: "«Золотое правило механики»: ни один простой механизм не даёт выигрыша в работе. Выигрывая в силе (например, в 2 раза на подвижном блоке), мы ровно во столько же раз проигрываем в расстоянии (приходится протягивать в 2 раза больше каната)." },
+            { num: "62", name: "Коэффициент полезного действия (КПД)", text: "В реальных механических системах часть совершенной затраченной работы неизбежно расходуется на преодоление вредных сил трения и переходит в тепловую энергию. КПД (η) — безразмерная физическая макрохарактеристика эффективности механизма, показывающая отношение полезной работы к полной совершенной работе.", ex: "Формула: η = (A_полезная / A_затраченная) * 100%. В силу действия законов термодинамики и неустранимости сил трения, КПД реального механизма всегда строго меньше 100%." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        topics.forEach(t => {
+            // Исправлена переменная для вывода номеров
+            const displayId = t.id || t.num;
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграфы ${displayId}. ${t.name}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

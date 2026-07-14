@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 1 — Физические методы (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        /* ПЕРЕКРАШЕНО В СИНИЙ: Фирменный стиль углублённого курса */
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        
+        /* Синяя ссылка возврата */
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        /* Карточка параграфа с синей рамкой */
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        /* Красивая синяя кнопка Развернуть */
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        /* Скрытые подробности */
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        
+        /* Голубоватый аккуратный блок для примеров */
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Исправлено: ссылка ведёт обратно к цветному выбору программ/глав -->
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 1. Физические методы изучения природы (Углублённый курс)</h1>
+
+        <!-- Параграф 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 1. Что изучает физика. Физические явления</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Физика изучает простейшие и вместе с тем наиболее общие закономерности природы. Изменения, происходящие с телами, называются физическими явлениями (механические, тепловые, звуковые, световые, электрические).</p>
+                <div class="example">Пример: Таяние льда — тепловое явление, падение камня — механическое.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 2. Наблюдения и опыты</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Физические знания добываются путем наблюдений и опытов (экспериментов). Наблюдения проводятся без вмешательства в процесс. Опыты проводятся в лабораториях по четкому плану с помощью приборов.</p>
+                <div class="example">Пример: Измерение времени падения шарика по секундомеру в лаборатории — это опыт.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 3. Физические величины. Измерение величин</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Физическая величина — это характеристика тела или явления, которую можно измерить (длина, время, масса, скорость). Измерить какую-нибудь величину — значит сравнить ее с однородной величиной, принятой за единицу.</p>
+                <div class="example">Пример: Международная система единиц (СИ) принимает метр за единицу длины, а секунду — за единицу времени.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 4. Точность и погрешность измерений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Ни одно измерение приборами не выполняется абсолютно точно. Допускаемая при измерении неточность называется погрешностью измерений. На углубленном уровне рассчитывают абсолютную и относительную погрешность.</p>
+                <div class="example">Правило: Абсолютная погрешность измерительного прибора обычно принимается равной половине цены деления его шкалы. При записи пишут символ плюс-минус.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграф 5. Физика и техника</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Физические открытия служат основой для создания новых технических устройств и технологий, а новая инженерная техника позволяет ученым продвигаться в исследовании законов вселенной.</p>
+                <div class="example">Пример: Изучение законов термодинамики позволило инженерам изобрести тепловые двигатели и автомобили.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

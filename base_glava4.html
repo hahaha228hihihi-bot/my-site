@@ -3,40 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Физика 7 класс — Глава 4</title>
+    <title>Глава 4 — Давление твердых тел, жидкостей и газов</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
-        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        
-        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
-        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
-        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2faf5; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #218c4e; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4efdf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
         .back-link:hover { text-decoration: underline; }
-        
-        .chapters-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
-        
-        .chapter-link { display: block; background: #fffcf9; padding: 18px; border-radius: 10px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: all 0.2s; }
-        .chapter-link:hover { transform: translateX(5px); }
-        
-        .style-base { border: 2px solid #2cc36b; border-left: 8px solid #2cc36b; color: #218c4e; }
-        .style-base:hover { background: #2cc36b; color: white !important; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4efdf; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
+        .btn-toggle:hover { background: #218c4e; }
+        .btn-toggle:active { transform: scale(0.95); }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4efdf; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <a href="javascript:history.back()" class="back-link">← Вернуться к списку глав</a>
-        <h1>Глава 4. Давление твёрдых тел, жидкостей и газов</h1>
-        <div class="page-title">БАЗОВЫЙ УРОВЕНЬ — СПИСОК ПАРАГРАФОВ</div>
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 4. Давление твердых тел, жидкостей и газов (Параграфы 29-52)</h1>
 
-        <div class="chapters-grid">
-            <a href="b4_p29.html" class="chapter-link style-base">🟢 Параграфы 29-31. Давление. Способы изменения давления</a>
-            <a href="b4_p35.html" class="chapter-link style-base">🟢 Параграфы 35-36. Давление газа. Закон Паскаля</a>
-            <a href="b4_p38.html" class="chapter-link style-base">🟢 Параграфы 38-40. Давление в жидкости. Расчёт давления на дно сосуда</a>
-            <a href="b4_p49.html" class="chapter-link style-base">🟢 Параграфы 49-51. Действие жидкости на погруженное тело. Закон Архимеда</a>
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 29-32. Давление твердых тел</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Давление (p) — физическая величина, равная отношению силы, действующей перпендикулярно поверхности, к площади этой поверхности. Формула: p = F / S. Основная единица давления в СИ — Паскаль (Па).</p>
+                <div class="example">Пример: Чтобы уменьшить давление на снег, человек надевает лыжи (увеличивается площадь поверхности S).</div>
+            </div>
         </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 33-38. Закон Паскаля. Давление в жидкостях и газах</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Закон Паскаля: Давление, производимое на жидкость или газ, передается в любую точку без изменений во всех направлениях. Внутри жидкости существует гидростатическое давление, обусловленное её весом, формула: p = ρgh.</p>
+                <div class="example">Правило: Давление внутри жидкости зависит только от её плотности (ρ) и глубины погружения (h).</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 39-44. Атмосферное давление</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Атмосферное давление — давление воздушной оболочки Земли на её поверхность и на все тела. Впервые было измерено Торричелли с помощью ртутного барометра. Нормальное атмосферное давление равно 760 мм рт. ст. или 101300 Па.</p>
+                <div class="example">Пример: Работа обычного медицинского шприца основана на действии атмосферного давления при поднятии поршня.</div>
+            </div>
+        </div>
+
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">Параграфы 45-52. Закон Архимеда. Плавание тел</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>На тело, погруженное в жидкость или газ, действует выталкивающая (Архимедова) сила, направленная вертикально вверх: Fа = ρж·g·Vт. Если Архимедова сила больше силы тяжести, тело всплывает; если меньше — тонет.</p>
+                <div class="example">Пример: Огромные стальные корабли не тонут, потому что объем вытесненной ими воды создает Архимедову силу, равную весу корабля.</div>
+            </div>
+        </div>
+
     </div>
 
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+                button.style.background = '#27ae60';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+                button.style.background = '#218c4e';
+            }
+        }
+    </script>
 </body>
 </html>

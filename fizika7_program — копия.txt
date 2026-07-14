@@ -43,7 +43,7 @@
 <body>
 
     <div class="container">
-        <a href="fizika7.html" class="back-link">← Вернуться к выбору учебника</a>
+        <a href="fizika7.html" class="back-link">← Вернуться к списку глав</a>
         <h1 id="mainTitle">Физика 7 класс</h1>
         <div class="page-title">ШАГ 2: ВЫБЕРИТЕ ПРОГРАММУ ИЗУЧЕНИЯ</div>
 
@@ -87,6 +87,7 @@
             // Проверяем автора Перышкина
             if (author === 'peryshkin') {
                 if (level === 'base') {
+                    // Список глав для БАЗОВОГО уровня Перышкина
                     grid.innerHTML = `
                         <a href="base_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Введение (Параграфы 1-6)</a>
                         <a href="base_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Первоначальные сведения о строении вещества (Параграфы 7-13)</a>
@@ -95,6 +96,7 @@
                         <a href="base_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Работа и мощность. Энергия (Параграфы 53-62)</a>
                     `;
                 } else if (level === 'pro') {
+                    // Список глав для УГЛУБЛЕННОГО уровня Перышкина
                     grid.innerHTML = `
                         <a href="glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Физические методы изучения природы (Параграфы 1-5)</a>
                         <a href="glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Первоначальные сведения о строении вещества (Параграфы 6-14)</a>
@@ -104,28 +106,8 @@
                         <a href="glava6.html" class="chapter-link ${styleClass}">${marker} Глава 6. Работа, мощность и энергия. Простые механизмы (Параграфы 62-69)</a>
                     `;
                 }
-            } 
-            // Проверяем автора Белагу
-            else if (author === 'belaga') {
-                if (level === 'base') {
-                    grid.innerHTML = `
-                        <a href="belaga_base_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Введение (Параграфы 1-6)</a>
-                        <a href="belaga_base_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Первоначальные сведения о строении вещества (Параграфы 7-13)</a>
-                        <a href="belaga_base_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Взаимодействие тел (Параграфы 14-28)</a>
-                        <a href="belaga_base_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Давление твёрдых тел, жидкостей и газов (Параграфы 29-52)</a>
-                        <a href="belaga_base_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Работа и мощность. Энергия (Параграфы 53-62)</a>
-                    `;
-                } else if (level === 'pro') {
-                    grid.innerHTML = `
-                        <a href="belaga_adv_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Физика и мир, в котором мы живём (Параграфы 1-6)</a>
-                        <a href="belaga_adv_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Пространство, время и движение (Параграфы 7-13)</a>
-                        <a href="belaga_adv_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Силы и основы динамики (Параграфы 14-28)</a>
-                        <a href="belaga_adv_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Статика и гидроаэромеханика (Параграфы 29-52)</a>
-                        <a href="belaga_adv_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Энергетические законы в механике (Параграфы 53-62)</a>
-                    `;
-                }
-            } 
-            else {
+            } else {
+                // Если выбран другой автор (например, Белага), которого ещё нет
                 grid.innerHTML = `
                     <div style="text-align: center; color: #7f8c8d; font-style: italic; padding: 20px; width: 100%;">
                         🔒 Этот раздел учебника находится в разработке!
@@ -136,5 +118,6 @@
             panel.scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+
 </body>
 </html>

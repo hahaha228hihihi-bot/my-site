@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 1. Физика и мир, в котором мы живём</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 1. Физика и мир, в котором мы живём (Параграфы 1-6)</h1>
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const topics = [
+            { 
+                num: 1, 
+                name: "Что изучает физика. Физические явления", 
+                text: "Физика изучает материю (в виде вещества и полей), её фундаментальные свойства и формы движения. Любые изменения вещества и полей называются физическими явлениями. Выделяют механические (изменение координат), тепловые (изменение термодинамических параметров), электромагнитные, оптические, звуковые и квантовые явления. Законы физики лежат в основе всего естествознания.", 
+                ex: "Пример: Дисперсия света в призме — оптическое явление. Кипение воды под давлением — тепловое явление." 
+            },
+            { 
+                num: 2, 
+                name: "Наблюдения и опыты", 
+                text: "Наблюдение — это пассивное исследование явлений природы без вмешательства в процесс, фиксация качественных характеристик. Опыт (эксперимент) — активное исследование в строго контролируемых лабораторных условиях с изменением параметров системы и использованием измерительных приборов. Эксперимент служит критерием истинности любой гипотезы.", 
+                ex: "Пример: Наблюдение за фазами Луны не меняет её орбиту. Эксперимент по столкновению шаров позволяет менять их массы и скорости вручную." 
+            },
+            { 
+                num: 3, 
+                name: "Физические величины. Измерение величин", 
+                text: "Физическая величина — количественная характеристика свойства тела или процесса. Измерить величину означает сравнить её экспериментально с эталоном — однородной величиной, принятой за единицу. Международная система СИ базируется на 7 основных единицах. Для механики ключевыми являются: метр (м) — длина, килограмм (кг) — масса, секунда (с) — время.", 
+                ex: "Справка: Также применяются кратные (кило-, мега-) и дольные (милли-, микро-) приставки. Например, 1 км = 10³ м, 1 мг = 10⁻⁶ кг." 
+            },
+            { 
+                num: 4, 
+                name: "Точность и погрешность измерений", 
+                text: "Любое измерение принципиально неточно из-за несовершенства приборов и органов чувств. Абсолютная погрешность (Δ) — это отклонение измеренного значения от истинного. Для шкальных приборов она часто принимается равной половине цены деления шкалы (C). Относительная погрешность (ε = Δ / x * 100%) отражает качество измерения. Результат записывают в виде: x ± Δ.", 
+                ex: "Правило: Если цена деления линейки 1 мм, то абсолютная погрешность Δ = 0.5 мм. При длине детали 50 мм относительная погрешность ε = (0.5 / 50) * 100% = 1%." 
+            },
+            { 
+                num: 5, 
+                name: "Физика и техника", 
+                text: "Связь физики и техники двусторонняя. Физические открытия порождают новые отрасли промышленности (радиоэлектроника, ядерная энергетика). В свою очередь, прогресс в технике обеспечивает физиков прецизионным оборудованием — суперкомпьютерами, лазерами, электронными микроскопами и коллайдерами для изучения микромира.", 
+                ex: "Пример: Открытие явления электромагнитной индукции Фарадеем привело к созданию генераторов тока и электрификации всей планеты." 
+            },
+            { 
+                num: 6, 
+                name: "Строение вещества. Молекулы и атомы", 
+                text: "Вещество имеет дискретную (прерывистую) структуру. Оно состоит из молекул, а те — из атомов. Между частицами существуют промежутки. Частицы находятся в непрерывном, хаотическом тепловом движении (броуновское движение). Скорость движения частиц напрямую определяет температуру тела. Молекулы одного вещества полностью идентичны.", 
+                ex: "Явление: Диффузия — взаимное проникновение соприкасающихся веществ вследствие теплового движения частиц. Скорость диффузии растёт с ростом температуры." 
+            }
+        ];
+
+        const container = document.getElementById('topics-root');
+        topics.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.num}. ${t.name}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
