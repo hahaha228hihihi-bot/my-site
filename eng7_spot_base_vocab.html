@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight 7 — Словарь и Глаголы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .tab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .tab-btn { background: white; border: 2px solid #2cc36b; color: #218c4e; padding: 15px; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold; text-align: center; transition: all 0.2s; }
+        .tab-btn:hover { transform: translateY(-2px); }
+        .tab-btn.active { background: #27ae60; border-color: #27ae60; color: white; }
+        .content-panel { display: none; }
+        
+        .category-title { background: #27ae60; color: white; padding: 8px 15px; border-radius: 6px; font-size: 1.1rem; font-weight: bold; margin: 20px 0 10px 0; }
+        .list-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 15px; border-radius: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .word-eng { font-size: 1.2rem; font-weight: bold; color: #218c4e; }
+        .word-trans { font-size: 1rem; color: #7f8c8d; font-style: italic; }
+        .word-rus { font-size: 1.1rem; font-weight: 500; color: #333; }
+        
+        .verb-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 10px; width: 100%; }
+        .verb-form { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .verb-form span { color: #7f8c8d; font-size: 0.9rem; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng7_2.html?book=spotlight" class="back-link">← Назад к выбору программы</a>
+        <h1>Spotlight 7 класс</h1>
+        <div class="page-title">СЛОВАРЬ И ТАБЛИЦА ГЛАГОЛОВ (БАЗОВЫЙ)</div>
+
+        <div class="tab-grid">
+            <button class="tab-btn" id="btn-words" onclick="switchTab('words')">📝 СЛОВАРЬ</button>
+            <button class="tab-btn" id="btn-verbs" onclick="switchTab('verbs')">⚡ НЕПРАВИЛЬНЫЕ ГЛАГОЛЫ</button>
+        </div>
+
+        <!-- ВКЛАДКА 1: СЛОВА -->
+        <div class="content-panel" id="panel-words"></div>
+
+        <!-- ВКЛАДКА 2: ГЛАГОЛЫ -->
+        <div class="content-panel" id="panel-verbs"></div>
+    </div>
+
+    <script>
+        // База данных на все 10 модулей Spotlight 7
+        const modulesData = [
+            { cat: "Модуль 1. Жизнь в городе и деревне", words: [
+                { e: "Hustle and bustle", t: "[ˈhʌs.l̩ ænd ˈbʌs.l̩]", r: "Суета и толкотня" },
+                { e: "Heavy traffic", t: "[ˈhevi ˈtræfɪk]", r: "Интенсивное движение" },
+                { e: "Peace and quiet", t: "[piːs ænd ˈkwaɪət]", r: "Тишина и покой" },
+                { e: "Facilities", t: "[fəˈsɪl.ɪ.tiz]", r: "Удобства, услуги" }
+            ]},
+            { cat: "Модуль 2. Время развлечений", words: [
+                { e: "Roller coaster", t: "[ˈrəʊ.lə ˌkəʊ.stə]", r: "Американские горки" },
+                { e: "Haunted house", t: "[ˈhɔːn.tɪd haʊs]", r: "Дом с привидениями" },
+                { e: "Scream", t: "[skriːm]", r: "Кричать, вопить" }
+            ]},
+            { cat: "Модуль 3. Внешность и характер", words: [
+                { e: "Slim", t: "[slɪm]", r: "Стройный, худой" },
+                { e: "Stubborn", t: "[ˈstʌb.ən]", r: "Упрямый" },
+                { e: "Reliable", t: "[rɪˈlaɪ.ə.bl̩]", r: "Надёжный" }
+            ]},
+            { cat: "Модуль 4. Средства массовой информации", words: [
+                { e: "Breaking news", t: "[ˈbreɪkɪŋ njuːz]", r: "Срочные новости" },
+                { e: "Interview", t: "[ˈɪn.tə.vjuː]", r: "Интервью, беседа" },
+                { e: "Weather forecast", t: "[ˈweð.ə ˌfɔː.kɑːst]", r: "Прогноз погоды" }
+            ]},
+            { cat: "Модуль 5. Что ждет нас в будущем", words: [
+                { e: "Gadget", t: "[ˈɡædʒ.ɪt]", r: "Гаджет, приспособление" },
+                { e: "Look forward to", t: "[lʊk ˈfɔː.wəd tuː]", r: "Ждать с нетерпением" },
+                { e: "Predict", t: "[prɪˈdɪkt]", r: "Предсказывать" }
+            ]},
+            { cat: "Модуль 6. На досуге", words: [
+                { e: "Theme park", t: "[ˈθiːm pɑːk]", r: "Парк аттракционов" },
+                { e: "Camp", t: "[kæmp]", r: "Лагерь, разбивать лагерь" },
+                { e: "Souvenir", t: "[ˌsuː.vəˈnɪər]", r: "Сувенир, подарок на память" }
+            ]},
+            { cat: "Модуль 7. В мире знаний", words: [
+                { e: "Determined", t: "[dɪˈtɜː.mɪnd]", r: "Решительный, непреклонный" },
+                { e: "Success", t: "[səkˈses]", r: "Успех, удача" },
+                { e: "Talented", t: "[ˈtæl.ən.tɪd]", r: "Талантливый, одарённый" }
+            ]},
+            { cat: "Модуль 8. Экология", words: [
+                { e: "Acid rain", t: "[ˌæs.ɪd ˈreɪn]", r: "Кислотный дождь" },
+                { e: "Recycle", t: "[ˌriːˈsaɪ.kl̩]", r: "Перерабатывать отходы" },
+                { e: "Clean up", t: "[kliːn ʌp]", r: "Убирать, очищать" }
+            ]},
+            { cat: "Модуль 9. Покупки и досуг", words: [
+                { e: "Department store", t: "[dɪˈpɑːt.mənt stɔːr]", r: "Универмаг" },
+                { e: "Bargain", t: "[ˈbɑː.ɡɪn]", r: "Выгодная покупка, сделка" },
+                { e: "Cash", t: "[kæʃ]", r: "Наличные деньги" }
+            ]},
+            { cat: "Модуль 10. Здоровый образ жизни", words: [
+                { e: "Balanced diet", t: "[ˌbæl.ənst ˈdaɪ.ət]", r: "Сбалансированное питание" },
+                { e: "Junk food", t: "[dʒʌŋk fuːd]", r: "Вредная еда, фастфуд" },
+                { e: "Exercise", t: "[ˈek.sə.saɪz]", r: "Упражнение, тренироваться" }
+            ]}
+        ];
+
+        const verbsData = [
+            { i: "choose", p1: "chose", p2: "chosen", t1: "[tʃuːz]", t2: "[tʃəʊz]", t3: "[ˈtʃəʊ.zn̩]", r: "выбирать" },
+            { i: "fly", p1: "flew", p2: "flown", t1: "[flaɪ]", t2: "[fluː]", t3: "[fləʊn]", r: "летать" },
+            { i: "spend", p1: "spent", p2: "spent", t1: "[spend]", t2: "[spent]", t3: "[spent]", r: "тратить, проводить время" },
+            { i: "build", p1: "built", p2: "built", t1: "[bɪld]", t2: "[bɪlt]", t3: "[bɪlt]", r: "строить" },
+            { i: "lose", p1: "lost", p2: "lost", t1: "[luːz]", t2: "[lɒst]", t3: "[lɒst]", r: "терять" }
+        ];
+
+        // Автоматическая генерация карточек слов
+        const wordsPanel = document.getElementById('panel-words');
+        modulesData.forEach(m => {
+            let sectionHtml = `<div class="category-title">${m.cat}</div>`;
+            m.words.forEach(w => {
+                sectionHtml += `
+                    <div class="list-card">
+                        <div><span class="word-eng">${w.e}</span> <span class="word-trans">${w.t}</span></div>
+                        <div class="word-rus">${w.r}</div>
+                    </div>`;
+            });
+            wordsPanel.innerHTML += sectionHtml;
+        });
+
+        // Автоматическая генерация таблицы неправильных глаголов
+        const verbsPanel = document.getElementById('panel-verbs');
+        let verbsTableHtml = `
+            <div class="list-card" style="background: #e8f8f5; border-left-color: #2cc36b; font-weight: bold;">
+                <div class="verb-row">
+                    <div>Infinitive (1)</div>
+                    <div>Past Simple (2)</div>
+                    <div>Past Participle (3)</div>
+                    <div>Перевод</div>
+                </div>
+            </div>`;
+        verbsData.forEach(v => {
+            verbsTableHtml += `
+                <div class="list-card">
+                    <div class="verb-row">
+                        <div class="verb-form">${v.i} <span>${v.t1}</span></div>
+                        <div class="verb-form" style="color: #218c4e;">${v.p1} <span>${v.t2}</span></div>
+                        <div class="verb-form" style="color: #218c4e;">${v.p2} <span>${v.t3}</span></div>
+                        <div class="word-rus">${v.r}</div>
+                    </div>
+                </div>`;
+        });
+        verbsPanel.innerHTML = verbsTableHtml;
+
+        // Логика переключения табов
+        function switchTab(tabId) {
+            document.getElementById('panel-words').style.display = 'none';
+            document.getElementById('panel-verbs').style.display = 'none';
+            document.getElementById('btn-words').classList.remove('active');
+            document.getElementById('btn-verbs').classList.remove('active');
+            
+            document.getElementById('panel-' + tabId).style.display = 'block';
+            if (tabId === 'words') document.getElementById('btn-words').classList.add('active');
+            if (tabId === 'verbs') document.getElementById('btn-verbs').classList.add('active');
+        }
+        window.onload = function() { switchTab('words'); };
+    </script>
+</body>
+</html>

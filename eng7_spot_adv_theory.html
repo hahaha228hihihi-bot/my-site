@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight 7 — Грамматика (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #1f618d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng7_2.html?book=spotlight" class="back-link">← Назад к выбору программы</a>
+        <h1>Spotlight 7 класс</h1>
+        <div class="page-title">ГРАММАТИКА И ТЕОРИЯ (УГЛУБЛЁННЫЙ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const advGrammarData = [
+            { id: "1", title: "Модуль 1: Смена значений Stative Verbs в Continuous", text: "Глаголы состояния обычно не употребляются в временах Continuous. Однако на углубленном уровне, если глагол меняет стабильное состояние на динамическое действие, Continuous становится возможен. Например: think (считать/думать о планах), see (понимать/встречаться), taste (иметь вкус/пробовать).", ex: "State: I think you are right. / Dynamic: I am thinking about my upcoming exams right now." },
+            { id: "2", title: "Модуль 2: Разница между конвекциями Used to и Would", text: "Конструкция 'Used to + V' универсальна и выражает любые регулярные действия, состояния и факты в прошлом, которых больше нет. Глагол 'Would' используется только для регулярных повторяющихся ДЕЙСТВИЙ (активностей) в прошлом, его нельзя использовать со статичными глаголами вроде live, have, be.", ex: "State: I used to be a shy child (Would нельзя). / Action: Every summer we would go to the countryside." },
+            { id: "3", title: "Модуль 3: Порядок нескольких прилагательных перед существительным", text: "Если к одному слову относится несколько качеств, они выстраиваются по строгому академическому правилу: 1) Opinion (Мнение), 2) Size (Размер), 3) Age (Возраст), 4) Shape (Форма), 5) Color (Цвет), 6) Origin (Происхождение), 7) Material (Материал).", ex: "Пример: We bought a beautiful (1), large (2), old (3), round (4), brown (5), Italian (6), wooden (7) table." },
+            { id: "4", title: "Модуль 4: Сложные структуры связи Past Simple и Past Continuous", text: "Глубокий анализ параллельных процессов в прошлом. Если два длительных действия происходили одновременно, не мешая друг другу, оба ставятся в Past Continuous через союз WHILE. Если одно действие перебило другое — используется союзы WHEN/WHILE.", ex: "Параллельно: While my mother was cooking, my father was reading a newspaper. / Прерывание: I was writing an essay when the phone rang." },
+            { id: "5", title: "Модуль 5: Present Perfect Continuous (Настоящее совершенное длительное)", text: "Выражает процесс, который начался в прошлом, длился определенное время и либо продолжается сейчас, либо только что завершился и имеет очевидный физический результат прямо перед глазами. Формула: have/has been + V-ing.", ex: "Пример: I have been working out for two hours (я весь мокрый, результат налицо). / It has been raining since morning." },
+            { id: "6", title: "Модуль 6: Конструкции Have been to vs Have gone to", text: "Важный нюанс Present Perfect. 'Have been to' означает, что субъект посетил какое-то место в прошлом и уже благополучно вернулся обратно. 'Have gone to' сигнализирует, что субъект уехал туда и всё ещё находится там (или находится в пути).", ex: "Been: She has been to Paris twice (она сейчас дома). / Gone: Where is Tom? - He has gone to the supermarket (он еще не вернулся)." },
+            { id: "7", title: "Модуль 7: Тонкости запретов и отсутствия необходимости (Mustn't vs Don't have to)", text: "Отрицательные формы модальных глаголов полностью меняют смысл. 'Mustn't' выражает строгое табу, запрет, нарушение законов. 'Don't/Doesn't have to' означает полное отсутствие необходимости делать что-то (но если очень хочется — то можно).", ex: "Запрет: You mustn't smoke here. / Нет нужды: It is Sunday, so I don't have to wake up early." },
+            { id: "8", title: "Модуль 8: Пассивный залог в Continuous и Perfect (Passive Voice)", text: "Пассивный залог применяется, когда объект действия важнее исполнителя. На углубленном уровне прорабатываются Continuous Passive (действие совершается прямо сейчас над объектом) и Perfect Passive (действие уже завершено к текущему моменту).", ex: "Continuous Passive: My flat is being renovated right now. / Perfect Passive: The letter has already been sent." },
+            { id: "9", title: "Модуль 9: Разница предлогов направления и места в торговле", text: "Использование предлогов AT, IN, ON при описании покупок, способов оплаты и нахождения в отделах магазинов. Оплата наличными — IN cash, оплата картой — BY credit card.", ex: "Пример: I paid for the jacket in cash, but my friend paid for his sneakers by credit card." },
+            { id: "10", title: "Модуль 10: Герундий против Инфинитива (Gerund vs Infinitive)", text: "Один из сложнейших разделов. После определенных глаголов можно использовать только герундий (V-ing: enjoy, avoid, mind, suggest), а после других — только инфинитив с частицей to (to V: decide, hope, promise, want). Некоторые глаголы (stop, forget, remember) меняют смысл в зависимости от формы.", ex: "Герундий: I enjoy swimming. / Инфинитив: I decided to stay. / Смена смысла: I stopped smoking (бросил привычку). / I stopped to smoke (остановился, чтобы покурить)." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        advGrammarData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -37,7 +37,7 @@
     </header>
 
     <div class="container">
-        <p class="section-title">Выбери класс, чтобы увидеть полный список предметов:</p>
+        <p class="section-title">Выбери класс, чтобы увидеть список предметов:</p>
         <div class="class-grid">
             <button class="class-btn" onclick="showClass(1)">1 класс</button>
             <button class="class-btn" onclick="showClass(2)">2 класс</button>
@@ -125,6 +125,9 @@
                     }
                     else if (subject === "Физика" && classNumber === 7) {
                         item.href = "fizika7.html";
+	    }
+                    else if (subject === "Иностранный язык" && classNumber === 7) {
+                        item.href = "eng7.html";
                     } else if (subject === "Русский язык" && classNumber === 7) {
                         item.href = "rus7.html";
                     } else {

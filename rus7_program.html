@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Русский язык 7 класс — Выбор программы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .section-header { font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; }
+        
+        .level-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+        
+        .btn-base { background: white; border: 3px solid #27ae60; color: #27ae60; padding: 20px; border-radius: 12px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: all 0.2s; text-align: center; }
+        .btn-base:hover { background: #27ae60; color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(39,174,96,0.2); }
+        .btn-base.active { background: #27ae60; color: white; }
+        
+        .btn-pro { background: white; border: 3px solid #2980b9; color: #2980b9; padding: 20px; border-radius: 12px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: all 0.2s; text-align: center; }
+        .btn-pro:hover { background: #2980b9; color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(41,128,185,0.2); }
+        .btn-pro.active { background: #2980b9; color: white; }
+
+        .chapters-panel { display: none; margin-top: 20px; border-top: 2px dashed #fde3cf; padding-top: 25px; }
+        .chapters-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
+        
+        .chapter-link { display: block; background: #fffcf9; padding: 18px; border-radius: 10px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: all 0.2s; }
+        .chapter-link:hover { transform: translateX(5px); }
+        
+        .style-base { border: 2px solid #2cc36b; border-left: 8px solid #2cc36b; color: #218c4e; }
+        .style-base:hover { background: #2cc36b; color: white !important; }
+        
+        .style-pro { border: 2px solid #3498db; border-left: 8px solid #3498db; color: #1f618d; }
+        .style-pro:hover { background: #3498db; color: #ffffff !important; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="rus7.html" class="back-link">← Вернуться к выбору учебника</a>
+        <h1 id="mainTitle">Русский язык 7 класс</h1>
+        <div class="page-title">ШАГ 2: ВЫБЕРИТЕ ПРОГРАММУ ИЗУЧЕНИЯ</div>
+
+        <div class="section-header">Выберите уровень изучения предмета:</div>
+        
+        <div class="level-grid">
+            <button class="btn-base" id="btnBase" onclick="showChapters('base', this)">🟢 БАЗОВЫЙ УРОВЕНЬ</button>
+            <button class="btn-pro" id="btnPro" onclick="showChapters('pro', this)">🔵 УГЛУБЛЁННЫЙ УРОВЕНЬ</button>
+        </div>
+
+        <div class="chapters-panel" id="chaptersPanel">
+            <div class="section-header" id="panelTitle">Доступные главы:</div>
+            <div class="chapters-grid" id="chaptersGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const author = urlParams.get('author');
+        
+        if(author === 'razumovskaya') {
+            document.getElementById('mainTitle').innerText = "Русский язык — М. М. Разумовская";
+        } else if(author === 'baranov') {
+            document.getElementById('mainTitle').innerText = "Русский язык — М. Т. Баранов";
+        }
+
+        // Идеально симметричная база данных: ровно по 12 глав на каждый уровень и каждого автора
+        const database = {
+            baranov: {
+                base: [
+                    "Глава 1. Русский язык как развивающееся явление",
+                    "Глава 2. Повторение изученного в 5-6 классах",
+                    "Глава 3. Текст и стили речи",
+                    "Глава 4. Причастие как особая форма глагола",
+                    "Глава 5. Деепричастие как особая форма глагола",
+                    "Глава 6. Наречие как часть речи",
+                    "Глава 7. Категория состояния как часть речи",
+                    "Глава 8. Служебные части речи. Предлог",
+                    "Глава 9. Служебные части речи. Союз",
+                    "Глава 10. Служебные части речи. Частица",
+                    "Глава 11. Междометие и звукоподражательные слова",
+                    "Глава 12. Повторение и систематизация изученного в 7 классе"
+                ],
+                pro: [
+                    "Глава 1. Роль старославянского языка и церковнославянизмов в развитии речи",
+                    "Глава 2. Историческая фонетика: чередования звуков и падение редуцированных",
+                    "Глава 3. Историческая грамматика: эволюция глагольных форм и причастий",
+                    "Глава 4. Продвинутая морфология: переход слов из одной части речи в другую",
+                    "Глава 5. Трудные случаи разграничения омонимичных самостоятельных и служебных слов",
+                    "Глава 6. Синонимика служебных частей речи и синтаксических конструкций",
+                    "Глава 7. Комплексный лингвистический анализ сложного художественного текста",
+                    "Глава 8. Культура речи, современные нормы произношения и орфоэпии",
+                    "Глава 9. Лексикография: работа с академическими и этимологическими словарями",
+                    "Глава 10. Стилистическая правка текстов различных функциональных стилей",
+                    "Глава 11. Активные процессы в современном синтаксисе русского языка",
+                    "Глава 12. Итоговое обобщение курса углубленного изучения русского языка"
+                ]
+            },
+            razumovskaya: {
+                base: [
+                    "Глава 1. О языке, речи и речевом общении",
+                    "Глава 2. Функциональные стили речи и типы текста",
+                    "Глава 3. Повторение изученного по орфографии и пунктуации",
+                    "Глава 4. Морфология. Причастие",
+                    "Глава 5. Морфология. Деепричастие",
+                    "Глава 6. Морфология. Наречие",
+                    "Глава 7. Морфология. Категория состояния",
+                    "Глава 8. Служебные слова: Предлог",
+                    "Глава 9. Служебные слова: Союз",
+                    "Глава 10. Служебные слова: Частица",
+                    "Глава 11. Междометия и модальные слова",
+                    "Глава 12. Систематизация изученного за курс 7 класса"
+                ],
+                pro: [
+                    "Глава 1. Стилистические ресурсы русского словообразования и лексики",
+                    "Глава 2. Стилистические ресурсы морфологии и синтаксиса",
+                    "Глава 3. Теория текста: средства межфразовой связи в сложной структуре",
+                    "Глава 4. Логико-смысловая структура абзаца и макротекста",
+                    "Глава 5. Переходные явления в системе частей речи русского языка",
+                    "Глава 6. Морфологический анализ повышенного уровня сложности",
+                    "Глава 7. Омонимия частей речи: отыменные предлоги, союзы и частицы",
+                    "Глава 8. Орфографический практикум повышенной сложности (Трудные правила)",
+                    "Глава 9. Пунктуационный анализ сложных синтаксических конструкций",
+                    "Глава 10. Функционирование языковых единиц в публицистическом стиле",
+                    "Глава 11. Основы лингвистической текстологии и редактирования",
+                    "Глава 12. Теоретические основы итоговой аттестации по русскому языку"
+                ]
+            }
+        };
+
+        function showChapters(level, buttonElement) {
+            document.getElementById('btnBase').classList.remove('active');
+            document.getElementById('btnPro').classList.remove('active');
+            buttonElement.classList.add('active');
+            
+            const panel = document.getElementById('chaptersPanel');
+            const grid = document.getElementById('chaptersGrid');
+            panel.style.display = 'block';
+            grid.innerHTML = '';
+            
+            let styleClass = (level === 'base') ? 'style-base' : 'style-pro';
+            let marker = (level === 'base') ? '🟢' : '🔹';
+            
+            if (database[author] && database[author][level]) {
+                const chapters = database[author][level];
+                
+                chapters.forEach((title, index) => {
+                    let file = `rus7_${author.substring(0,3)}_${level}_glava${index + 1}.html`;
+                    grid.innerHTML += `<a href="${file}" class="chapter-link ${styleClass}">${marker} ${title}</a>`;
+                });
+            } else {
+                grid.innerHTML = `<div style="text-align: center; color: #7f8c8d; font-style: italic; padding: 20px; width: 100%;">🔒 Раздел в разработке!</div>`;
+            }
+            
+            panel.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

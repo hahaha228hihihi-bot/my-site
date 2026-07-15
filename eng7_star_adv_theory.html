@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlight 7 — Грамматика (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #1f618d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng7_2.html?book=starlight" class="back-link">← Назад к выбору программы</a>
+        <h1>Starlight 7 класс</h1>
+        <div class="page-title">ГРАММАТИКА И ТЕОРИЯ (УГЛУБЛЁННЫЙ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const advGrammarData = [
+            { id: "1", title: "Модуль 1: Времена группы Perfect и конструкции времени", text: "Глубокое сопоставление Present Perfect и Past Simple, а также использование сложных временных конструкций с предлогами: 'since', 'for', 'already', 'just', 'yet', 'so far' (к настоящему моменту) и разбор структур связи 'have been to' (посетил и вернулся) и 'have gone to' (уехал и находится там).", ex: "Пример: I have known him for ages. / She has gone to New York (она всё ещё в Америке)." },
+            { id: "2", title: "Модуль 2: Настоящее совершенное длительное время в деталях", text: "Present Perfect Continuous (have/has been + V-ing) описывает длительное действие в развитии, результат которого важен сейчас. На углубленном уровне разбираются глаголы состояния, которые меняют смысл в зависимости от формы (например, have been having - динамика).", ex: "Пример: I'm exhausted because I have been working out. / I have been having a terrible headache all day (в значении процесса)." },
+            { id: "3", title: "Модуль 3: Будущие действия: Будущее длительное (Future Continuous)", text: "Future Continuous (will be + V-ing) выражает длительное действие, которое будет происходить в точно определенный момент времени в будущем. Также используется для вежливого расспроса о чьих-то планах.", ex: "Пример: Tomorrow at 5 PM I will be flying over the Atlantic. / Will you be using your car tonight? (вежливый вопрос)." },
+            { id: "4", title: "Модуль 4: Прошедшее совершенное время (Past Perfect)", text: "Past Perfect (had + V3) выражает действие, которое полностью завершилось ДО другого действия или до определенного момента в прошлом (предпрошедшее время). Маркеры: by 5 o'clock, after, before.", ex: "Пример: When I arrived at the station, the train had already left. / By 8 PM yesterday, I had finished my project." },
+            { id: "5", title: "Модуль 5: Модальные глаголы (Mustn't против Don't have to)", text: "Анализ жестких запретов и отсутствия необходимости. Mustn't означает абсолютное табу и запрет законов. Don't / Doesn't have to выражает полное отсутствие необходимости (делать не обязательно, но по желанию можно).", ex: "Запрет: You mustn't cross the road here. / Отсутствие обязанности: We don't have to wear a tie, it's optional." },
+            { id: "6", title: "Модуль 6: Порядок нескольких качественных прилагательных", text: "Академическое правило расстановки определений перед существительным: 1. Opinion (Мнение), 2. Size (Размер), 3. Age (Возраст), 7. Material (Материал). Полная цепочка: Opinion -> Size -> Age -> Shape -> Color -> Origin -> Material.", ex: "Пример: We saw a beautiful (1), small (2), old (3), round (4), black (5), French (6), plastic (7) clock." },
+            { id: "7", title: "Модуль 7: Придаточные предложения (Defining & Non-Defining Clauses)", text: "Defining relative clauses дают жизненно важную информацию, без них смысл предложения теряется (запятыми не отделяются). Non-defining clauses содержат лишь дополнительные факты и всегда выделяются запятыми (местоимение THAT в них использовать нельзя).", ex: "Defining: The doctor who treated me was nice. / Non-defining: My brother, who lives in London, is an engineer." },
+            { id: "8", title: "Модуль 8: Пассивный залог в длительных и совершенных временах (Passive Voice)", text: "Passive Voice в формах Continuous (am/is/are/was/were + being + V3) и Perfect (have/has/had + been + V3). Описывает действия, совершаемые над объектом в процессе или уже завершенные.", ex: "Continuous Passive: The bridge is being repaired right now. / Perfect Passive: The email has already been sent." },
+            { id: "9", title: "Модуль 9: Инфинитив и Герундий (Gerund vs Infinitive)", text: "Герундий (V-ing) используется после предлогов, фраз (look forward to) и глаголов enjoy, avoid, admit, mind. Инфинитив с частицей to (to V) — после decide, hope, manage, promise. Глаголы stop, remember, forget полностью меняют смысл.", ex: "Смысл: I stopped smoking (бросил курить насовсем). / I stopped to smoke (сделал остановку в пути, чтобы покурить)." },
+            { id: "10", title: "Модуль 10: Первое условное предложение и союзы Unless, As long as", text: "First Conditional выражает реальное будущее. На углубленном уровне вместо IF активно применяются союзы: unless (если только не), as long as / provided that (при условии, что). После этих союзов Future Simple использовать строго запрещено.", ex: "Пример: Unless you study harder, you won't pass. / You can borrow my book as long as you return it tomorrow." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        advGrammarData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotlight 7 Advanced — Словарь и Глаголы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .tab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .tab-btn { background: white; border: 2px solid #3498db; color: #2980b9; padding: 15px; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold; text-align: center; transition: all 0.2s; }
+        .tab-btn:hover { transform: translateY(-2px); }
+        .tab-btn.active { background: #2980b9; border-color: #2980b9; color: white; }
+        .content-panel { display: none; }
+        
+        .category-title { background: #3498db; color: white; padding: 8px 15px; border-radius: 6px; font-size: 1.1rem; font-weight: bold; margin: 20px 0 10px 0; }
+        .list-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 15px; border-radius: 8px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .word-eng { font-size: 1.2rem; font-weight: bold; color: #1f618d; }
+        .word-trans { font-size: 1rem; color: #7f8c8d; font-style: italic; }
+        .word-rus { font-size: 1.1rem; font-weight: 500; color: #333; }
+        
+        .verb-row { display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 10px; width: 100%; }
+        .verb-form { font-size: 1.1rem; font-weight: bold; color: #333; }
+        .verb-form span { color: #7f8c8d; font-size: 0.9rem; font-weight: normal; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng7_2.html?book=spotlight" class="back-link">← Назад к выбору программы</a>
+        <h1>Spotlight 7 класс</h1>
+        <div class="page-title">СЛОВАРЬ И ТАБЛИЦА ГЛАГОЛОВ (УГЛУБЛЁННЫЙ)</div>
+
+        <div class="tab-grid">
+            <button class="tab-btn" id="btn-words" onclick="switchTab('words')">📝СЛОВАРЬ</button>
+            <button class="tab-btn" id="btn-verbs" onclick="switchTab('verbs')">⚡ НЕПРАВЕЛЬНЫЕ ГЛАГОЛЫ</button>
+        </div>
+
+        <!-- ВКЛАДКА 1: СЛОВА -->
+        <div class="content-panel" id="panel-words"></div>
+
+        <!-- ВКЛАДКА 2: ГЛАГОЛЫ -->
+        <div class="content-panel" id="panel-verbs"></div>
+    </div>
+
+    <script>
+        // Усложненная лексика на 10 модулей
+        const advancedModules = [
+            { cat: "Модуль 1. Городская инфраструктура (Urban Infrastructure)", words: [
+                { eng: "Residential area", tr: "[ˌrez.ɪˈden.ʃəl ˈeə.ri.ə]", ru: "Спальный район, жилой массив" },
+                { eng: "Constant pressure", tr: "[ˈkɒn.stənt ˈpreʃ.ər]", ru: "Постоянный стресс, прессинг" },
+                { eng: "Pedestrian zone", tr: "[pəˈdes.tri.ən zəʊn]", ru: "Пешеходная зона" }
+            ]},
+            { cat: "Модуль 2. Литературные жанры и фольклор (Literature & Tales)", words: [
+                { eng: "Supernatural", tr: "[ˌsuː.pəˈnætʃ.ər.əl]", ru: "Сверхъестественный" },
+                { eng: "Mysterious disappearance", tr: "[mɪˈstɪə.ri.əs ˌdɪs.əˈpɪə.rəns]", ru: "Загадочное исчезновение" }
+            ]},
+            { cat: "Модуль 3. Профессии и достижения (Profiles & Careers)", words: [
+                { eng: "Overcome obstacles", tr: "[ˌəʊ.vəˈkʌm ˈɒb.stə.kl̩z]", ru: "Преодолевать препятствия" },
+                { eng: "Research field", tr: "[rɪˈsɜːtʃ fiːld]", ru: "Область исследований" }
+            ]},
+            { cat: "Модуль 4. Медиа и Общество (Media & Society)", words: [
+                { eng: "Commercial ad", tr: "[kəˈmɜː.ʃəl æd]", ru: "Коммерческая реклама" },
+                { eng: "Broadcast", tr: "[ˈbrɔːd.kɑːst]", ru: "Транслировать, вести передачу" }
+            ]},
+            { cat: "Модуль 5. Высокие технологии (High-Tech Era)", words: [
+                { eng: "Artificial intelligence", tr: "[ˌɑː.tɪ.fɪʃ.əl ɪnˈtel.ɪ.dʒəns]", ru: "Искусственный интеллект" },
+                { eng: "Malfunction", tr: "[ˌmælˈfʌŋk.ʃən]", ru: "Сбой в работе, неисправность" }
+            ]},
+            { cat: "Модуль 6. Мировой туризм (Global Tourism)", words: [
+                { eng: "Breathtaking scenery", tr: "[ˈbreθˌteɪ.kɪŋ ˈsiː.nər.i]", ru: "Захватывающий дух пейзаж" },
+                { eng: "Package holiday", tr: "[ˈpæk.ɪdʒ ˈhɒl.ə.deɪ]", ru: "Тур по системе 'все включено'" }
+            ]},
+            { cat: "Модуль 7. Известность и слава (Celebrity Culture)", words: [
+                { eng: "Prestigious award", tr: "[presˈtɪdʒ.əs əˈwɔːd]", ru: "Престижная награда" },
+                { eng: "Inspirational figure", tr: "[ˌɪn.spɪˈreɪ.ʃən.əl ˈfɪɡ.ər]", ru: "Вдохновляющая личность" }
+            ]},
+            { cat: "Модуль 8. Экологическая катастрофа (Ecological Crisis)", words: [
+                { eng: "Deforestation", tr: "[ˌdiː.fɒr.ɪˈsteɪ.ʃən]", ru: "Вырубка лесов" },
+                { eng: "Fossil fuels", tr: "[ˈfɒs.əl ˌfjuː.əlz]", ru: "Ископаемое топливо" }
+            ]},
+            { cat: "Модуль 9. Потребительское общество (Consumerism)", words: [
+                { eng: "Cost an arm and a leg", tr: "[kɒst æn ɑːm ænd ə leɡ]", ru: "Стоить баснословных денег (идиома)" },
+                { eng: "Receipt", tr: "[rɪˈsiːt]", ru: "Чек, квитанция" }
+            ]},
+            { cat: "Модуль 10. Стресс и психологическое здоровье (Stress Management)", words: [
+                { eng: "Exhaustion", tr: "[ɪɡˈzɔːs.tʃən]", ru: "Истощение, крайняя усталость" },
+                { eng: "Cope with", tr: "[kəʊp wɪð]", ru: "Справляться с чем-либо" }
+            ]}
+        ];
+
+        const advancedVerbs = [
+            { inf: "arise", p1: "arose", p2: "arisen", tr1: "[əˈraɪz]", tr2: "[əˈrəʊz]", tr3: "[əˈrɪz.ən]", ru: "возникать, появляться" },
+            { inf: "hide", p1: "hid", p2: "hidden", tr1: "[haɪd]", tr2: "[hɪd]", tr3: "[ˈhɪd.n̩]", ru: "прятать, скрывать" },
+            { inf: "rise", p1: "rose", p2: "risen", tr1: "[raɪz]", tr2: "[rəʊz]", tr3: "[ˈhɪz.ən]", ru: "подниматься, возрастать" },
+            { inf: "forbid", p1: "forbade", p2: "forbidden", tr1: "[fəˈbɪd]", tr2: "[fəˈbæd]", tr3: "[fəˈbɪd.n̩]", ru: "запрещать" }
+        ];
+
+        // Рендеринг слов
+        const wordsContainer = document.getElementById('panel-words');
+        advancedModules.forEach(m => {
+            let html = `<div class="category-title">${m.cat}</div>`;
+            m.words.forEach(w => {
+                html += `
+                    <div class="list-card">
+                        <div><span class="word-eng">${w.eng}</span> <span class="word-trans">${w.tr}</span></div>
+                        <div class="word-rus">${w.ru}</div>
+                    </div>`;
+            });
+            wordsContainer.innerHTML += html;
+        });
+
+        // Рендеринг глаголов
+        const verbsContainer = document.getElementById('panel-verbs');
+        let verbsHtml = `
+            <div class="list-card" style="background: #d4e6f1; border-left-color: #3498db; font-weight: bold;">
+                <div class="verb-row">
+                    <div>Infinitive (1)</div>
+                    <div>Past Simple (2)</div>
+                    <div>Past Participle (3)</div>
+                    <div>Перевод</div>
+                </div>
+            </div>`;
+        advancedVerbs.forEach(v => {
+            verbsHtml += `
+                <div class="list-card">
+                    <div class="verb-row">
+                        <div class="verb-form">${v.inf} <span>${v.tr1}</span></div>
+                        <div class="verb-form" style="color: #1f618d;">${v.p1} <span>${v.tr2}</span></div>
+                        <div class="verb-form" style="color: #1f618d;">${v.p2} <span>${v.tr3}</span></div>
+                        <div class="word-rus">${v.ru}</div>
+                    </div>
+                </div>`;
+        });
+        verbsContainer.innerHTML = verbsHtml;
+
+        function switchTab(tabId) {
+            document.getElementById('panel-words').style.display = 'none';
+            document.getElementById('panel-verbs').style.display = 'none';
+            document.getElementById('btn-words').classList.remove('active');
+            document.getElementById('btn-verbs').classList.remove('active');
+            
+            document.getElementById('panel-' + tabId).style.display = 'block';
+            if (tabId === 'words') document.getElementById('btn-words').classList.add('active');
+            if (tabId === 'verbs') document.getElementById('btn-verbs').classList.add('active');
+        }
+        window.onload = function() { switchTab('words'); };
+    </script>
+</body>
+</html>

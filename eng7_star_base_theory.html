@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlight 7 — Грамматика (Базовый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="eng7_2.html?book=starlight" class="back-link">← Назад к выбору программы</a>
+        <h1>Starlight 7 класс</h1>
+        <div class="page-title">ГРАММАТИКА И ТЕОРИЯ (БАЗОВЫЙ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const grammarData = [
+            { id: "1", title: "Модуль 1: Present Perfect vs Past Simple", text: "Present Perfect (have/has + V3) связывает прошлое с настоящим через результат к текущему моменту (время неважно). Past Simple фиксирует законченное действие в прошлом, когда указано точное время (yesterday, ago).", ex: "Perfect: I have lost my keys (результат: не могу войти). / Simple: I lost my keys yesterday (факт в прошлом)." },
+            { id: "2", title: "Модуль 2: Настоящее совершенное длительное время (Present Perfect Continuous)", text: "Описывает длительный процесс, который начался в прошлом и продолжается до сих пор, либо только что завершился и имеет видимый результат. Маркеры: for, since, how long.", ex: "Формула: have/has been + V-ing. Пример: It has been raining since morning. I have been learning English for 5 years." },
+            { id: "3", title: "Модуль 3: Будущие времена (Future Simple, Be going to, Present Continuous)", text: "Future Simple (will) — спонтанные решения, прогнозы. 'Be going to' — планы, намерения. Present Continuous — жесткие договоренности в будущем с указанием времени и места.", ex: "Will: I think she will call later. / Going to: We are going to buy a car. / Continuous: I am flying to Paris tomorrow at 6 PM." },
+            { id: "4", title: "Модуль 4: Прошедшее длительное время (Past Continuous) в связках", text: "Описывает процесс в определенный момент прошлого. При связи двух действий длительный фоновый процесс ставится в Past Continuous, а прерывающее его короткое действие — в Past Simple.", ex: "Формула: was/were + V-ing. Пример: While I was doing homework (фон), the telephone rang (прерывание)." },
+            { id: "5", title: "Модуль 5: Модальные глаголы (Must, Have to, Should)", text: "Must выражает личную острую необходимость или приказ. Have to — обязанность из-за внешних законов или обстоятельств. Should используется для выражения дружеского совета.", ex: "Пример: I must study hard (сам решил). / Students have to wear a uniform (правило). / You should sleep more (совет)." },
+            { id: "6", title: "Модуль 6: Степени сравнения и конструкции (As... as, Not so... as)", text: "Для сравнения одинаковых по качеству предметов используется союз 'as... as' (такой же... как). Если предметы отличаются, применяется отрицательный союз 'not as... as / not so... as'.", ex: "Пример: Tom is as tall as Ben. / This smartphone is not so expensive as that one." },
+            { id: "7", title: "Модуль 7: Придаточные определительные предложения (Relative Clauses)", text: "Who используется для людей. Which / That — для предметов и животных. Whose выражает принадлежность (чей). Where обозначает место действия.", ex: "Пример: The boy who lives next door is my friend. / The book which you gave me is interesting. / The school where I study is big." },
+            { id: "8", title: "Модуль 8: Пассивный залог (Passive Voice — Present/Past Simple)", text: "Используется, когда объект действия важнее исполнителя. Формируется при помощи глагола to be в нужной форме и третьей формы основного глагола (V3).", ex: "Формула: am/is/are/was/were + V3. Пример: This house was built in 1995. Letters are delivered every day." },
+            { id: "9", title: "Модуль 9: Возвратные местоимения (Reflexive Pronouns)", text: "Показывают, что действие направлено на самого исполнителя. Соответствуют русским частицам '-ся' или слову 'сам'. Образуются суффиксами -self (ед.ч.) и -selves (мн.ч.).", ex: "Пример: I cut myself (порезался). / They built the treehouse by themselves (построили сами, без посторонней помощи)." },
+            { id: "10", title: "Модуль 10: Условные предложения 0 и 1 типа (Zero & First Conditionals)", text: "Zero Conditional описывает научные факты (If + Present Simple, Present Simple). First Conditional выражает реальные условия в будущем (If + Present Simple, Future Simple).", ex: "Zero: If you heat water to 100°C, it boils. / First: If the weather is fine tomorrow, we will go to the park." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        grammarData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
