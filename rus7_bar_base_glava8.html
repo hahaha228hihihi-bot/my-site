@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 8. Предлог — Русский язык 7 класс</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к выбору программы</a>
+        <h1>Глава 8. Предлог</h1>
+        <div class="page-title">СЛУЖЕБНЫЕ ЧАСТИ РЕЧИ И ПРАВОПИСАНИЕ (БАЗОВЫЙ УРОВЕНЬ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { 
+                id: "1", 
+                title: "Предлог как служебная часть речи. Простые и составные предлоги", 
+                text: "<strong>Предлог</strong> — это служебная часть речи, которая выражает зависимость существительных, числительных и местоимений от других слов в словосочетании и предложении. Предлоги не изменяются и не являются самостоятельными членами предложения. По строению предлоги делятся на <strong>простые</strong> (состоят из одного слова) и <strong>составные</strong> (состоят из нескольких слов).", 
+                ex: "Простые: в, на, под, через, благодаря. / Составные: в течение, в продолжение, за счет." 
+            },
+            { 
+                id: "2", 
+                title: "Производные и непроизводные предлоги", 
+                text: "<strong>Непроизводные предлоги</strong> изначально возникли как предлоги и не образованы от других частей речи (<i>в, на, с, у, к, под</i>). <strong>Производные предлоги</strong> образовались путем перехода слов из самостоятельных частей речи в служебные: из существительных (<i>ввиду, вследствие</i>), наречий (<i>мимо, вокруг</i>) или деепричастий (<i>благодаря, несмотря на</i>).", 
+                ex: "Сравнение: Пройти <i>мимо</i> дома (производный предлог) — Он прошёл <i>мимо</i> (наречие)." 
+            },
+            { 
+                id: "3", 
+                title: "Правописание отыменных предлогов (В течение, В продолжение, Вследствие)", 
+                text: "Это главная ловушка ВПР и ОГЭ. Предлоги <strong>В ТЕЧЕНИЕ</strong> и <strong>В ПРОДОЛЖЕНИЕ</strong> всегда пишутся в два слова и имеют на конце букву <strong>Е</strong> (выражают значение времени). Предлог <strong>ВСЛЕДСТВИЕ</strong> пишется слитно и имеет на конце букву <strong>Е</strong> (имеет значение причины, заменяется предлогом ИЗ-ЗА).", 
+                ex: "Предлог (время): <i>В течени<strong>е</strong></i> часа мы ждали автобус. / Существительное с непроизводным предлогом: В течени<strong>и</strong> быстрой реки были водовороты." 
+            }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 6. Наречие — Русский язык 7 класс</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к выбору программы</a>
+        <h1>Глава 6. Наречие</h1>
+        <div class="page-title">ПОЛНЫЙ КУРС, СТЕПЕНИ СРАВНЕНИЯ И ОРФОГРАММЫ (БАЗОВЫЙ УРОВЕНЬ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { 
+                id: "1", 
+                title: "Наречие как часть речи. Разряды наречий по значению", 
+                text: "<strong>Наречие</strong> — самостоятельная часть речи, обозначающая признак действия, признак признака или признак предмета. Наречия отвечают на вопросы: <i>как? куда? когда? зачем? почему?</i> и др. <strong>Главное свойство:</strong> наречие неизменяемо и не имеет окончания. <br><strong>Основные разряды по значению:</strong> <br>1) Образа действия (<i>как?</i> — быстро); 2) Времени (<i>когда?</i> — вчера); 3) Места (<i>где? куда?</i> — справа, туда); 4) Причины (<i>почему?</i> — спросонья); 5) Цели (<i>зачем?</i> — назло); 6) Меры и степени (<i>в какой степени?</i> — очень, совсем).", 
+                ex: "Пример: Он шёл <i>пешком</i> (образа действия), вернулся <i>затемно</i> (времени), устал <i>чертовски</i> (меры и степени)." 
+            },
+            { 
+                id: "2", 
+                title: "Степени сравнения наречий", 
+                text: "Наречия на <strong>-О / -Е</strong>, образованные от качественных прилагательных, имеют две степени сравнения: <strong>сравнительную</strong> и <strong>превосходную</strong>. <br>• Сравнительная степень бывает <i>простой</i> (суффиксы -ее, -ей, -е, -ше) и <i>составной</i> (слова более/менее + наречие). <br>• Превосходная степень обычно является <i>составной</i> (сравнительная степень наречия + слова 'всего' или 'всех').", 
+                ex: "Сравнительная простая: громко -> громч<strong>е</strong>, быстро -> быстр<strong>ее</strong>. / Составная: более громко. / Превосходная: громче <u>всех</u>, взлетел выше <u>всего</u>." 
+            },
+            { 
+                id: "3", 
+                title: "Правописание Н и НН в наречиях на -О и -Е", 
+                text: "Здесь работает самое простое и логичное правило: в наречиях на -О / -Е пишется **ровно столько же букв Н**, сколько их писалось в прилагательном или причастии, от которого это наречие было образовано.", 
+                ex: "Пишется Н: ветреный -> ветрено шуршал; путаный -> объяснял путано. / Пишется НН: искренний -> искренне радовался; удивлённый -> смотрел удивлённо." 
+            },
+            { 
+                id: "4", 
+                title: "Буквы О и А на конце наречий. Правило окна", 
+                text: "В наречиях с приставками <strong>ИЗ-, ДО-, С-</strong> на конце пишется буква <strong>А</strong>. В наречиях с приставками <strong>В-, НА-, ЗА-</strong> пишется буква <strong>О</strong>. <br><strong>Лайфхак (Правило окна):</strong> подставь вместо корня слово 'окно' с той же приставкой — какая гласная будет на конце 'окна', такая же будет и у наречия.", 
+                ex: "Проверка: <strong>из</strong>давн... (из окн<strong>а</strong> -> издавн<strong>а</strong>), <strong>с</strong>прав... (с окн<strong>а</strong> -> справ<strong>а</strong>). / <strong>в</strong>прав... (в окн<strong>о</strong> -> вправ<strong>о</strong>), <strong>за</strong>светл... (за окн<strong>о</strong> -> засветл<strong>о</strong>)." 
+            },
+            { 
+                id: "5", 
+                title: "Слитное и дефисное написание наречий", 
+                text: "Дефис в наречиях пишется в следующих случаях: <br>1) После приставок <strong>ПО-</strong>, если есть суффиксы <strong>-ОМУ, -ЕМУ, -И</strong>; <br>2) После приставок <strong>В- / ВО-</strong> в наречиях, образованных от порядковых числительных (суффиксы -ых/-их); <br>3) При повторении одного и того же слова или синонимов; <br>4) С суффиксами <strong>-ТО, -ЛИБО, -НИБУДЬ</strong> и приставкой <strong>КОЕ-</strong>.", 
+                ex: "Дефис: <strong>по</strong>-нов<strong>ому</strong>, <strong>по</strong>-русск<strong>и</strong>, <strong>во</strong>-перв<strong>ых</strong>, еле-еле, как-<strong>нибудь</strong>. / Слитно: понемногу, вправо, вкрутую." 
+            },
+            { 
+                id: "6", 
+                title: "Буква Ь на конце наречий после шипящих", 
+                text: "На конце наречий после шипящих (Ж, Ш, Ч, Щ) всегда пишется <strong>буква Ь</strong>. В этом правиле есть всего три слова-исключения, которые нужно просто запомнить.", 
+                ex: "Пишется Ь: вскачь, настежь, сплошь, навзничь. / Исключения (без Ь): <strong>уж, замуж, невтерпёж</strong>." 
+            }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

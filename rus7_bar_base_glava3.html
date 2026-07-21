@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 3. Текст и стили речи — Русский язык 7 класс</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к выбору программы</a>
+        <h1>Глава 3. Текст и стили речи</h1>
+        <div class="page-title">РАЗГОВОРНЫЕ И КНИЖНЫЕ СТИЛИ (БАЗОВЫЙ УРОВЕНЬ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { 
+                id: "1", 
+                title: "Текст и его основные признаки. Тема и микротема", 
+                text: "<strong>Текст</strong> — это два или более предложений, связанных между собой по смыслу и грамматически. Основные признаки текста: смысловая цельность, членимость, завершенность и наличие темы. <strong>Тема</strong> — это то, о чём говорится в тексте. Большая тема обычно делится на несколько мелких частей — <strong>микротем</strong>. Каждая микротема чаще всего выделяется в отдельный абзац.", 
+                ex: "Правило: Абзац является границей микротемы. Сколько в тексте абзацев — столько обычно и микротем." 
+            },
+            { 
+                id: "2", 
+                title: "Стили речи. Разговорный стиль", 
+                text: "Все речевые ситуации делятся на бытовые и официальные. <strong>Разговорный стиль</strong> используется в неофициальной обстановке, при общении с друзьями или родственниками. Его особенности: непринужденность, эмоциональность, использование разговорных слов, неполных предложений, мимики и жестов.", 
+                ex: "Пример: 'Привет, ты чего не пришёл? Мы тебя ждали-ждали, а ты трубку не берёшь!' — типичный разговорный стиль." 
+            },
+            { 
+                id: "3", 
+                title: "Книжные стили: Научный и Публицистический", 
+                text: "Книжные стили используются в официальной сфере. <strong>Научный стиль</strong> нужен для передачи точных знаний (учебники, энциклопедии). Его черты: логичность, обилие терминов, отсутствие эмоций. <strong>Публицистический стиль</strong> используется в СМИ (газеты, статьи, блоги) для воздействия на людей и призыва к действиям. Его черты: яркость, страстность, призывность.", 
+                ex: "Научный: 'Причастие совмещает грамматические признаки глагола и прилагательного'. / Публицистический: 'Мы обязаны беречь великое русское слово, защищать наш язык от замусоривания!'" 
+            },
+            { 
+                id: "4", 
+                title: "Официально-деловой и Художественный стили речи", 
+                text: "<strong>Официально-деловой стиль</strong> используется для написания законов, заявлений, справок и документов. Его особенности: строгие штампы (клише), точность формулировок, отсутствие личных эмоций. <strong>Художественный стиль</strong> применяется в литературе для создания образов и воздействия на чувства читателя при помощи метафор, эпитетов и сравнений.", 
+                ex: "Деловой: 'Я, Иванов И.И., прошу предоставить мне отпуск...'. / Художественный: 'Зима пришла, укутав сонные деревья в пушистые белые шубы'." 
+            }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

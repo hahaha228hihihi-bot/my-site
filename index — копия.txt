@@ -122,48 +122,6 @@
                     }
                     else if (subject === "Математика" && classNumber === 5) {
                         item.href = "math5.html";
-	     }
-                    else if (subject === "Русский язык" && classNumber === 5) {
-                        item.href = "rus5.html";
-	    }
-                    else if (subject === "История" && classNumber === 5) {
-                        item.href = "histor5.html";
-	    }
-                    else if (subject === "География" && classNumber === 5) {
-                        item.href = "geog5.html";
-	    }
-                    else if (subject === "Биология" && classNumber === 5) {
-                        item.href = "bio5.html";
-	    }
-                    else if (subject === "Информатика" && classNumber === 5) {
-                        item.href = "info5.html";
-	    }
-                    else if (subject === "Иностранный язык" && classNumber === 5) {
-                        item.href = "eng5.html";
-                    }
-	     else if (subject === "Математика" && classNumber === 6) {
-                        item.href = "math6.html";
-	     }
-                    else if (subject === "Русский язык" && classNumber === 6) {
-                        item.href = "rus6.html";
-	    }
-                    else if (subject === "История" && classNumber === 6) {
-                        item.href = "histor6.html";
-	    }
-                    else if (subject === "География" && classNumber === 6) {
-                        item.href = "geog6.html";
-	    }
-                    else if (subject === "Биология" && classNumber === 6) {
-                        item.href = "bio6.html";
-	    }
-                    else if (subject === "Информатика" && classNumber === 6) {
-                        item.href = "info6.html";
-	    }
-                    else if (subject === "Иностранный язык" && classNumber === 6) {
-                        item.href = "eng6.html";
-	    }
-                    else if (subject === "Обществознание" && classNumber === 6) {
-                        item.href = "obsh6.html";
                     }
                     else if (subject === "Физика" && classNumber === 7) {
                         item.href = "fizika7.html";
@@ -178,10 +136,7 @@
                         item.href = "geom7.html"; 
 	    }
                     else if (subject === "Вероятность и статистика" && classNumber === 7) {
-                        item.href = "vist7.html";  
-	    }
-                    else if (subject === "Биология" && classNumber === 7) {
-                        item.href = "bio7.html";
+                        item.href = "vist7.html"; 
 	    }
                     else if (subject === "Информатика" && classNumber === 7) {
                         item.href = "info7.html";  

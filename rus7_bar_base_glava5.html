@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 5. Деепричастие — Русский язык 7 класс</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #333; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к выбору программы</a>
+        <h1>Глава 5. Деепричастие</h1>
+        <div class="page-title">ПОЛНЫЙ КУРС, СУФФИКСЫ И ОБОРОТЫ (БАЗОВЫЙ УРОВЕНЬ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { 
+                id: "1", 
+                title: "Понятие о деепричастии. Признаки глагола и наречия", 
+                text: "<strong>Деепричастие</strong> — это особая неизменяемая форма глагола, которая обозначает добавочное действие при основном действии, выраженном сказуемым, и отвечает на вопросы: <i>что делая? что сделав? как? каким образом?</i>. <br><strong>Признаки наречия:</strong> деепричастие абсолютно не изменяется (у него нет и не может быть окончания!), в предложении всегда выполняет роль обстоятельства. <br><strong>Признаки глагола:</strong> сохраняет вид (совершенный/несовершенный), возвратность, а также управляет зависимыми существительными.", 
+                ex: "Пример: Сверкая на солнце, река текла на восток. Текла (как? что делая?) -> <i>сверкая</i>. Глагольные признаки: несов. вид; признаки наречия: неизменяемость." 
+            },
+            { 
+                id: "2", 
+                title: "Деепричастный оборот. Железное правило обособления", 
+                text: "Деепричастие со всеми зависимыми от него словами образует <strong>деепричастный оборот</strong>. <br><strong>Главное правило пунктуации:</strong> в отличие от причастного оборота, деепричастный оборот (и одиночное деепричастие!) выделяется запятыми (обособляется) <strong>ВСЕГДА</strong>, независимо от того, в каком месте предложения он стоит — в начале, в середине или в конце.", 
+                ex: "В начале: <u>Изучив карту</u>, туристы двинулись в путь. / В середине: Туристы, <u>изучив карту</u>, двинулись в путь. / В конце: Туристы двинулись в путь, <u>изучив карту</u>." 
+            },
+            { 
+                id: "3", 
+                title: "Деепричастия несовершенного вида. Суффиксы -А- / -Я-", 
+                text: "Деепричастия несовершенного вида отвечают на вопрос <i>что делая?</i> и обозначают добавочное действие, которое происходит одновременно с основным. Они образуются от основы настоящего времени глаголов несовершенного вида при помощи суффиксов <strong>-А- / -Я-</strong>.", 
+                ex: "Пример: Блестят -> блест<strong>я</strong>, кричат -> крич<strong>а</strong>, думают -> дума<strong>я</strong>. Исключение: глагол <i>быть</i> образует деепричастие <i>будучи</i>." 
+            },
+            { 
+                id: "4", 
+                title: "Деепричастия совершенного вида. Суффиксы -В-, -ВШИ-, -ШИ-", 
+                text: "Деепричастия совершенного вида отвечают на вопрос <i>что сделав?</i> и обозначают добавочное действие, которое произошло раньше основного. Они образуются от основы инфинитива глаголов совершенного вида при помощи суффиксов <strong>-В-</strong> (после гласных), <strong>-ВШИ-</strong> (у возвратных глаголов) и <strong>-ШИ-</strong> (после согласных).", 
+                ex: "Пример: Прочитать -> прочита<strong>в</strong>, улыбнуться -> улыбну<strong>вши</strong>сь, принести -> принес<strong>ши</strong>." 
+            },
+            { 
+                id: "5", 
+                title: "Правописание НЕ с деепричастиями", 
+                text: "Правило правописания <strong>НЕ с деепричастиями</strong> полностью повторяет правило для глаголов: НЕ пишется с деепричастиями строго <strong>РАЗДЕЛЬНО</strong>. Слитно пишется только в том случае, если деепричастие вообще не употребляется без НЕ.", 
+                ex: "Раздельно: не_думая, не_спеша, не_узнав. / Слитно (без НЕ не употребляется): <strong>не</strong>годуя, <strong>не</strong>доумевая, <strong>не</strong>навидя." 
+            },
+            { 
+                id: "6", 
+                title: "Главная синтаксическая ловушка деепричастия", 
+                text: "Помни! И основное действие (сказуемое), и добавочное действие (деепричастие) должны выполняться <strong>одним и тем же лицом или предметом</strong> (подлежащим). Использование деепричастного оборота в безличных предложениях или там, где действия совершают разные лица — это грубейшая грамматическая ошибка, которую всегда проверяют в ВПР и ОГЭ.", 
+                ex: "Ошибка: <u>Подъезжая к станции</u>, у меня слетела шляпа (шляпа сама подъезжала?). / Правильно: Когда я подъезжал к станции, у меня слетела шляпа." 
+            }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
