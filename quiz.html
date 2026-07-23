@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест на совместимость ✨</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fcfcfc;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .main-container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+        .content-card.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        h2 {
+            font-size: 24px;
+            color: #ffd32a;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 35px;
+            font-weight: 600;
+        }
+        .buttons-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .btn-quiz-option {
+            background-color: #ffffff;
+            color: #2c3e50;
+            border: 3px solid #ffca28;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .btn-quiz-option:hover {
+            background-color: #fffde7;
+            transform: translateY(-1px);
+        }
+        .btn-quiz-option.selected {
+            background-color: #ffca28 !important;
+            color: #2c3e50 !important;
+            border-color: #ffb300 !important;
+        }
+        .btn-next-step {
+            background-color: #ffca28;
+            color: #2c3e50;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+            display: none;
+        }
+        .score-badge {
+            display: inline-block;
+            background: #fffde7;
+            border: 3px solid #ffca28;
+            color: #2c3e50;
+            font-size: 32px;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .result-desc {
+            color: #34495e;
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 500;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        
+        <!-- Вопрос 1 -->
+        <div id="q1" class="content-card active">
+            <h2>Выбери 2 моих любимых жанра кино: 🍿</h2>
+            <p class="subtitle">Шаг 1</p>
+            <div class="grid-layout">
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'хоррор')">Хорроры</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'комедия')">Комедии</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'боевик')">Боевики</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'мелодрама')">Мелодрамы</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'фантастика')">Фантастика</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'триллер')">Триллеры</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'драма')">Драмы</button>
+                <button class="btn-quiz-option" onclick="selectMulti(this, 'аниме')">Аниме</button>
+            </div>
+            <button id="q1-next" class="btn-next-step" onclick="checkQ1()">Далее ➔</button>
+        </div>
+
+        <!-- Вопрос 2 -->
+        <div id="q2" class="content-card">
+            <h2>Выбери мои любимые цвета (нужно выбрать 2): 🎨</h2>
+            <p class="subtitle">Шаг 2</p>
+            <div class="grid-layout">
+                <button class="btn-quiz-option" style="border-color: #e74c3c; color: #e74c3c;" onclick="selectColor(this, 'красный')">Красный</button>
+                <button class="btn-quiz-option" style="border-color: #3498db; color: #3498db;" onclick="selectColor(this, 'синий')">Синий</button>
+                <button class="btn-quiz-option" style="border-color: #2ecc71; color: #2ecc71;" onclick="selectColor(this, 'зеленый')">Зеленый</button>
+                <button class="btn-quiz-option" style="border-color: #000000; color: #000000;" onclick="selectColor(this, 'черный')">Черный</button>
+                <button class="btn-quiz-option" style="border-color: #9b59b6; color: #9b59b6;" onclick="selectColor(this, 'фиолетовый')">Фиолетовый</button>
+                <button class="btn-quiz-option" style="border-color: #cccccc; color: #7f8c8d;" onclick="selectColor(this, 'белый')">Белый</button>
+            </div>
+            <button id="q2-next" class="btn-next-step" onclick="checkQ2()">Далее ➔</button>
+        </div>
+
+        <!-- Вопрос 3 -->
+        <div id="q3" class="content-card">
+            <h2>Считаешь ли ты Мелстроя легендой интернета? 📞</h2>
+            <p class="subtitle">Шаг 3</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q3', 'q4')">Да</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q3', 'q4')">Нет, вообще его не смотрю</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q3', 'q4')">Кто это такой вообще?</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 4 -->
+        <div id="q4" class="content-card">
+            <h2>Кого ты считаешь самым милым животным? 🐾</h2>
+            <p class="subtitle">Шаг 4</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q4', 'q5')">Милого пушистого кота 🐱</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q4', 'q5')">Большую собаку, чтоб всех защищала 🦮</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q4', 'q5')">Капибару, они чилловые 🦦</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q4', 'q5')">Рыбок, они молчат</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 5 -->
+        <div id="q5" class="content-card">
+            <h2>Какое время года самое лучшее для прогулок вдвоём? 🍂</h2>
+            <p class="subtitle">Шаг 5</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q5', 'q6')">Жаркое лето, чтобы купаться ☀️</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q5', 'q6')">Уютная золотая осень в худи 🍁</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q5', 'q6')">Цветущая весна, когда всё тает 🌱</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q5', 'q6')">Снежная зима, играть в снежки ❄️</button>
+            </div>
+        </div>
+
+<!-- СЮДА ВСТАВИТЬ ВТОРУЮ ЧАСТЬ -->
+              <!-- Вопрос 6 (Старый вопрос 6 про свидание) -->
+        <div id="q6" class="content-card">
+            <h2>Если бы мы пошли на свидание, куда бы мы отправились? 🗺️</h2>
+            <p class="subtitle">Шаг 6</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q6', 'q7')">В пафосный ресторан с кучей вилок</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q6', 'q7')">Вкусно поесть пиццы / бургеров и погулять в парке 🍔</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q6', 'q7')">На ночной сеанс ужастика в кино 🍿</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q6', 'q7')">Кататься на аттракционах до тошноты</button>
+            </div>
+        </div>
+
+                <!-- Вопрос 7 -->
+        <div id="q7" class="content-card">
+            <h2>Какое качество в людях я ценю больше всего? ✨</h2>
+            <p class="subtitle">Шаг 7</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q7', 'q8')">Искренность и хорошее чувство юмора 😂</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q7', 'q8')">Серьёзность и продуктивность 📈 (Теперь правильно!)</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q7', 'q8')">Скромность и молчаливость</button>
+            </div>
+        </div>
+
+
+        <!-- Вопрос 8 (Обновленный: Позвоню и поговорю) -->
+        <div id="q8" class="content-card">
+            <h2>Что я сделаю, если у тебя будет плохое настроение? 🥺</h2>
+            <p class="subtitle">Шаг 8</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q8', 'q9')">Скажу «не грусти» и пойду играть в комп</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q8', 'q9')">Сразу наберу тебе, и мы поговорим обо всём 📞</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q8', 'q9')">Сброшу смешной мем и на этом всё</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 9 (Обновленный: Сделанное с душой) -->
+        <div id="q9" class="content-card">
+            <h2>Идеальный подарок на праздник — это... 🎁</h2>
+            <p class="subtitle">Шаг 9</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q9', 'q10')">Что-то безумно дорогое и роскошное</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q9', 'q10')">Что-то, сделанное своими руками и с душой (как этот сайт) ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q9', 'q10')">Просто деньги в конверте</button>
+            </div>
+        </div>
+
+                <!-- Вопрос 10 -->
+        <div id="q10" class="content-card">
+            <h2>Ну и финальный вопрос: мы продолжим общаться после этого теста? 😏</h2>
+            <p class="subtitle">Шаг 10</p>
+            <div class="buttons-layout">
+                <!-- ИСПРАВЛЕНО: 'result' заменено на 'q11' -->
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q10', 'q11')">Определённо да! Напишу тебе прямо сейчас 💬</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q10', 'q11')">Конечно, надо обсудить результаты за чаем ☕</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 11 -->
+        <div id="q11" class="content-card">
+            <h2>Как ты поступишь, если мы сильно поспорим из-за ерунды? 🤬</h2>
+            <p class="subtitle">Шаг 11</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q11', 'q12')">Промолчу, а потом сделаю вид, что ничего не было</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q11', 'q12')">Обниму и предложу перевести всё в шутку 😂</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q11', 'q12')">Буду доказывать правоту до победного конца</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 12 -->
+        <div id="q12" class="content-card">
+            <h2>Что для тебя самое невыносимое в поведении людей? 😤</h2>
+            <p class="subtitle">Шаг 12</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q12', 'q13')">Когда врут прямо в глаза и не краснеют 🤥</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q12', 'q13')">Когда постоянно ноют и жалуются на жизнь</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q12', 'q13')">Когда опаздывают больше чем на полчаса</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 13 -->
+        <div id="q13" class="content-card">
+            <h2>В какой момент ты понимаешь, что человек тебе реально дорог? 🤍</h2>
+            <p class="subtitle">Шаг 13</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q13', 'q14')">Когда хочется делиться с ним каждой мелочью за день 📱</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q13', 'q14')">Когда скучаешь, если не общались пару дней</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q13', 'q14')">Когда готов(а) отдать ему последнюю вкусняшку</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 14 -->
+        <div id="q14" class="content-card">
+            <h2>Как ты относишься к тотальному контролю в отношениях? 🔒</h2>
+            <p class="subtitle">Шаг 14</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q14', 'q15')">У каждого должно быть личное пространство и доверие ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q14', 'q15')">Ревность — это признак сильной любви, мне ок</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q14', 'q15')">Если скрывать нечего, можно и контролировать</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 15 -->
+        <div id="q15" class="content-card">
+            <h2>Какой поступок может навсегда разрушить твое доверие? 💔</h2>
+            <p class="subtitle">Шаг 15</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q15', 'q16')">Предательство или обсуждение меня за спиной 🗣️</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q15', 'q16')">Грубый эгоизм в важный для меня момент</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q15', 'q16')">Если человек забудет про мой день рождения</button>
+            </div>
+        </div>
+        <!-- Вопрос 16 -->
+        <div id="q16" class="content-card">
+            <h2>Какой твой идеальный формат отдыха в законный выходной? 🛌</h2>
+            <p class="subtitle">Шаг 16</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q16', 'q17')">Весь день тюленить под пледом и смотреть сериалы 🍿</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q16', 'q17')">Активно гулять по городу, пока ноги не отвалятся</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q16', 'q17')">Уехать на природу или дачу подальше от всех</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 17 -->
+        <div id="q17" class="content-card">
+            <h2>Без чего твоя еда точно будет невкусной? 📺</h2>
+            <p class="subtitle">Шаг 17</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q17', 'q18')">Без включенного Ютубчика или сериала на фоне 🎬</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q17', 'q18')">Без любимого соуса или специй</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q17', 'q18')">Мне пофиг, ем в полной тишине и быстро</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 18 -->
+        <div id="q18" class="content-card">
+            <h2>Если бы тебе предложили спонтанно погулять в 2 часа ночи? 🌌</h2>
+            <p class="subtitle">Шаг 18</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q18', 'q19')">Обожаю спонтанность, уже выхожу! 🏃‍♂️</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q18', 'q19')">Какая прогулка, я уже десятый сон вижу 😴</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q18', 'q19')">Соглашусь, только если пообещаешь покормить</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 19 -->
+        <div id="q19" class="content-card">
+            <h2>Какая суперсила из фильмов пригодилась бы тебе в реальной жизни? 🦸‍♂️</h2>
+            <p class="subtitle">Шаг 19</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q19', 'q20')">Телепортация, чтобы не стоять в гребаных пробках 🚗</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q19', 'q20')">Чтение мыслей, чтобы знать, кто что думает</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q19', 'q20')">Управление временем, чтобы высыпаться за 5 минут</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 20 -->
+        <div id="q20" class="content-card">
+            <h2>Как ты относишься к настольным играм в большой компании? 🎲</h2>
+            <p class="subtitle">Шаг 20</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q20', 'q21')">Обожаю, врубаю режим жесткого соперничества! 🏆</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q20', 'q21')">Скучновато, лучше в плойку / комп поиграть</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q20', 'q21')">Не люблю, вечно путаюсь в этих правилах</button>
+            </div>
+        </div>
+        <!-- Вопрос 21 -->
+        <div id="q21" class="content-card">
+            <h2>Если бы можно было прямо сейчас бесплатно полететь в любую страну? ✈️</h2>
+            <p class="subtitle">Шаг 21</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q21', 'q22')">В Японию за эстетикой, неоном и аниме 🗺️</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q21', 'q22')">В Италию ради пиццы, пасты и красивой архитектуры</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q21', 'q22')">На Мальдивы, просто лежать тюленем у океана</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22 -->
+        <div id="q22" class="content-card">
+            <h2>Как ты реагируешь, когда в планах всё резко идет наперекосяк? 😤</h2>
+            <p class="subtitle">Шаг 22</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22', 'q22_1')">Подстраиваюсь на ходу, так даже веселее! 🤪</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22', 'q22_1')">Очень сильно бесит, я люблю когда всё по плану</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22', 'q22_1')">Паникую, расстраиваюсь и вообще никуда не иду</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_1 (Секретный шаг, чтобы удержать Q10 финальным) -->
+        <div id="q22_1" class="content-card">
+            <h2>Что выберешь: залипнуть в красивый закат или встретить рассвет? 🌅</h2>
+            <p class="subtitle">Шаг 23</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_1', 'q22_2')">Встречать рассвет после долгой веселой ночи 🌆</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_1', 'q22_2')">Провожать красивый и уютный закат вечером</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_2 -->
+        <div id="q22_2" class="content-card">
+            <h2>Веришь ли ты в существование родственных душ? ✨</h2>
+            <p class="subtitle">Шаг 24</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_2', 'q22_3')">Да, определенно верю, что люди находят друг друга 🤍</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_2', 'q22_3')">Нет, это просто сказки из романтических фильмов</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_3 -->
+        <div id="q22_3" class="content-card">
+            <h2>Какой напиток идеален для долгого душевного разговора? ☕</h2>
+            <p class="subtitle">Шаг 25</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_3', 'q22_4')">Горячий сладкий чай с какими-нибудь вкусняшками 🍪</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_3', 'q22_4')">Крепкий ароматный кофе, чтобы не уснуть</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_3', 'q22_4')">Холодная газировка со льдом</button>
+            </div>
+        </div>
+        <!-- Вопрос 22_4 -->
+        <div id="q22_4" class="content-card">
+            <h2>Умеешь ли ты признавать свою неправоту в жарком споре? 🤝</h2>
+            <p class="subtitle">Шаг 26</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_4', 'q22_5')">Да, если мне приведут нормальные и логичные аргументы</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_4', 'q22_5')">Буду стоять на своём до самого конца, даже если не прав(а)</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_5 -->
+        <div id="q22_5" class="content-card">
+            <h2>Любишь ли ты делиться с людьми музыкой, которая тебе нравится? 🎵</h2>
+            <p class="subtitle">Шаг 27</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_5', 'q22_6')">Да, постоянно кидаю любимые треки в ЛС 🎧</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_5', 'q22_6')">Нет, слушаю всё тихонько сам(а) в наушниках</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_6 -->
+        <div id="q22_6" class="content-card">
+            <h2>Что для тебя важнее в человеке при близком общении? 🧠</h2>
+            <p class="subtitle">Шаг 28</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_6', 'q22_7')">Острое чувство юмора, чтобы угарать вместе 😂</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_6', 'q22_7')">Высокий интеллект и серьезность</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_7 -->
+        <div id="q22_7" class="content-card">
+            <h2>Какой попкорн ты выберешь при походе в кинотеатр? 🍿</h2>
+            <p class="subtitle">Шаг 29</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_7', 'q22_8')">Конечно же сладкий или карамельный! 😋</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_7', 'q22_8')">Только соленый или сырный</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_7', 'q22_8')">Вообще не беру попкорн, ем чипсы</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 22_8 -->
+        <div id="q22_8" class="content-card">
+            <h2>Какой жанр компьютерных или мобильных игр тебе ближе? 🎮</h2>
+            <p class="subtitle">Шаг 30</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q22_8', 'q31')">Глубокие сюжетные игры (как хорошее кино) 🎬</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_8', 'q31')">Онлайн-соревнования с друзьями на победу</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q22_8', 'q31')">Одиночные песочницы, где можно просто залипнуть</button>
+            </div>
+        </div>
+        <!-- Вопрос 31 -->
+        <div id="q31" class="content-card">
+            <h2>О чем ты чаще всего думаешь перед самым сном? 🌌</h2>
+            <p class="subtitle">Шаг 31</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q31', 'q32')">Прокручиваю в голове разные приятные диалоги и моменты 💭</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q31', 'q32')">Вспоминаю свои самые стыдные косяки пятилетней давности</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q31', 'q32')">Ни о чем, просто мгновенно вырубаюсь</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 32 -->
+        <div id="q32" class="content-card">
+            <h2>Какое блюдо из этого списка ты готов(а) есть хоть каждый день? 🍕</h2>
+            <p class="subtitle">Шаг 32</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q32', 'q33')">Сочную горячую пиццу с сыром 🤤</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q32', 'q33')">Свежие роллы и суши</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q32', 'q33')">Домашний наваристый борщ со сметаной</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 33 -->
+        <div id="q33" class="content-card">
+            <h2>Как ты относишься к готовке дома? 🥡</h2>
+            <p class="subtitle">Шаг 33</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q33', 'q34')">Обожаю готовить, это творчество и кайф</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q33', 'q34')">Доставка еды рулит, лень мыть гору посуды 🛒</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q33', 'q34')">Готовлю только по жесткой необходимости</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 34 -->
+        <div id="q34" class="content-card">
+            <h2>С какого приложения обычно начинается твое утро в телефоне? 📱</h2>
+            <p class="subtitle">Шаг 34</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q34', 'q35')">Сразу открываю Telegram проверить сообщения 💬</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q34', 'q35')">Листаю ТикТок / Рилсы, чтобы проснуться</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q34', 'q35')">Смотрю видосы на YouTube за завтраком</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 35 -->
+        <div id="q35" class="content-card">
+            <h2>В книгах или фильмах какой финал сюжета тебе ближе? 🎬</h2>
+            <p class="subtitle">Шаг 35</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q35', 'q36')">Только счастливый Хэппи-Энд, все должны быть рады! ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q35', 'q36')">Грустный, неожиданный или открытый финал</button>
+            </div>
+        </div>
+        <!-- Вопрос 36 -->
+        <div id="q36" class="content-card">
+            <h2>Если бы можно было прямо сейчас стереть себе память и пересмотреть один сериал, что бы это было? 📺</h2>
+            <p class="subtitle">Шаг 36</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q36', 'q37')">Какой-нибудь легендарный ситком (Офис / Друзья) 🎬</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q36', 'q37')">Тяжелый закрученный детектив или триллер</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q36', 'q37')">Эпичное фэнтези (Игра Престолов / Гарри Поттер)</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 37 -->
+        <div id="q37" class="content-card">
+            <h2>Ты копишь деньги на большие цели или тратишь всё сразу на эмоции? 💸</h2>
+            <p class="subtitle">Шаг 37</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q37', 'q38')">Умею откладывать и копить на то, что реально нужно 📈</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q37', 'q38')">Деньги созданы чтобы их тратить, живу моментом! 🛍️</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 38 -->
+        <div id="q38" class="content-card">
+            <h2>Спишь ли ты ночью в полной темноте или любишь, чтобы горел ночник? 🛌</h2>
+            <p class="subtitle">Шаг 38</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q38', 'q39')">Только полная темнота, закрываю шторы намертво 🌑</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q38', 'q39')">Люблю, чтобы был легкий свет от окна или гирлянды 💡</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 39 -->
+        <div id="q39" class="content-card">
+            <h2>Веришь ли ты в знаки судьбы, случайные совпадения и гороскопы? 🔮</h2>
+            <p class="subtitle">Шаг 39</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q39', 'q40')">Да, часто замечаю странные и крутые совпадения ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q39', 'q40')">Нет, это просто случайность и математика, я реалист</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 40 -->
+        <div id="q40" class="content-card">
+            <h2>Идеальный домашний питомец (если не брать в расчет котиков)? 🐕</h2>
+            <p class="subtitle">Шаг 40</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q40', 'q41')">Верный и веселый пес, чтобы гулять вместе 🦮</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q40', 'q41')">Какой-нибудь экзотичный чилловый енот или фретка</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q40', 'q41')">Маленький говорящий попугай или хомяк</button>
+            </div>
+        </div>
+        <!-- Вопрос 41 -->
+        <div id="q41" class="content-card">
+            <h2>Как ты обычно реагируешь на жесткую критику в свой адрес? 🗣️</h2>
+            <p class="subtitle">Шаг 41</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q41', 'q42')">Прислушиваюсь, если она адекватная и по делу 🧠</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q41', 'q42')">Мне абсолютно пофиг на чужое мнение, я сам(а) знаю как лучше</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q41', 'q42')">Очень сильно расстраиваюсь и принимаю близко к сердцу</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 42 -->
+        <div id="q42" class="content-card">
+            <h2>Веришь ли ты в искреннюю дружбу между парнем и девушкой? 👥</h2>
+            <p class="subtitle">Шаг 42</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q42', 'q43')">Да, верю, это абсолютно нормально</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q42', 'q43')">Нет, кто-то один в этой дружбе по-любому втайне влюблен 😏</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 43 -->
+        <div id="q43" class="content-card">
+            <h2>Ты оптимист или суровый реалист по жизни? 🌊</h2>
+            <p class="subtitle">Шаг 43</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q43', 'q44')">Оптимист, для меня стакан всегда наполовину полон! ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q43', 'q44')">Я жесткий реалист, смотрю на вещи трезво и без иллюзий</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 44 -->
+        <div id="q44" class="content-card">
+            <h2>Как ты относишься к татуировкам на теле? 🎨</h2>
+            <p class="subtitle">Шаг 44</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q44', 'q45')">Кайф, это очень красиво, хочу себе или уже есть новые идеи 💉</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q44', 'q45')">Нейтрально, прикольно смотрится на других людях</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q44', 'q45')">Категорически против, тело должно быть чистым</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 45 -->
+        <div id="q45" class="content-card">
+            <h2>Если бы про твою жизнь прямо сейчас сняли фильм, какой это был бы жанр? 🎬</h2>
+            <p class="subtitle">Шаг 45</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q45', 'q46')">Комедия с кучей нелепых и очень смешных ситуаций 😂</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q45', 'q46')">Приключенческий экшен, я вечно нахожу приключения</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q45', 'q46')">Глубокая и сложная психологическая драма</button>
+            </div>
+        </div>
+        <!-- Вопрос 46 -->
+        <div id="q46" class="content-card">
+            <h2>Как ты чаще всего проводишь первые 15 минут после того, как проснешься? 🌅</h2>
+            <p class="subtitle">Шаг 46</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q46', 'q47')">Лежу в кровати и бездумно листаю ленту новостей в телефоне 📱</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q46', 'q47')">Сразу встаю на автомате и иду пить воду или умываться</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q46', 'q47')">Пытаюсь осознать, кто я, где нахожусь и какой сегодня день</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 47 -->
+        <div id="q47" class="content-card">
+            <h2>Если бы тебе предложили пойти на страшный квест-перформанс с актерами? 👻</h2>
+            <p class="subtitle">Шаг 47</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q47', 'q48')">Погнали! Обожаю адреналин и живые эмоции! 🦾</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q47', 'q48')">Соглашусь, но только если буду прятаться за твоей спиной</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q47', 'q48')">Спасибо, я жить хочу, лучше просто погуляем</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 48 -->
+        <div id="q48" class="content-card">
+            <h2>Какой тип погоды за окном создает у тебя самый уютный вайб? 🌧️</h2>
+            <p class="subtitle">Шаг 48</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q48', 'q49')">Сильный дождь или гроза, когда можно сидеть дома под пледом ☕</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q48', 'q49')">Яркое теплое солнце, чтобы гулять весь день</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q48', 'q49')">Пасмурно и туманно, как в красивом кино</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 49 -->
+        <div id="q49" class="content-card">
+            <h2>Умеешь ли ты долго и искренне хранить чужие секреты? 🤫</h2>
+            <p class="subtitle">Шаг 49</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q49', 'q50')">Я могила. Если попросили не рассказывать — никто никогда не узнает 🔒</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q49', 'q50')">Могу случайно проговориться только самому близкому человеку</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q49', 'q50')">Мне тяжело дается хранить тайны, язык так и чешется</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 50 -->
+        <div id="q50" class="content-card">
+            <h2>Что из этого ты выберешь в качестве идеального перекуса на ходу? 🍟</h2>
+            <p class="subtitle">Шаг 50</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q50', 'q51')">Вредный, но безумно вкусный фастфуд или картошку фри 🍔</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q50', 'q51')">Что-то сладкое: шоколадный батончик или круассан</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q50', 'q51')">ПП-перекус: бананы, орехи или питьевой йогурт</button>
+            </div>
+        </div>
+        <!-- Вопрос 51 -->
+        <div id="q51" class="content-card">
+            <h2>Как ты относишься к спонтанным покупкам на маркетплейсах? 🛍️</h2>
+            <p class="subtitle">Шаг 51</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q51', 'q52')">Захожу за чехлом, заказываю 15 ненужных штук из корзины 📦</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q51', 'q52')">Покупаю строго по делу и только то, что планировал(а)</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q51', 'q52')">У меня там куча товаров лежит в «избранном» годами</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 52 -->
+        <div id="q52" class="content-card">
+            <h2>Какая суперспособность сделала бы твою жизнь намного проще? ⏱️</h2>
+            <p class="subtitle">Шаг 52</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q52', 'q53')">Умение высыпаться за 2 часа и быть бодрым весь день 🔋</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q52', 'q53')">Понимать язык животных и птиц</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q52', 'q53')">Никогда не толстеть от вкусной еды</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 53 -->
+        <div id="q53" class="content-card">
+            <h2>Если бы мы пошли в парк аттракционов, на какой ты пойдешь первым? 🎡</h2>
+            <p class="subtitle">Шаг 53</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q53', 'q54')">На самые экстремальные американские горки, чтобы покричать! 🎢</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q53', 'q54')">На чилловое колесо обозрения смотреть на виды города</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q53', 'q54')">На автодром, врезаться в другие машинки</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 54 -->
+        <div id="q54" class="content-card">
+            <h2>Какая музыка чаще всего играет у тебя в наушниках прямо сейчас? 🎵</h2>
+            <p class="subtitle">Шаг 54</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q54', 'q55')">Динамичный фонк, рэп или поп-хиты, под которые качает 🎧</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q54', 'q55')">Атмосферный рок, метал или инди-музыка</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q54', 'q55')">Грустные и душевные треки под настроение</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 55 -->
+        <div id="q55" class="content-card">
+            <h2>Любишь ли ты планировать всё заранее или живешь моментом? 🗺️</h2>
+            <p class="subtitle">Шаг 55</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q55', 'q56')">Полный экспромт! Самые лучшие моменты происходят спонтанно ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q55', 'q56')">Мне спокойнее, когда есть четкий план на день или неделю</button>
+            </div>
+        </div>
+        <!-- Вопрос 56 -->
+        <div id="q56" class="content-card">
+            <h2>Как ты относишься к спонтанным звонкам по телефону вместо долгих переписок? 📞</h2>
+            <p class="subtitle">Шаг 56</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q56', 'q57')">Кайф, лучше созвониться на 5 минут и всё решить, чем писать часами! ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q56', 'q57')">Не люблю, сначала лучше предупредить или написать в ЛС</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q56', 'q57')">Звонки только по очень важным и срочным делам</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 57 -->
+        <div id="q57" class="content-card">
+            <h2>Если бы мы зашли в кофейню, какой десерт ты выберешь к чаю или кофе? 🍰</h2>
+            <p class="subtitle">Шаг 57</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q57', 'q58')">Шоколадный торт, чизкейк или что-то суперсладкое 🍫</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q57', 'q58')">Классический круассан или синнабон с корицей</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q57', 'q58')">Я не по сладким десертам, лучше возьму сэндвич</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 58 -->
+        <div id="q58" class="content-card">
+            <h2>Какая черта характера в людях притягивает тебя сильнее всего? ✨</h2>
+            <p class="subtitle">Шаг 58</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q58', 'q59')">Самоирония и умение угарать над собой без обид 😂</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q58', 'q59')">Спокойствие, уверенность и умение держать всё под контролем</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q58', 'q59')">Мягкость, доброта и желание заботиться о других</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 59 -->
+        <div id="q59" class="content-card">
+            <h2>Где, по-твоему, идеальное место, чтобы встретить красивый закат? 🌅</h2>
+            <p class="subtitle">Шаг 59</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q59', 'q60')">На крыше высокой многоэтажки, смотря на огни города 🌆</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q59', 'q60')">На диком берегу у воды или на пляже</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q59', 'q60')">В уютном парке на лавочке под теплыми пледами</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 60 -->
+        <div id="q60" class="content-card">
+            <h2>Как ты обычно реагируешь на плохие и глупые шутки в компании? 🗣️</h2>
+            <p class="subtitle">Шаг 60</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q60', 'q61')">Смеюсь еще громче именно с их нелепости и кринжа! 🤪</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q60', 'q61')">Сижу с каменным лицом и жду, когда тема сменится</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q60', 'q61')">Пытаюсь перевести всё в другую, нормальную шутку</button>
+            </div>
+        </div>
+        <!-- Вопрос 61 -->
+        <div id="q61" class="content-card">
+            <h2>Как ты относишься к спонтанным подаркам без повода? 🎁</h2>
+            <p class="subtitle">Шаг 61</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q61', 'q62')">Это самый лучший способ поднять настроение и показать заботу! ✨</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q61', 'q62')">Прикольно, но чувствую себя немного неловко</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q61', 'q62')">Предпочитаю дарить и получать подарки строго по праздникам</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 62 -->
+        <div id="q62" class="content-card">
+            <h2>Что из этого ты выберешь, если захочется посмотреть что-то веселое? 🎬</h2>
+            <p class="subtitle">Шаг 62</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q62', 'q63')">Старые угарные комедии или шоу с любимыми блогерами 😂</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q62', 'q63')">Легкий романтический фильм про любовь</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q62', 'q63')">Мультфильмы или аниме с хорошим юмором</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 63 -->
+        <div id="q63" class="content-card">
+            <h2>Какое качество характера ты считаешь самым главным для долгого общения? 🤝</h2>
+            <p class="subtitle">Шаг 63</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q63', 'q64')">Искренность — когда человек говорит то, что реально думает 🤍</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q63', 'q64')">Надежность — когда на человека всегда можно положиться</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q63', 'q64')">Щедрость и постоянное внимание к деталям</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 64 -->
+        <div id="q64" class="content-card">
+            <h2>Как ты проводишь время, если на улице идет сильный ливень? 🌧️</h2>
+            <p class="subtitle">Шаг 64</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q64', 'q65')">Залипаю под пледом в комп, плойку или телефон 🎮</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q64', 'q65')">Включаю фоном музыку и просто отдыхаю в тишине</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q64', 'q65')">Погнали гулять под дождем, это же романтика!</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 65 -->
+        <div id="q65" class="content-card">
+            <h2>Какую пиццу ты выберешь, если мы решим заказать её прямо сейчас? 🍕</h2>
+            <p class="subtitle">Шаг 65</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q65', 'q66')">Острую Пепперони или Мясную с кучей сыра! 🤤</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q65', 'q66')">Классическую Маргариту или Четыре сыра</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q65', 'q66')">С ананасами (Гавайскую), я люблю экзотику</button>
+            </div>
+        </div>
+        <!-- Вопрос 66 -->
+        <div id="q66" class="content-card">
+            <h2>Если бы мы пошли в кино, какие места ты бы выбрал(а) для максимального комфорта? 🍿</h2>
+            <p class="subtitle">Шаг 66</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q66', 'q67')">Самый последний ряд (места для поцелуев) 😏</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q66', 'q67')">Строго по центру зала, чтобы идеально видеть экран</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q66', 'q67')">Где-нибудь с краю, чтобы никто не мешал</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 67 -->
+        <div id="q67" class="content-card">
+            <h2>Какое приложение на телефоне ты открываешь чаще всего за весь день? 📱</h2>
+            <p class="subtitle">Шаг 67</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q67', 'q68')">Telegram или ВК, я постоянно на связи 💬</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q67', 'q68')">TikTok, YouTube или Reels, чтобы поубивать время</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q67', 'q68')">Камеру или приложения для обработки фото</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 68 -->
+        <div id="q68" class="content-card">
+            <h2>Что из этого лучше всего поднимает тебе настроение после тяжелого дня? 🍫</h2>
+            <p class="subtitle">Шаг 68</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q68', 'q69')">Вкусная вредная еда и любимый сериал 🍕</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q68', 'q69')">Долгий разговор по душам или прогулка с близким человеком</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q68', 'q69')">Горячий душ и возможность просто поспать подольше</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 69 -->
+        <div id="q69" class="content-card">
+            <h2>Ты любишь ходить на живые концерты или предпочитаешь слушать музыку в наушниках? 🎵</h2>
+            <p class="subtitle">Шаг 69</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q69', 'q70')">Обожаю живой звук, толпу и эту бешеную энергетику! 🎤</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q69', 'q70')">В наушниках комфортнее, никто не толкается и звук чище</button>
+            </div>
+        </div>
+
+        <!-- Вопрос 70 -->
+        <div id="q70" class="content-card">
+            <h2>Как ты относишься к спонтанным комплиментам от малознакомых людей? ✨</h2>
+            <p class="subtitle">Шаг 70</p>
+            <div class="buttons-layout">
+                <button class="btn-quiz-option" onclick="nextQuestion(true, 'q70', 'q71')">Приятно, это сразу поднимает самооценку и настроение 😊</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q70', 'q71')">Немного смущаюсь и не всегда знаю, что ответить</button>
+                <button class="btn-quiz-option" onclick="nextQuestion(false, 'q70', 'q71')">Отношусь с подозрением, вдруг им что-то нужно от меня</button>
+            </div>
+        </div>
+<!-- Вопрос 71 -->
+<div id="q71" class="content-card">
+    <h2>Если у тебя будет свободный миллион рублей, на что ты его спустишь в первую очередь? 💸</h2>
+    <p class="subtitle">Шаг 71</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q71', 'q72')">Куплю кучу шмоток, косметики и гаджетов 🛍️</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q71', 'q72')">Ворвусь в безумное путешествие или отложу на будущее ✈️</button>
+    </div>
+</div>
+
+<!-- Вопрос 72 -->
+<div id="q72" class="content-card">
+    <h2>Идеальное свидание для тебя — это... 🌌</h2>
+    <p class="subtitle">Шаг 72</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q72', 'q73')">Красивый ресторан, каблуки и эстетика ✨</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q72', 'q73')">Прогулка ночным городом в худи и разговоры обо всем на свете 🍕</button>
+    </div>
+</div>
+
+<!-- Вопрос 73 -->
+<div id="q73" class="content-card">
+    <h2>Как ты обычно реагируешь, если парень сильно косячит или опаздывает? ⏳</h2>
+    <p class="subtitle">Шаг 73</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q73', 'q74')">Включаю жесткий игнор и обиду, пусть думает 😤</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q73', '74')">Сразу говорю прямо, что мне не понравилось, без драм 🗣️</button>
+    </div>
+</div>
+
+<!-- Вопрос 74 -->
+<div id="q74" class="content-card">
+    <h2>Какой тип парней тебя привлекает сильнее всего внешне и по вайбу? ⚡</h2>
+    <p class="subtitle">Шаг 74</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q74', 'q75')">Уверенные, дерзкие, немного «плохие» парни 😎</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q74', 'q75')">Заботливые, спокойные и надежные добряки 🧸</button>
+    </div>
+</div>
+
+<!-- Вопрос 75 -->
+<div id="q75" class="content-card">
+    <h2>Что из этого для тебя самый главный «ред флаг» (звоночек) в отношениях? 🚩</h2>
+    <p class="subtitle">Шаг 75</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q75', 'q76')">Когда парень тотально контролирует и ревнует к каждому столбу 🔒</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q75', 'q76')">Когда он жадный, безответственный и не держит слово  Make</button>
+    </div>
+</div>
+<!-- Вопрос 76 -->
+<div id="q76" class="content-card">
+    <h2>Как ты чаще всего проводишь свои идеальные выходные? 🛋️</h2>
+    <p class="subtitle">Шаг 76</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q76', 'q77')">Врываю на тусовку с друзьями или иду гулять в людные места 🥂</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q76', 'q77')">Заказываю вкусную еду и залипаю в сериалы под пледом 🍕</button>
+    </div>
+</div>
+
+<!-- Вопрос 77 -->
+<div id="q77" class="content-card">
+    <h2>Если в компании парень шутит глупую или несмешную шутку, что ты сделаешь? 😬</h2>
+    <p class="subtitle">Шаг 77</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q77', 'q78')">Посмеюсь или улыбнусь из вежливости, чтобы не обидеть 🥲</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q77', 'q78')">Тонко подколочу его в ответ или проигнорирую этот кринж 🎯</button>
+    </div>
+</div>
+
+<!-- Вопрос 78 -->
+<div id="q78" class="content-card">
+    <h2>Ты веришь в дружбу между парнем и девушкой? 👥</h2>
+    <p class="subtitle">Шаг 78</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q78', 'q79')">Да, у меня есть друзья-парни, и это чисто дружеский вайб 🤝</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q78', 'q79')">Нет, кто-то один в этой дружбе по-любому тайно влюблен 💔</button>
+    </div>
+</div>
+
+<!-- Вопрос 79 -->
+<div id="q79" class="content-card">
+    <h2>Что тебя может сильнее всего взбесить в поведении парня в соцсетях? 📱</h2>
+    <p class="subtitle">Шаг 79</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q79', 'q80')">Если он лайкает фотки куче левых полуголых девиц 😡</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q79', 'q80')">Если он скрывает свои подписки или подолгу не отвечает на мемы 🔍</button>
+    </div>
+</div>
+
+<!-- Вопрос 80 -->
+<div id="q80" class="content-card">
+    <h2>Если бы тебе пришлось выбрать только одно, что бы ты выбрала? 🔮</h2>
+    <p class="subtitle">Шаг 80</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q80', 'q81')">Уметь читать мысли людей, чтобы знать всю правду 👁️</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q80', 'q81')">Уметь перемещаться во времени, чтобы исправлять ошибки ⏳</button>
+    </div>
+</div>
+<!-- Вопрос 81 -->
+<div id="q81" class="content-card">
+    <h2>Какое проявление ревности со стороны парня для тебя приемлемо? 🦁</h2>
+    <p class="subtitle">Шаг 81</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q81', 'q82')">Легкий собственнический вайб, когда он обнимает меня при других 😏</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q81', 'q82')">Вообще никакое, я за полное доверие без допросов и проверок 🕊️</button>
+    </div>
+</div>
+
+<!-- Вопрос 82 -->
+<div id="q82" class="content-card">
+    <h2>Какой подарок от парня доставит тебе больше всего искренних эмоций? 🎁</h2>
+    <p class="subtitle">Шаг 82</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q82', 'q83')">Что-то дорогое и статусное, о чем я давно мечтала ✨</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q82', 'q83')">Что-то милое и личное, сделанное с мыслями обо мне (даже мелочь) ❤️</button>
+    </div>
+</div>
+
+<!-- Вопрос 83 -->
+<div id="q83" class="content-card">
+    <h2>Если парень позовет тебя на свидание прямо сейчас, а ты сидишь ненакрашенная в домашнем? 👟</h2>
+    <p class="subtitle">Шаг 83</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q83', 'q84')">Соберусь за 15 минут, накину худи и побегу — люблю спонтанность 🚀</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q83', 'q84')">Скажу, что сегодня никак, мне нужно время нормально подготовиться 💄</button>
+    </div>
+</div>
+
+<!-- Вопрос 84 -->
+<div id="q84" class="content-card">
+    <h2>В спорах и конфликтах ты обычно... 🌋</h2>
+    <p class="subtitle">Шаг 84</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q84', 'q85')">Быстро вспыхиваю, высказываю всё на эмоциях, но быстро отхожу 🔥</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q84', 'q85')">Коплю всё в себе, молчу, а потом выдаю холодный факты ❄️</button>
+    </div>
+</div>
+
+<!-- Вопрос 85 -->
+<div id="q85" class="content-card">
+    <h2>Что для тебя идеальный вечер вдвоем после тяжелой недели? 🛁</h2>
+    <p class="subtitle">Шаг 85</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q85', 'q86')">Приготовить вместе ужин, открыть бутылку вина и поболтать по душам 🍷</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q85', 'q86')">Поехать кататься по ночному городу под громкую музыку с открытыми окнами 🌃</button>
+    </div>
+</div>
+<!-- Вопрос 86 -->
+<div id="q86" class="content-card">
+    <h2>Как ты относишься к тому, что у парня есть чисто «мужские» хобби (гараж, игры, спорт, рыбалка)? 🎮</h2>
+    <p class="subtitle">Шаг 86</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q86', 'q87')">Отлично, у каждого должно быть свое личное пространство и отдых 🧭</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q86', 'q87')">Не очень, если это отнимает слишком много времени, которое можно провести вместе 💔</button>
+    </div>
+</div>
+
+<!-- Вопрос 87 -->
+<div id="q87" class="content-card">
+    <h2>Кто, по твоему мнению, должен делать первый шаг к примирению после мелкой ссоры? 🕊️</h2>
+    <p class="subtitle">Шаг 87</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q87', 'q88')">Всегда парень, даже если виновата была я — он же мужчина 👑</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q87', 'q88')">Тот, кто первый осознал, что глупо дуться из-за ерунды 🤝</button>
+    </div>
+</div>
+
+<!-- Вопрос 88 -->
+<div id="q88" class="content-card">
+    <h2>Какая черта характера в людях тебя отталкивает сильнее всего? 🤮</h2>
+    <p class="subtitle">Шаг 88</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q88', 'q89')">Лицемерие и двуличие, когда в глаза одно, а за спиной другое 🎭</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q88', 'q89')">Высокомерие и дешевые понты без реального повода 😎</button>
+    </div>
+</div>
+
+<!-- Вопрос 89 -->
+<div id="q89" class="content-card">
+    <h2>Если тебе очень понравится вещь, но она стоит неоправданно дорого для твоего бюджета? 🛍️</h2>
+    <p class="subtitle">Шаг 89</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q89', 'q90')">Живем один раз! Куплю на эмоциях, а там разберемся 💸</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q89', 'q90')">Включу холодную голову, перетерплю и найду более разумный вариант 🧠</button>
+    </div>
+</div>
+
+<!-- Вопрос 90 -->
+<div id="q90" class="content-card">
+    <h2>Как ты относишься к готовке и домашним делам? 🍳</h2>
+    <p class="subtitle">Шаг 90</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q90', 'q91')">Люблю готовить и создавать уют, для меня это в кайф 🍰</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q90', 'q91')">Ненавижу бытовуху, лучше заказать доставку или разделить обязанности поровну 🧹</button>
+    </div>
+</div>
+<!-- Вопрос 91 -->
+<div id="q91" class="content-card">
+    <h2>Должны ли у партнеров быть секреты друг от друга? 🔑</h2>
+    <p class="subtitle">Шаг 91</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q91', 'q92')">Да, у каждого должно оставаться сугубо личное пространство и прошлое 🤫</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q91', 'q92')">Нет, в близких отношениях должна быть стопроцентная прозрачность 📑</button>
+    </div>
+</div>
+
+<!-- Вопрос 92 -->
+<div id="q92" class="content-card">
+    <h2>Как ты относишься к публичности отношений в соцсетях? 📸</h2>
+    <p class="subtitle">Шаг 92</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q92', 'q93')">Люблю выкладывать совместные фотки, сторис и делиться счастьем 🥰</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q92', 'q93')">Счастье любит тишину, никаких лишних глаз и показухи 🤫</button>
+    </div>
+</div>
+
+<!-- Вопрос 93 -->
+<div id="q93" class="content-card">
+    <h2>Что для тебя важнее всего при выборе жизненного пути? 🧭</h2>
+    <p class="subtitle">Шаг 93</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q93', 'q94')">Четкий план, стабильность, карьера и финансовый успех 📈</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q93', 'q94')">Свобода выбора, яркие эмоции и поиск себя в творчестве 🎨</button>
+    </div>
+</div>
+
+<!-- Вопрос 94 -->
+<div id="q94" class="content-card">
+    <h2>Если у твоего парня случится жесткий факап на работе или в бизнесе, твоя реакция? 📉</h2>
+    <p class="subtitle">Шаг 94</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q94', 'q95')">Буду во всем его поддерживать, верить в него и разделю трудности 🫂</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q94', 'q95')">Дам ему время разобраться самому, не люблю нытье и слабость 🦾</button>
+    </div>
+</div>
+
+<!-- Вопрос 95 -->
+<div id="q95" class="content-card">
+    <h2>Какое качество парня делает его в твоих глазах по-настоящему сексуальным? 🔥</h2>
+    <p class="subtitle">Шаг 95</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q95', 'q96')">Решительность, внутреннее спокойствие и тяжелый взгляд 🐅</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q95', 'q96')">Офигенное чувство юмора, легкость на подъем и харизма ⚡</button>
+    </div>
+</div>
+<!-- Вопрос 96 -->
+<div id="q96" class="content-card">
+    <h2>Как ты реагируешь на конструктивную критику в свой адрес? 💬</h2>
+    <p class="subtitle">Шаг 96</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q96', 'q97')">Прислушиваюсь, анализирую и стараюсь стать лучше, если человек прав 🧠</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q96', 'q97')">Бешусь и сразу защищаюсь, не люблю, когда мне указывают на ошибки 😤</button>
+    </div>
+</div>
+
+<!-- Вопрос 97 -->
+<div id="q97" class="content-card">
+    <h2>Какой формат отдыха от городской суеты тебе ближе? 🌲</h2>
+    <p class="subtitle">Шаг 97</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q97', 'q98')">Уехать в загородный отель со спа, бассейном и полным комфортом ✨</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q97', 'q98')">Дикарями на природу: палатки, костер, гитара и шашлыки ⛺</button>
+    </div>
+</div>
+
+<!-- Вопрос 98 -->
+<div id="q98" class="content-card">
+    <h2>Какое проявление заботы от парня для тебя самое ценное? 🧸</h2>
+    <p class="subtitle">Шаг 98</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q98', 'q99')">Когда он помнит о мелочах (привез любимую еду, укрыл пледом, когда уснула) ❤️</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q98', 'q99')">Когда он берет на себя решение моих крупных проблем и избавляет от стресса 🦾</button>
+    </div>
+</div>
+
+<!-- Вопрос 99 -->
+<div id="q99" class="content-card">
+    <h2>Если бы тебе предложили переехать в другую страну прямо завтра, ты бы согласилась? ✈️</h2>
+    <p class="subtitle">Шаг 99</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q99', 'q100')">Да, легко! Люблю перемены, новые места и глобальные авантюры 🌍</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q99', 'q100')">Нет, мне важны мои корни, друзья, привычный круг общения и стабильность 🏡</button>
+    </div>
+</div>
+
+<!-- Вопрос 100 -->
+<div id="q100" class="content-card">
+    <h2>Что из этого описывает твой идеальный жизненный темп? 🚀</h2>
+    <p class="subtitle">Шаг 100</p>
+    <div class="buttons-layout">
+        <button class="btn-quiz-option" onclick="nextQuestion(true, 'q100', 'q101')">Быстрый, насыщенный, куча планов, встреч и постоянное движение вперед 🔥</button>
+        <button class="btn-quiz-option" onclick="nextQuestion(false, 'q100', 'q101')">Размеренный, спокойный, без лишней суеты и вечной гонки за успехом 🧘‍♀️</button>
+    </div>
+</div>
+
+        <!-- Экран результатов -->
+        <div id="result" class="content-card">
+            <h1>Твой результат 🎉</h1>
+            <p class="subtitle">Итог теста</p>
+            <div class="score-badge" id="score-output">0 / 100</div>
+            <p class="result-desc" id="text-output"></p>
+        </div>
+
+    </div> <!-- Конец main-container -->
+
+    <script>
+        var score = 0;
+        var totalQuestions = 100;
+        
+        var selectedGenres = [];
+        var selectedColors = [];
+
+        function nextScreen(currentId, nextId) {
+            document.getElementById(currentId).classList.remove('active');
+            document.getElementById(nextId).classList.add('active');
+        }
+
+        function nextQuestion(isCorrect, currentId, nextId) {
+            if (isCorrect) {
+                score++;
+            }
+            nextScreen(currentId, nextId);
+            if (nextId === 'result') {
+                showFinalResults();
+            }
+        }
+
+        function selectMulti(button, val) {
+            if (selectedGenres.includes(val)) {
+                selectedGenres = selectedGenres.filter(function(g) { return g !== val; });
+                button.classList.remove('selected');
+            } else {
+                if (selectedGenres.length < 2) {
+                    selectedGenres.push(val);
+                    button.classList.add('selected');
+                }
+            }
+            
+            if (selectedGenres.length === 2) {
+                document.getElementById('q1-next').style.display = 'block';
+            } else {
+                document.getElementById('q1-next').style.display = 'none';
+            }
+        }
+
+        function checkQ1() {
+            if (selectedGenres.includes('хоррор') && selectedGenres.includes('боевик')) {
+                score++;
+            }
+            nextScreen('q1', 'q2');
+        }
+
+        function selectColor(button, colorName) {
+            var colorMap = {
+                'красный': '#e74c3c', 'синий': '#3498db', 'зеленый': '#2ecc71',
+                'черный': '#000000', 'фиолетовый': '#9b59b6', 'белый': '#ffffff'
+            };
+
+            if (selectedColors.includes(colorName)) {
+                selectedColors = selectedColors.filter(function(c) { return c !== colorName; });
+                button.classList.remove('selected');
+                button.style.backgroundColor = '#ffffff';
+                button.style.color = colorMap[colorName];
+            } else {
+                if (selectedColors.length < 2) {
+                    selectedColors.push(colorName);
+                    button.classList.add('selected');
+                    button.style.backgroundColor = colorMap[colorName];
+                    if (colorName === 'белый') {
+                        button.style.color = '#2c3e50';
+                    } else {
+                        button.style.color = '#ffffff';
+                    }
+                }
+            }
+
+            if (selectedColors.length === 2) {
+                document.getElementById('q2-next').style.display = 'block';
+            } else {
+                document.getElementById('q2-next').style.display = 'none';
+            }
+        }
+
+        function checkQ2() {
+            if (selectedColors.includes('белый') && selectedColors.includes('черный')) {
+                score++;
+            }
+            nextScreen('q2', 'q3');
+        }
+
+        function showFinalResults() {
+            var percentage = Math.round((score / totalQuestions) * 100);
+            document.getElementById('score-output').innerText = score + ' / ' + totalQuestions + ' (' + percentage + '%)';
+            
+            var resultText = "";
+            if (score >= 80) {
+                resultText = "ОГО! МЫ С ТОБОЙ СЛОВНО ОДИН ЧЕЛОВЕК! У нас невероятно схожие интересы, нужно срочно это обсудить за чашкой кофе! ☕✨";
+            } else if (score >= 50) {
+                resultText = "О, У НАС С ТОБОЙ СХОЖИЕ ИНТЕРЕСЫ, НО НЕ ВО ВСЁМ! Надо узнать друг друга получше, согласна? 😏 Напиши мне!";
+            } else {
+                resultText = "Хмм, мы довольно разные, и это даже круто! Противоположности притягиваются. Давай пообщаемся поближе и найдем общие точки? 🗺️";
+            }
+            document.getElementById('text-output').innerText = resultText;
+        }
+    </script>
+</body>
+</html>
