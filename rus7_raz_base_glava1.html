@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Глава 1. О языке и речи — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; margin-bottom: 5px; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 30px; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 15px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .topic-details { display: none; margin-top: 12px; padding-top: 12px; border-top: 1px dashed #d5f5e3; line-height: 1.6; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 1. О языке, речи и речевом общении</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ</div>
+        <div id="topics-root"></div>
+    </div>
+    <script>
+        const data = [
+            { id: "1", title: "Наш родной язык — русский язык", text: "Русский язык — это государственный язык Российской Федерации, средство межнационального общения народов нашей страны и один из богатейших языков мира. Он является основой национальной культуры русского народа.", ex: "Лингвистический факт: Богатство русского языка проявляется в его неисчерпаемом словарном запасе и гибком синтаксисе." },
+            { id: "2", title: "Формы существования русского национального языка", text: "Национальный язык неоднороден. Его высшей формой является <strong>литературный язык</strong> (образцовый, нормированный). Помимо него существуют некодифицированные формы: диалекты (территориальные говоры), просторечия и жаргоны.", ex: "Сравнение: Литературное слово 'говорить' — диалектное 'баить' — просторечное 'ляпнуть'." },
+            { id: "3", title: "Речевое общение и речевой этикет", text: "Речевое общение — это процесс обмена информацией между людьми с помощью языка. Оно регулируется нормами речевого этикета, которые определяют правила вежливости, уместности выражений в зависимости от официальной или неофициальной обстановки.", ex: "Этикетное правило: Выбор формул приветствия ('Здравствуйте' или 'Привет') строго зависит от речевой ситуации." }
+        ];
+        const root = document.getElementById('topics-root');
+        data.forEach(p => {
+            root.innerHTML += `<div class="topic-card"><div class="topic-header"><div class="topic-name">Параграф ${p.id}. ${p.title}</div><button class="btn-toggle" onclick="toggle(this)">Развернуть</button></div><div class="topic-details"><p>${p.text}</p><div class="example">${p.ex}</div></div></div>`;
+        });
+        function toggle(b) {
+            const d = b.closest('.topic-card').querySelector('.topic-details');
+            if (d.style.display === 'block') { d.style.display = 'none'; b.innerText = 'Развернуть'; }
+            else { d.style.display = 'block'; b.innerText = 'Свернуть'; }
+        }
+    </script>
+</body>
+</html>

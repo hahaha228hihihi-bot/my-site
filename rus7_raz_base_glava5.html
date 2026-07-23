@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 5. Деепричастие — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; line-height: 1.4; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 5. Морфология. Деепричастие</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (6 ПАРАГРАФОВ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { id: "21", title: "Деепричастие как особая форма глагола", text: "<strong>Деепричастие</strong> обозначает добавочное действие, поясняющее основное действие (сказуемое). Оно совмещает признаки глагола (вид, возвратность) и наречия (неизменяемость, роль обстоятельства в предложении), отвечая на вопросы <i>что делая? что сделав?</i>.", ex: "Пример: Листья падают, <i>кружась</i> в воздухе. Падают (что делая?) -> кружась." },
+            { id: "22", title: "Деепричастный оборот и знаки препинания при нём", text: "Деепричастие со всеми зависимыми словами образует <strong>деепричастный оборот</strong>. В отличие от причастного оборота, деепричастный оборот (а также одиночное деепричастие) выделяется запятыми на письме <strong>ВСПЫШКА / ВСЕГДА</strong>, независимо от места в предложении.", ex: "Пример: <u>Закончив уроки</u>, я пошёл гулять. / Я, <u>закончив уроки</u>, пошёл гулять." },
+            { id: "23", title: "Деепричастия несовершенного вида", text: "Обозначают добавочное действие, происходящее параллельно с основным сказуемым. Образуются от основы глаголов настоящего времени несовершенного вида при помощи суффиксов <strong>-А / -Я</strong>.", ex: "Пример: Думают -> дума<b>я</b>, летят -> лет<b>я</b>, несут -> нес<b>я</b>. Исключение: будучи." },
+            { id: "24", title: "Деепричастия совершенного вида", text: "Обозначают добавочное действие, которое завершилось до начала основного. Образуются от основы инфинитива глаголов совершенного вида при помощи суффиксов <strong>-В, -ВШИ, -ШИ</strong>.", ex: "Пример: Решить -> реши<b>в</b>, улыбнуться -> улыбну<b>вши</b>сь, принести -> принес<b>ши</b>." },
+            { id: "25", title: "Правописание НЕ с деепричастиями", text: "Отрицательная частица <strong>НЕ с деепричастиями</strong> пишется строго <strong>РАЗДЕЛЬНО</strong>, полностью копируя глагольное правило. Слитное написание допускается только тогда, когда слово вообще не существует без НЕ.", ex: "Раздельно: не_зная, не_спеша, не_решив. / Слитно: <strong>не</strong>годуя, <strong>не</strong>навидя, <strong>не</strong>доумевая." },
+            { id: "26", title: "Культура речи. Правильное употребление деепричастий в предложении", text: "Основное и добавочное действие (сказуемое и деепричастие) должны выполняться <strong>одним и тем же лицом или предметом</strong> (подлежащим). Использование оборота в безличных предложениях или там, где действуют разные лица — грубейшая грамматическая ошибка.", ex: "Ошибка: <u>Подъезжая к городу</u>, у меня слетела шляпа. / Исправлено: Когда я подъезжал к городу, у меня слетела шляпа." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

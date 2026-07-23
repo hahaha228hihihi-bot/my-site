@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 9. Союз — 7 класс Разумовская</title>
+    <style>
+        /* Стили полностью идентичны */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 9. Служебные слова. Союз</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ</div>
+        <div id="topics-root"></div>
+    </div>
+    <script>
+        const chapterData = [
+            { id: "47", title: "Союз как служебная часть речи. Простые и составные союзы", text: "<strong>Союз</strong> связывает однородные члены предложения или простые предложения в составе сложного. По строению делятся на <strong>простые</strong> (<i>и, а, но, что, как, если</i>) и <strong>составные</strong> (<i>потому что, так как, в то время как, как будто</i>).", ex: "Простой: Солнце взошло, <i>и</i> птицы запели. Составной: Мы не пошли гулять, <i>потому что</i> пошёл ливень." },
+            { id: "48", title: "Сочинительные союзы. Разряды по значению", text: "Связывают равноправные элементы (однородные члены или части ССП). Делятся на 3 группы: <br>1) <strong>Соединительные:</strong> <i>и, да (=и), тоже, также, ни... ни</i>; <br>2) <strong>Противительные:</strong> <i>а, но, да (=но), зато, однако</i>; <br>3) <strong>Разделительные:</strong> <i>или, либо, то... то, не то... не то</i>.", ex: "Пример: Книга интересная, <i>но</i> дорогая (противительный). Нам выдали учебники, <i>а также</i> тетради (соединительный)." },
+            { id: "49", title: "Подчинительные союзы и их группы", text: "Связывают части сложноподчинённого предложения (СПП). Делятся на разряды: причинные (<i>потому что</i>), целевые (<i>чтобы</i>), временные (<i>когда</i>), условные (<i>если</i>), уступительные (<i>хотя</i>), сравнительные (<i>как, будто</i>), изъяснительные (<i>что, как</i>).", ex: "Пример: Если (условие) завтра будет хорошая погода, мы пойдём за грибами. Он сказал, что (изъяснительный) опоздает." },
+            { id: "50", title: "Слитное написание союзов Чтобы, Также, Тоже, Зато", text: "Союзы <strong>чтобы, также, тоже, зато</strong> пишутся слитно. Их нужно отличать от созвучных сочетаний местоимений или наречий с частицами (<i>что бы, так же, то же, за то</i>), которые пишутся раздельно. Частицы 'бы' и 'же' в раздельных сочетаниях можно убрать или переставить.", ex: "Союз: Я пришёл, <i>чтобы</i> помочь. / Местоимение: <i>Что бы</i> мне почитать? ('бы' можно убрать: Что мне почитать?)." },
+            { id: "51", title: "Морфологический разбор союза", text: "При разборе указываются: 1) Часть речи; 2) Сочинительный или подчинительный; 3) Разряд по значению; 4) Простой или составной; 5) Что именно связывает в предложении.", ex: "Схема: 'Книга интересная, <i>зато</i> полезная'. Зато — союз, сочинительный, противительный, простой, связывает однородные члены." },
+            { id: "52", title: "Культура речи. Синонимика союзов в сложных предложениях", text: "Использование синонимичных союзов позволяет избежать тавтологии и делает устную и письменную речь более точной и выразительной. Союзы можно заменять внутри одного разряда.", ex: "Пример: Мы торопились, <i>но</i> опоздали. -> Мы торопились, <i>однако</i> опоздали. Она красива, <i>а также</i> умна. -> Она красива, <i>и</i> умна." }
+        ];
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `<div class="topic-card"><div class="topic-header"><div class="topic-name">Параграф ${t.id}. ${t.title}</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div><div class="topic-details"><p>${t.text}</p><div class="example">${t.ex}</div></div></div>`;
+        });
+        function toggleTopic(button) {
+            const d = button.closest('.topic-card').querySelector('.topic-details');
+            if (d.style.display === 'block') { d.style.display = 'none'; button.innerText = 'Развернуть'; }
+            else { d.style.display = 'block'; button.innerText = 'Свернуть'; }
+        }
+    </script>
+</body>
+</html>

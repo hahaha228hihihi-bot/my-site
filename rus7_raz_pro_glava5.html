@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 5. Деепричастие (PRO) — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; line-height: 1.4; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #1f618d; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 5. Морфология. Деепричастие</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (6 ПАРАГРАФОВ — PRO)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { id: "21", title: "Деепричастие как глагольно-наречная форма. Исторический генезис", text: "<strong>Деепричастие</strong> обозначает добавочное действие, характеризуя предикат (сказуемое). На углублённом уровне изучается его историческое происхождение из кратких действительных причастий в форме И.п. Разбираются глагольные категории (вид, возвратность, переходность) и адвербиальные свойства (полная неизменяемость).", ex: "История: Древнерусское краткое причастие женского рода <i>несъши</i> застыло в одной форме и превратилось в деепричастие <i>несши</i>." },
+            { id: "22", title: "Синтаксический статус деепричастного оборота. Абсолютное обособление", text: "Деепричастие со всеми зависимыми словами образует деепричастный оборот (полупредикативную конструкцию). Рассматривается закон абсолютного обособления: деепричастный оборот и одиночное деепричастие выделяются запятыми <strong>ВСЕГДА</strong>, за исключением фразеологизмов или наречий, перешедших из деепричастий.", ex: "Пример: Слушали <u>затаив дыхание</u> (дееприч. оборот -> запятые). НО: Работали <u>спустя рукава</u> (фразеологизм -> без запятых), шёл <u>не спеша</u> (значение наречия -> без запятых)." },
+            { id: "23", title: "Деепричастия несовершенного вида. Морфемные ограничения", text: "Обозначение симультанного (одновременного) добавочного действия. Образуются от основы настоящего времени несовершенного вида суффиксами <strong>-А / -Я</strong>. Изучаются ограничения: глаголы с суффиксом -ну- (<i>гаснуть</i>) и на шипящие (<i>писать</i>) часто не могут образовывать эту форму.", ex: "Схема: Читают -> чита<strong>я</strong>. Глаголы вроде <i>беречь, бежать, шить</i> деепричастий несовершенного вида в литературном языке не имеют." },
+            { id: "24", title: "Деепричастия совершенного вида. Вариативность суффиксов", text: "Обозначение предшествующего добавочного действия. Образуются от основы инфинитива совершенного вида суффиксами <strong>-В, -ВШИ, -ШИ</strong>. Разбираются редкие нормативные формы на <strong>-А / -Я</strong> от основ будущего времени некоторых глаголов.", ex: "Пример: Прочитать -> прочита<strong>в</strong>. Возвратные: улыбнуться -> улыбну<strong>вши</strong>сь. Формы на -я: увидя (допустимый устаревший вариант наряду с <i>увидев</i>)." },
+            { id: "25", title: "Орфографический практикум правописания НЕ с деепричастиями", text: "Правописание частицы НЕ. Применяется глагольный алгоритм: пишется строго <strong>раздельно</strong>. На продвинутом уровне изучается разграничение деепричастий со слитной приставкой <strong>НЕДО-</strong> (значение нехватки нормы) и раздельного сочетания НЕ с приставкой ДО-.", ex: "Раздельно: не_дойдя до финиша (действие не доведено до конца). Слитно: <strong>недо</strong>сыпая ночами (меньше нормы), <strong>не</strong>годуя (не употребляется без НЕ)." },
+            { id: "26", title: "Синтаксические нормы употребления деепричастных конструкций", text: "Главный синтаксический маркер культуры речи. Сказуемое и деепричастие должны соотноситься со строгим **единым субъектом действия** (подлежащим). Полный разбор запрета на использование деепричастий в безличных предложениях с логическим объектом в Дательном падеже.", ex: "Грубая ошибка: <u>Подъезжая к станции</u>, мне сделалось скучно. Исправлено: Когда я подъезжал к станции, мне сделалось скучно." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

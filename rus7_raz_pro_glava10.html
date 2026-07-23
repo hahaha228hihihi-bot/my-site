@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 10. Частица (PRO) — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .topic-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #1f618d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 10. Служебные слова. Частица</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (PRO)</div>
+        <div id="topics-root"></div>
+    </div>
+    <script>
+        const chapterData = [
+            { id: "53", title: "Частица как служебная часть речи. Функциональные разряды", text: "<strong>Частица</strong> вносит смысловые, экспрессивные и грамматические модальности. На PRO-уровне изучается прагматика частиц — их способность менять эмоциональный фон высказывания и выражать отношение автора к достоверности информации.", ex: "Пример: Он <i>ведь</i> знал об этом (усилительная частица коренным образом меняет логический вес фразы)." },
+            { id: "54", title: "Формообразующие частицы. Продвинутый морфологический анализ", text: "Служат для выражения ирреальных наклонений. Анализируется частица <strong>БЫ (Б)</strong> (сослагательное наклонение) и императивные коннекторы <strong>ПУСТЬ, ДАВАЙ, ДА</strong> (повелительное наклонение). Изучается их отрыв от глагольной основы в предложении.", ex: "Пример: Я <i>бы</i> ни за что не поверил (дистанционное положение формообразующей частицы от глагола)." },
+            { id: "55", title: "Отрицательные частицы НЕ и НИ. Логическая инверсия", text: "Комплексный анализ. <strong>НЕ</strong> — предикативное отрицание. <strong>НИ</strong> — кумулятивное (усилительное) отрицание или маркер уступительной семантики в сложных придаточных конструкциях. Разбираются случаи двойного отрицания (НЕ + НЕ = утверждение).", ex: "Пример: Я <i>не</i> мог <i>не</i> прийти (значит, был обязан прийти). Куда <i>ни</i> обрати взор — везде выжженная степь." },
+            { id: "56", title: "Различение приставки НЕ-/НИ- и частиц НЕ/НИ в каверзных контекстах", text: "Главная ловушка орфографии. Разграничиваются отрицательные частицы и омонимичные им приставки в составе отрицательных местоимений и наречий. Выбор гласной жестко контролируется позицией ударения.", ex: "Ловушка: Н<i>е</i>кому пожаловаться (под ударением) — н<i>и</i>кому не верь (без ударения, усилительное ни)." },
+            { id: "57", title: "Дефисное правописание частиц. Исключения на стыке морфем", text: "Частицы <strong>-то, -либо, -нибудь, -ка, кое-</strong> пишутся через дефис. На углублённом уровне детально прорабатывается правило раскрытия стыков, когда между приставкой кое- и местоимением вклинивается непроизводный предлог.", ex: "Дефис: Сделай-<i>ка</i>, кто-<i>то</i>. В три слова: кое <i>с</i> кем, кое <i>в</i> чём (предлог полностью аннулирует дефисное написание)." }
+        ];
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `<div class="topic-card"><div class="topic-header"><div class="topic-name">Параграф ${t.id}. ${t.title}</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div><div class="topic-details"><p>${t.text}</p><div class="example">${t.ex}</div></div></div>`;
+        });
+        function toggleTopic(button) {
+            const d = button.closest('.topic-card').querySelector('.topic-details');
+            if (d.style.display === 'block') { d.style.display = 'none'; button.innerText = 'Развернуть'; }
+            else { d.style.display = 'block'; button.innerText = 'Свернуть'; }
+        }
+    </script>
+</body>
+</html>

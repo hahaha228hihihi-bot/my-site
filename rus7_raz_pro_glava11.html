@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 11. Междометия (PRO) — 7 класс Разумовская</title>
+    <style>
+        /* Стили полностью идентичны */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .topic-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #1f618d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 11. Междометия и звукоподражательные слова</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (PRO)</div>
+        <div id="topics-root"></div>
+    </div>
+    <script>
+        const chapterData = [
+            { id: "58", title: "Междометие как изолированный класс слов. Трудности пунктуации", text: "<strong>Междометия</strong> занимают изолированное положение в системе частей речи. Они экспрессивно сигнализируют о чувствах или волеизъявлении, не называя их. На PRO-уровне изучаются междометия, перешедшие в разряд существительных/глаголов, и тонкие правила пунктуации.", ex: "Пунктуация: <i>О</i> поле, поле, кто тебя усеял... (частица 'О' перед обращением не выделяется запятой!). Но: <i>О!</i> Как это было прекрасно (междометие с восклицательным знаком)." },
+            { id: "59", title: "Звукоподражательные слова. Имитация и ономатопея", text: "<strong>Звукоподражания</strong> (ономатопея) — воспроизведение акустических сигналов природы, животных или механизмов. В отличие от междометий, они полностью лишены прагматической и эмоциональной человеческой модальности. Разбираются правила их дефисного дублирования.", ex: "Пример: Часы монотонно отстукивали ритм: <i>тик-так, тик-так</i>. Повторяющиеся основы пишутся строго через дефис." }
+        ];
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `<div class="topic-card"><div class="topic-header"><div class="topic-name">Параграф ${t.id}. ${t.title}</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div><div class="topic-details"><p>${t.text}</p><div class="example">${t.ex}</div></div></div>`;
+        });
+        function toggleTopic(button) {
+            const d = button.closest('.topic-card').querySelector('.topic-details');
+            if (d.style.display === 'block') { d.style.display = 'none'; button.innerText = 'Развернуть'; }
+            else { d.style.display = 'block'; button.innerText = 'Свернуть'; }
+        }
+    </script>
+</body>
+</html>

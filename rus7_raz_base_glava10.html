@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 10. Частица — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 10. Служебные слова. Частица</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ</div>
+        <div id="topics-root"></div>
+    </div>
+    <script>
+        const chapterData = [
+            { id: "53", title: "Частица как служебная часть речи", text: "<strong>Частица</strong> придаёт смысловые, модальные или эмоциональные оттенки словам и предложениям, а также образует формы слов. Не имеет лексического значения и не выступает самостоятельным членом.", ex: "Частицы помогают автору точнее выразить субъективное отношение к высказыванию." },
+            { id: "54", title: "Формообразующие частицы", text: "Служат для образования наклонений глагола. Частица <strong>БЫ (Б)</strong> образует условное наклонение. Частицы <strong>ПУСТЬ, ПУСКАЙ, ДАВАЙ, ДА</strong> — повелительное наклонение.", ex: "Пример: Я пошёл <i>бы</i> (условное) в поход. <i>Пусть</i> (повелительное) всегда будет солнце!" },
+            { id: "55", title: "Отрицательные частицы НЕ и НИ", text: "<strong>НЕ</strong> выражает основное отрицание. <strong>НИ</strong> служит для усиления отрицания (при словах 'не' или 'нет') или выражает уступку в придаточных частях СПП.", ex: "НЕ: Я <i>не</i> читал. НИ: На небе нет <i>ни</i> облачка. Куда <i>ни</i> посмотришь, везде степь." },
+            { id: "56", title: "Различение приставки НЕ- и НИ- и частиц НЕ и НИ", text: "Важно разграничивать служебные частицы и омонимичные правописания приставок в отрицательных местоимениях и наречиях. Выбор гласной зависит от ударения.", ex: "Под ударением: н<i>е</i>кого спросить, н<i>е</i>где сесть. Без ударения: н<i>и</i>кого не видел, н<i>и</i>где не нашёл." },
+            { id: "57", title: "Дефисное написание частиц", text: "Частицы <strong>-то, -либо, -нибудь, -ка, кое- (кой-)</strong> пишутся со словами через дефис. Если между кое- и словом стоит предлог — пишется три слова.", ex: "Пример: Принеси-<i>ка</i>, кто-<i>то</i>, кое-<i>кто</i>. С предлогом: кое <i>у</i> кого, кое <i>с</i> кем." }
+        ];
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `<div class="topic-card"><div class="topic-header"><div class="topic-name">Параграф ${t.id}. ${t.title}</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div><div class="topic-details"><p>${t.text}</p><div class="example">${t.ex}</div></div></div>`;
+        });
+        function toggleTopic(button) {
+            const d = button.closest('.topic-card').querySelector('.topic-details');
+            if (d.style.display === 'block') { d.style.display = 'none'; button.innerText = 'Развернуть'; }
+            else { d.style.display = 'block'; d.style.display = 'none'; d.style.display = 'block'; button.innerText = 'Свернуть'; }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 8. Предлог (PRO) — 7 класс Разумовская</title>
+    <style>
+        /* Стили полностью идентичны */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .topic-card { background: #f4f9fc; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #1f618d; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 8. Служебные слова. Предлог</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (PRO)</div>
+        <div id="topics-root"></div>
+    </div>
+    <script>
+        const chapterData = [
+            { id: "41", title: "Предлог как служебная часть речи. Грамматические функции", text: "<strong>Предлог</strong> выражает реляционные отношения — зависимость синтаксически подчиняемых именных слов от главных компонентов словосочетания. Предлоги лишены номинативной функции, не изменяются и не являются членами предложения.", ex: "Важно: Предлог всегда работает в паре с падежной формой: уйти <i>в</i> тень, рассказать <i>об</i> олимпиаде." },
+            { id: "42", title: "Непроизводные и производные предлоги. Переходные процессы", text: "Разбор морфологических переходов. Непроизводные — первообразные (<i>из, под, пред</i>). Производные предлоги — результат десемантизации знаменательных слов: отыменные (<i>вследствие, ввиду</i>), наречные (<i>навстречу, мимо</i>), отглагольные (<i>благодаря, несмотря на</i>).", ex: "Ловушка: Действовать <i>наперекор</i> судьбе (производный предлог) — Идти <i>наперекор</i> (наречие)." },
+            { id: "43", title: "Простые и составные предлоги. Структурный анализ", text: "Классификация по строению. Простые состоят из одной лексемы, включая сложные фонетические сращения (<i>из-под, из-за</i>). Составные включают несколько обособленных слов.", ex: "Простые: через, сквозь, благодаря. Составные: в продолжение, по направлению к, в связи с." },
+            { id: "44", title: "Слитное и раздельное написание производных предлогов. Трудные случаи", text: "Высший орфографический стандарт. Предлоги <strong>ввиду, вследствие, вроде, вместо, наподобие, внутри</strong> пишутся слитно. Предлоги <strong>в течение, в продолжение, в продолжении, в связи с</strong> пишутся раздельно. Суффикс <strong>-Е</strong> на конце временных предлогов исторически неизменен.", ex: "Ловушка: Раздельно пишется предлог <i>в продолжение</i> (время), но слитно — <i>вследствие</i> (причина). Отличать от сущ.: в течении реки." },
+            { id: "45", title: "Морфологический разбор предлога. Продвинутый стандарт", text: "Полный лингвистический анализ служебного слова: определение структуры (простой/составной), происхождения (производный/непроизводный), падежного управления и точного семантического значения (причинное, объектное, целевое).", ex: "Схема: 'Отменить <i>ввиду</i> заморозков'. Ввиду — предлог, простой, производный (отыменный), управляет Р.п., причинное значение." },
+            { id: "46", title: "Культура речи. Нормы падежного управления производных предлогов", text: "Орфоэпический и грамматический контроль. Производные предлоги причинно-уступительного значения <strong>БЛАГОДАРЯ, СОГЛАСНО, ВОПРЕКИ, НАПЕРЕКОР</strong> по законам современного языка требуют строго <strong>Дательного падежа</strong> (кому? чему?).", ex: "Грубая ошибка: Согласно <i>приказа</i>, вопреки <i>мнения</i>. Правильно: Согласно <i>приказу</i> (Д.п.), вопреки <i>мнению</i> (Д.п.)." }
+        ];
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `<div class="topic-card"><div class="topic-header"><div class="topic-name">Параграф ${t.id}. ${t.title}</div><button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button></div><div class="topic-details"><p>${t.text}</p><div class="example">${t.ex}</div></div></div>`;
+        });
+        function toggleTopic(button) {
+            const d = button.closest('.topic-card').querySelector('.topic-details');
+            if (d.style.display === 'block') { d.style.display = 'none'; button.innerText = 'Развернуть'; }
+            else { d.style.display = 'block'; button.innerText = 'Свернуть'; }
+        }
+    </script>
+</body>
+</html>

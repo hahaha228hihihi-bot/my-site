@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 6. Наречие — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; line-height: 1.4; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 6. Морфология. Наречие</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (12 ПАРАГРАФОВ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { id: "27", title: "Наречие как знаменательная часть речи", text: "<strong>Наречие</strong> обозначает признак действия, признак другого признака или предмета. Главное грамматическое свойство — его абсолютная неизменяемость.", ex: "Пример: Быстро бежать (признак действия), очень красивый (признак признака)." },
+            { id: "28", title: "Смысловые разряды наречий по значению", text: "Делятся на разряды: образа действия (как?), времени (когда?), места (где? куда?), причины (почему?), цели (зачем?), меры и степени (в какой степени?).", ex: "Пример: Сделать назло (цель), вернуться вчера (время), крайне устать (мера)." },
+            { id: "29", title: "Степени сравнения наречий", text: "Наречия на -О/-Е, образованные от качественных прилагательных, имеют <strong>сравнительную</strong> (простую: <i>быстрее</i>; составную: <i>более быстро</i>) и <strong>превосходную</strong> степень (<i>быстрее всех</i>).", ex: "Пример: Самолёт взлетел выше (сравн. ст.) птиц. Он пробежал быстрее всех (превосх. ст.)." },
+            { id: "30", title: "Слитное и раздельное написание НЕ с наречиями на -О и -Е", text: "<strong>Слитно:</strong> если без НЕ не употребляется или можно заменить синонимом без НЕ. <strong>Раздельно:</strong> если есть противопоставление с союзом А или слова <i>далеко не, вовсе не, ничуть не</i>.", ex: "Слитно: взлетел невысоко (=низко). Раздельно: взлетел не высоко, а низко; вовсе не далеко." },
+            { id: "31", title: "Буквы Е и И в приставках НЕ- и НИ- отрицательных наречий", text: "Под ударением в приставке отрицательных наречий пишется буква <strong>Е</strong> (в приставке НЕ-), без ударения — буква <strong>И</strong> (в приставке НИ-).", ex: "Пример: Н<strong>е́</strong>где упасть, н<strong>е́</strong>когда отдыхать. / Н<strong>и</strong>где́ не нашли, н<strong>и</strong>когда́ не забуду." },
+            { id: "32", title: "Правописание Н и НН в наречиях на -О и -Е", text: "В наречиях пишется **ровно столько же Н**, сколько в прилагательных или причастиях, от которых они были образованы.", ex: "Пример: Искренний -> искре<i>нн</i>о улыбался. Путаный -> пута<i>н</i>о объяснял." },
+            { id: "33", title: "Буквы О и Е после шипящих на конце наречий", text: "На конце наречий после шипящих (Ж, Ч, Ш, Щ) под ударением пишется буква <strong>О</strong>, без ударения — буква <strong>Е</strong>.", ex: "Под ударением: горяч<strong>о́</strong>, свеж<strong>о́</strong>. Без ударения: неуклю́ж<strong>е</strong>, певу́ч<strong>е</strong>. Исключение: ещё." },
+            { id: "34", title: "Буквы О и А на конце наречий с приставками", text: "С приставками <strong>ИЗ-, ДО-, С-</strong> на конце пишется буква <strong>А</strong>. С приставками <strong>В-, НА-, ЗА-</strong> пишется буква <strong>О</strong>. Проверяем проверочным словом 'окно'.", ex: "Проверка: издавн<strong>а</strong> (из окн<i>а</i>), справ<strong>а</strong> (с окн<i>а</i>). / вправ<strong>о</strong> (в окн<i>о</i>), наглух<strong>о</strong> (на окн<i>о</i>)." },
+            { id: "35", title: "Дефис между приставкой и суффиксом в наречиях", text: "Дефис пишется: 1) после приставки <strong>ПО-</strong>, если есть суффиксы <strong>-ОМУ, -ЕМУ, -И</strong>; 2) после <strong>В- / ВО-</strong> в наречиях от числительных с -ых/-их.", ex: "Пример: делать <strong>по</strong>-нов<strong>ому</strong>, говорить <strong>по</strong>-немецк<strong>и</strong>. <strong>Во</strong>-перв<strong>ых</strong>, <strong>в</strong>-треть<strong>их</strong>." },
+            { id: "36", title: "Слитное и раздельное написание наречий, образованных от имён существительных", text: "Наречия, образованные от существительных с предлогами, пишутся слитно, если между предлогом и словом нельзя вставить определение, или если слово в современном языке не употребляется без предлога.", ex: "Слитно: вкрутую, вслух, наизусть, наперерез. Раздельно: в праздники, на миг, под утро." },
+            { id: "37", title: "Буква Ь после шипящих на конце наречий", text: "На конце наречий после шипящих (Ж, Ч, Ш, Щ) всегда пишется <strong>буква Ь</strong>. В этом правиле есть всего три слова-исключения.", ex: "С мягким знаком: вскачь, настежь, сплошь. Исключения: <strong>уж, замуж, невтерпёж</strong>." },
+            { id: "38", title: "Морфологический разбор наречия", text: "При разборе указывается: часть речи, общее значение, неизменяемость, разряд по значению, степень сравнения (если есть) и роль обстоятельства в предложении.", ex: "Схема: 'Он бежал <i>быстро</i>'. Быстро — наречие, неизменяемое, образа действия, обстоятельство." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

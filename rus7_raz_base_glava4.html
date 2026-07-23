@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 4. Причастие — 7 класс Разумовская</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #27ae60; text-align: center; margin-bottom: 5px; font-size: 2.2rem; }
+        .page-title { text-align: center; color: #7f8c8d; font-size: 1.1rem; margin-bottom: 35px; border-bottom: 2px solid #d5f5e3; padding-bottom: 10px; font-weight: bold; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2ecc71; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fffcf9; border: 1px solid #d5f5e3; border-left: 6px solid #2cc36b; padding: 18px; border-radius: 8px; margin-bottom: 12px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+        .topic-name { font-size: 1.05rem; font-weight: bold; color: #333; line-height: 1.4; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+        .btn-toggle:hover { background: #218c53; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d5f5e3; line-height: 1.6; color: #444; }
+        .example { background: #e8f8f5; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #218c4e; }
+        strong { color: #d35400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="rus7_program.html?author=razumovskaya" class="back-link">← Назад к выбору глав</a>
+        <h1>Глава 4. Морфология. Причастие</h1>
+        <div class="page-title">ПО ОРИГИНАЛЬНОМУ ОГЛАВЛЕНИЮ М. М. РАЗУМОВСКОЙ (13 ПАРАГРАФОВ)</div>
+
+        <div id="topics-root"></div>
+    </div>
+
+    <script>
+        const chapterData = [
+            { id: "8", title: "Причастие как приактивно-глагольная форма", text: "<strong>Причастие</strong> — особая форма глагола, совмещающая свойства глагола (вид, время) и прилагательного (какой?, род, число, падеж).", ex: "Пример: Летящий самолёт (признак по действию 'лететь')." },
+            { id: "9", title: "Склонение полных причастий и их падежные окончания", text: "Полные причастия изменяются по родам, числам и падежам как прилагательные. Окончание проверяется по вопросу от существительного.", ex: "Пример: В бушующ<b>ем</b> океане (в океане как<b>ом</b>?)." },
+            { id: "10", title: "Причастный оборот и знаки препинания при нём", text: "Причастие с зависимыми словами образует <strong>причастный оборот</strong>. Выделяется запятыми только тогда, когда стоит <strong>ПОСЛЕ</strong> определяемого слова.", ex: "После слова: Дерево, <u>посаженное дедом</u>, расцвело. Перед словом: <u>Посаженное дедом</u> дерево расцвело." },
+            { id: "11", title: "Действительные и страдательные причастия", text: "<strong>Действительные</strong> обозначают признак предмета, который сам совершает действие. <strong>Страдательные</strong> — предмет, над которым совершают действие.", ex: "Действительное: Читающий мальчик. Страдательное: Читаемая книга." },
+            { id: "12", title: "Образование действительных причастий настоящего времени", text: "Образуются от основ настоящего времени суффиксами <strong>-УЩ- / -ЮЩ-</strong> (I спряжение) и <strong>-АЩ- / -ЯЩ-</strong> (II спряжение).", ex: "I спряжение: писать -> пиш<strong>ущ</strong>ий. II спряжение: строить -> стро<strong>ящ</strong>ий." },
+            { id: "13", title: "Образование действительных причастий прошедшего времени", text: "Образуются от основ инфинитива суффиксами <strong>-ВШ-</strong> (после гласных) и <strong>-Ш-</strong> (после согласных). Гласная перед -ВШ- сохраняется.", ex: "Пример: Увид<u>е</u>ть -> увид<strong>е</strong>вший, замерзнуть -> замерз<strong>ш</strong>ий." },
+            { id: "14", title: "Образование страдательных причастий настоящего времени", text: "Образуются от основ настоящего времени суффиксами <strong>-ЕМ- / -ОМ-</strong> (I спряжение) и <strong>-ИМ-</strong> (II спряжение).", ex: "I спряжение: читать -> чита<strong>ем</strong>ый. II спряжение: любить -> люб<strong>им</strong>ый." },
+            { id: "15", title: "Образование страдательных причастий прошедшего времени", text: "Образуются от основ инфинитива суффиксами <strong>-НН-, -ЕНН-, -Т-</strong>. Если глагол на -ИТЬ/-ЕТЬ, пишется строго суффикс <strong>-ЕНН-</strong>.", ex: "На -ать: задерж<u>а</u>ть -> задерж<strong>а</strong>нный. На -ить: постро<u>ить</u> -> постро<strong>енн</strong>ый." },
+            { id: "16", title: "Краткие страдательные причастия", text: "Имеют краткую форму (каков? какова?). Не изменяются по падежам, пишутся с <strong>одной буквой Н</strong> и в предложении служат <strong>сказуемым</strong>.", ex: "Пример: Пример решё<strong>н</strong>, задача реше<strong>н</strong>а, дороги закрыты." },
+            { id: "17", title: "Н и НН в полных причастиях и отглагольных прилагательных", text: "Пишется <strong>НН</strong>, если: есть приставка (кроме НЕ-), есть зависимые слова, соверш. вид или суффикс -ованный. Иначе пишется <strong>одна Н</strong>.", ex: "НН: <strong>по</strong>жаренная рыба, жаренная <u>на масле</u> рыба. Н: жареная рыба." },
+            { id: "18", title: "Правописание Н и НН в кратких страдательных причастиях", text: "В кратких страдательных причастиях во всех родах и числах пишется строго <strong>ОДНА буква Н</strong>. Это неизменяемое правило.", ex: "Пример: Работа выполне<strong>н</strong>а, дом построе<strong>н</strong>, вещи собра<strong>н</strong>ы." },
+            { id: "19", title: "Слитно и раздельно НЕ с причастиями", text: "<strong>Раздельно:</strong> с краткими причастиями, при наличии зависимых слов или противопоставления с союзом А. В остальных случаях — <strong>слитно</strong>.", ex: "Раздельно: работа не_выполнена, не_выполненная <u>вовремя</u> работа. Слитно: невыполненная работа." },
+            { id: "20", title: "Буквы Е и Ё после шипящих в суффиксах страдательных причастий", text: "В суффиксах страдательных причастий прошедшего времени <strong>-ЕНН- / -ЕН-</strong> после шипящих под ударением пишется буква <strong>Ё</strong>. Буква О не пишется.", ex: "Пример: Решить -> реш<strong>ённ</strong>ый, реш<strong>ён</strong>; зажечь -> зажж<strong>ён</strong>." }
+        ];
+
+        const container = document.getElementById('topics-root');
+        chapterData.forEach(t => {
+            container.innerHTML += `
+                <div class="topic-card">
+                    <div class="topic-header">
+                        <div class="topic-name">Параграф ${t.id}. ${t.title}</div>
+                        <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+                    </div>
+                    <div class="topic-details">
+                        <p>${t.text}</p>
+                        <div class="example">${t.ex}</div>
+                    </div>
+                </div>`;
+        });
+
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
