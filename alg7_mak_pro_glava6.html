@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 6 — Линейная функция и её свойства (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 6. Линейная функция и её свойства (Макарычев, Профиль)</h1>
+
+        <!-- Параграф 40 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 40. Область определения и область значений функции</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>D(f) — множество всех допустимых значений аргумента x. E(f) — множество всех значений, которые принимает зависимая переменная y. Для любой линейной функции y = kx + b (k &ne; 0) D(f) = R и E(f) = R.</p>
+                <div class="example">Пример: Для константной функции y = 5: D(f) = R, а E(f) = {5}.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 41 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 41. Монотонность (возрастание и убывание функции)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Функция возрастает, если большему значению аргумента соответствует большее значение функции. Функция убывает, если большему x соответствует меньший y. Линейная функция y = kx + b возрастает при k &gt; 0 и убывает при k &lt; 0.</p>
+                <div class="example">Пример: y = -3x + 1 убывает на всей числовой прямой, так как k = -3 &lt; 0.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 42 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 42. Геометрический смысл углового коэффициента k</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Коэффициент k равен тангенсу угла наклона прямой к положительному направлению оси Ox: k = tg(&alpha;) = (y₂ - y₁) / (x₂ - x₁). Если угол острый — k &gt; 0, если тупой — k &lt; 0.</p>
+                <div class="example">Формула: Через точки A(1; 2) и B(3; 8) проходит прямая с k = (8 - 2) / (3 - 1) = 3.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 43 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 43. Условие перпендикулярности двух прямых</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Две невертикальные прямые y = k₁x + b₁ и y = k₂x + b₂ взаимно перпендикулярны тогда и только тогда, когда произведение их угловых коэффициентов равно -1: k₁ * k₂ = -1 (или k₂ = -1 / k₁).</p>
+                <div class="example">Пример: Прямые y = 2x + 1 и y = -0,5x - 4 взаимно перпендикулярны, так как 2 * (-0,5) = -1.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 44 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 44. Кусочно-заданные функции</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Функции, которые задаются разными формулами на различных участках числовой оси. График строится отдельно для каждого промежутка с учетом выколотых или закрашенных граничных точек.</p>
+                <div class="example">Пример: y = x при x &ge; 0; y = -x при x &lt; 0 (это функция y = |x|).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 45 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 45. Графики функций, содержащих переменную под знаком модуля</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Для построения графиков вида y = |kx + b| находят нуль подмодульного выражения (вершину «уголка») и раскрывают модуль по определению для областей справа и слева от него.</p>
+                <div class="example">Пример: y = |x - 2|. При x &ge; 2: y = x - 2; при x &lt; 2: y = -x + 2. График имеет форму уголка с вершиной в (2; 0).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 46 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 46. Преобразования графиков: f(x) + c и f(x + c)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Параллельный перенос: y = f(x) + c сдвигает график вдоль оси Oy вверх на c (при c &gt; 0); y = f(x + c) сдвигает график вдоль оси Ox влево на c (при c &gt; 0).</p>
+                <div class="example">Пример: y = |x| + 3 — сдвиг базового уголка на 3 единицы вверх по оси Oy.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

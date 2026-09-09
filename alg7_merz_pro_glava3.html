@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 3 — Многочлены. ФСУ (Мерзляк, Профиль)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 3. Многочлены. Формулы сокращённого умножения (Мерзляк, Профиль)</h1>
+
+        <!-- Параграфы 13-15 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 13–15. Многочлены и базовые действия</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сложение, вычитание и умножение многочлена на многочлен. Приведение подобных слагаемых. Степень произведения многочленов.</p>
+                <div class="example">Свойство: Степень произведения двух многочленов равна сумме их степеней.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 16-17 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 16–17. Вынесение за скобки и способ группировки</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Методы разложения на множители с группировкой трех и более слагаемых, включая искусственные приёмы расщепления слагаемых.</p>
+                <div class="example">Пример: x³ + 3x² + 3x + 1 = (x + 1)³.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 18-20 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 18–20. Разность квадратов, квадрат суммы и разности</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Формулы: (a &plusmn; b)² = a² &plusmn; 2ab + b²; a² - b² = (a - b)(a + b). Метод выделения полного квадрата для нахождения экстремумов.</p>
+                <div class="example">Пример: Наименьшее значение выражения x² - 6x + 13 = (x - 3)² + 4 равно 4 при x = 3.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 21-22 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 21–22. Сумма и разность кубов. Куб суммы и разности</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Формулы кубов: a³ &plusmn; b³ = (a &plusmn; b)(a² &mp; ab + b²); (a &plusmn; b)³ = a³ &plusmn; 3a²b + 3ab² &plusmn; b³.</p>
+                <div class="example">Пример: 27x³ - 1 = (3x - 1)(9x² + 3x + 1).</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 23-24 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 23–24. Деление многочленов и теорема Безу</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Деление многочлена на многочлен «уголком». Остаток при делении на (x - a) равен P(a). Корни многочлена и разложение на линейные множители.</p>
+                <div class="example">Пример: Если сумма коэффициентов многочлена равна 0, то x = 1 является его корнем.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

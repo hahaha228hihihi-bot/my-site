@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава I — Выражения, тождества, уравнения</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f9f4; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1e8449; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4efdf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4efdf; border-left: 6px solid #27ae60; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #196f3d; }
+        
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1e8449; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4efdf; line-height: 1.6; color: #444; }
+        .example { background: #eafaf1; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #1e8449; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава I. Выражения, тождества, уравнения (Макарычев, База)</h1>
+
+        <!-- Параграф 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 1. Числовые выражения</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Запись, составленная из чисел с помощью знаков арифметических действий и скобок, называется числовым выражением. Если выполнить все указанные действия, получится числовое значение выражения. На ноль делить нельзя — такое выражение не имеет смысла.</p>
+                <div class="example">Пример: (12,5 + 3,5) : 4 = 16 : 4 = 4.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 2. Выражения с переменными</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Выражение, содержащее буквы (переменные), называют выражением с переменными. Значение такого выражения зависит от выбранных числовых значений входящих в него букв.</p>
+                <div class="example">Пример: При a = 5 значение выражения 3a - 4 равно 3 * 5 - 4 = 11.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 3. Сравнение значений выражений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Два числовых выражения можно сравнить по величине, используя знаки равенства (=) или неравенств (&gt;, &lt;, &ge;, &le;). Двойные неравенства используются для ограничения числа сразу с двух сторон.</p>
+                <div class="example">Пример: 3 &lt; x &le; 7 означает, что x строго больше 3 и меньше либо равен 7.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 4. Свойства действий над числами</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Переместительное свойство: a + b = b + a, ab = ba. Сочетательное свойство: (a + b) + c = a + (b + c). Распределительное свойство относительно сложения: a(b + c) = ab + ac.</p>
+                <div class="example">Пример: 25 * 17 * 4 = (25 * 4) * 17 = 100 * 17 = 1700.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 5. Тождества. Тождественные преобразования</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Равенство, верное при любых допустимых значениях входящих в него переменных, называется тождеством. Замену одного выражения другим, тождественно равным ему, называют тождественным преобразованием.</p>
+                <div class="example">Пример: 3(x + 2) = 3x + 6 — это тождество.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 6. Уравнение и его корни</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Корнем уравнения называется значение переменной, при котором уравнение обращается в верное числовое равенство. Решить уравнение — значит найти все его корни или доказать, что корней нет.</p>
+                <div class="example">Пример: Для уравнения 2x + 1 = 7 число 3 является корнем, так как 2 * 3 + 1 = 7.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 7. Линейное уравнение с одной переменной</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Уравнение вида ax = b, где x — переменная, a и b — любые числа, называется линейным уравнением с одной переменной. Если a &ne; 0, то корень единственный: x = b / a.</p>
+                <div class="example">Пример: 5x = 20 &rArr; x = 20 / 5 &rArr; x = 4.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 8 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 8. Решение линейных уравнений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>При решении слагаемые с переменными переносят в одну часть уравнения, а числа — в другую, меняя их знаки на противоположные. Обе части можно умножать или делить на одно и то же ненулевое число.</p>
+                <div class="example">Пример: 4x - 5 = 2x + 7 &rArr; 4x - 2x = 7 + 5 &rArr; 2x = 12 &rArr; x = 6.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 9 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 9. Решение текстовых задач с помощью уравнений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Алгоритм: 1) Обозначить неизвестную величину через x; 2) Выразить остальные величины через x; 3) Составить уравнение по условию задачи; 4) Решить уравнение и записать ответ.</p>
+                <div class="example">Пример: В одном мешке в 2 раза больше сахара, чем в другом, а всего 60 кг. Уравнение: x + 2x = 60 &rArr; 3x = 60 &rArr; x = 20 кг.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

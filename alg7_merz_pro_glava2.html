@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 2 — Степень с целым показателем. Одночлены (Мерзляк, Профиль)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 2. Степень с целым показателем. Одночлены (Мерзляк, Профиль)</h1>
+
+        <!-- Параграф 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 7. Тождественные преобразования. Доказательство тождеств</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Методы доказательства тождественных равенств: преобразование левой части к правой, составление разности частей (L - R = 0) и метод синтеза.</p>
+                <div class="example">Пример: Доказать тождество: a(b - c) + b(c - a) = c(b - a).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 8 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 8. Свойства степени с натуральным показателем</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Законы действий: aᵐ * aⁿ = aᵐ⁺ⁿ; aᵐ : aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ; (ab)ⁿ = aⁿ * bⁿ. Упрощение дробно-степенных выражений.</p>
+                <div class="example">Пример: (25³ * 5⁴) / 125² = ((5²)³ * 5⁴) / (5³)² = 5¹⁰ / 5⁶ = 5⁴ = 625.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 9 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 9. Степень с целым отрицательным показателем и нулем</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Для любого a &ne; 0: a⁰ = 1, a⁻ⁿ = 1/aⁿ. Распространение всех свойств степеней на любые целые показатели (Z).</p>
+                <div class="example">Пример: 3⁻² = 1/9; (2/5)⁻³ = (5/2)³ = 125/8.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 10 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 10. Одночлены и действия над ними</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Стандартный вид, коэффициент, степень одночлена (сумма показателей переменных). Умножение и возведение в натуральную степень.</p>
+                <div class="example">Пример: Степень одночлена -4x³y²z равна 3 + 2 + 1 = 6.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 11 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 11. Функция y = x² и её свойства</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Область определения D(y) = R, область значений E(y) = [0; +&infin;). Чётность функции, симметрия относительно оси ординат Oy, вершина параболы (0; 0).</p>
+                <div class="example">Свойство: Функция убывает на (-&infin;; 0] и возрастает на [0; +&infin;).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 12 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 12. Функция y = x³ и кубическая парабола</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Нечётность функции f(-x) = -f(x), центральная симметрия относительно начала координат O(0; 0). Монотонное возрастание на всей числовой прямой.</p>
+                <div class="example">Свойство: При x &gt; 0 ветвь уходит в I четверть, при x &lt; 0 — в III четверть.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

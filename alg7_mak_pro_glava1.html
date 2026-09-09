@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 1 — Дроби и проценты. Действительные числа (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 1. Дроби и проценты. Действительные числа (Макарычев, Профиль)</h1>
+
+        <!-- Параграф 1 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 1. Обыкновенные и десятичные дроби</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Повторение и систематизация арифметических действий с обыкновенными и десятичными дробями. Перевод обыкновенной дроби в конечную десятичную возможен тогда и только тогда, когда разложение знаменателя несократимой дроби на простые множители содержит только числа 2 и 5.</p>
+                <div class="example">Пример: 3/8 = 0,375 (знаменатель 8 = 2³), но 1/6 переводится в бесконечную дробь 0,1666...</div>
+            </div>
+        </div>
+
+        <!-- Параграф 2 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 2. Бесконечные периодические десятичные дроби</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Любая обыкновенная дробь p/q представляется в виде бесконечной периодической десятичной дроби. Периодом называют повторяющуюся группу цифр и записывают её в круглых скобках.</p>
+                <div class="example">Пример: 7/12 = 0,58333... = 0,58(3). Число 3 — период дроби.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 3 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 3. Представление периодической дроби в виде обыкновенной</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Алгоритм перевода периодической дроби в обыкновенную через уравнение: обозначаем x = 0,(a), умножаем обе части на 10^k (где k — длина периода) и вычитаем исходное равенство.</p>
+                <div class="example">Пример: x = 0,(7) &rArr; 10x = 7,(7) &rArr; 10x - x = 7 &rArr; 9x = 7 &rArr; x = 7/9.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 4 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 4. Понятие о действительном числе</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Множество рациональных чисел (Q) состоит из периодических дробей. Числа, представимые в виде бесконечных непериодических десятичных дробей, называют иррациональными (I). Рациональные и иррациональные числа образуют множество действительных чисел (R).</p>
+                <div class="example">Пример: Число &pi; &asymp; 3,14159... и &radic;2 &asymp; 1,4142... — иррациональные числа.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 5 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 5. Пропорции и основные свойства</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Равенство двух отношений a/b = c/d называется пропорцией. Основное свойство пропорции: произведение крайних членов равно произведению средних (ad = bc при b, d &ne; 0).</p>
+                <div class="example">Пример: Если x/6 = 5/3, то 3x = 30 &rArr; x = 10.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 6 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 6. Проценты и сложные проценты</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Один процент — это одна сотая часть числа. Формула сложного процентного роста: A<sub>n</sub> = A<sub>0</sub> * (1 + p/100)<sup>n</sup>, где A<sub>0</sub> — начальный капитал, p — процентная ставка, n — число периодов.</p>
+                <div class="example">Пример: Вклад 10 000 руб. под 10% годовых через 2 года составит 10 000 * (1,1)² = 12 100 руб.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 7 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 7. Задачи на смеси, сплавы и концентрацию</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Концентрация раствора — это отношение массы чистого растворенного вещества к общей массе раствора: C = m<sub>вещества</sub> / m<sub>раствора</sub>. При смешивании массы чистых веществ складываются.</p>
+                <div class="example">Пример: Смешали 2 кг 10%-го и 3 кг 20%-го раствора. Чистое вещество: 0,2 + 0,6 = 0,8 кг. Общая масса: 5 кг. Концентрация: 0,8 / 5 = 16%.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

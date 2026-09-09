@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 4 — Функции и их графики (Мерзляк, Профиль)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 4. Функции и их графики (Мерзляк, Профиль)</h1>
+
+        <!-- Параграфы 25-26 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 25–26. Функциональные зависимости. Область определения и значений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Определение функции через соответствие множеств. Ограничения на область определения: знаменатель дроби не равен нулю. Нахождение множества значений функций вида y = kx + b, y = x², y = |x|.</p>
+                <div class="example">Пример: Для y = 3 / (|x| - 2) область определения: x &ne; 2 и x &ne; -2.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 27-28 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 27–28. Свойства функций: нули, монотонность, промежутки знакопостоянства</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Нули функции (точки пересечения с осью Ox, где f(x) = 0). Промежутки, на которых функция принимает только положительные или только отрицательные значения. Возрастание и убывание.</p>
+                <div class="example">Пример: Для y = 2x - 6 нуль функции: x = 3; при x &gt; 3 y &gt; 0, при x &lt; 3 y &lt; 0.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 29-30 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 29–30. Линейная функция, параллельность и перпендикулярность</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Исследование взаимного расположения прямых: условие параллельности k₁ = k₂; условие взаимной перпендикулярности прямых: k₁ * k₂ = -1. Нахождение угла наклона прямой через угловой коэффициент.</p>
+                <div class="example">Пример: Прямая, перпендикулярная y = 4x + 1, имеет угловой коэффициент k = -1/4.</div>
+            </div>
+        </div>
+
+        <!-- Параграфы 31-32 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 31–32. Преобразования графиков и кусочно-заданные функции</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Построение графиков с модулями y = |f(x)| (отражение отрицательной части графика вверх) и y = f(|x|) (симметрия правой части относительно оси Oy). Построение сложных кусочных зависимостей.</p>
+                <div class="example">Пример: График y = |2x - 4| строится отражением части прямой y = 2x - 4, лежащей ниже оси Ox.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

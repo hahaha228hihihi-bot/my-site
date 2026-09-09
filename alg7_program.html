@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Алгебра 7 класс — Выбор программы</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
+        .container { max-width: 800px; margin: 20px auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #d35400; margin-bottom: 5px; font-size: 2.2rem; text-align: center; }
+        .page-title { text-align: center; color: #7f8c8d; letter-spacing: 1px; font-size: 1.2rem; margin-bottom: 35px; font-weight: bold; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #e67e22; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .section-header { font-size: 1.3rem; font-weight: bold; color: #333; margin-bottom: 20px; text-align: center; }
+        
+        .level-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        
+        .btn-base { background: white; border: 3px solid #27ae60; color: #27ae60; padding: 20px; border-radius: 12px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: all 0.2s; text-align: center; }
+        .btn-base:hover { background: #27ae60; color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(39,174,96,0.2); }
+        .btn-base.active { background: #27ae60; color: white; }
+        
+        .btn-pro { background: white; border: 3px solid #2980b9; color: #2980b9; padding: 20px; border-radius: 12px; cursor: pointer; font-size: 1.2rem; font-weight: bold; transition: all 0.2s; text-align: center; }
+        .btn-pro:hover { background: #2980b9; color: white; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(41,128,185,0.2); }
+        .btn-pro.active { background: #2980b9; color: white; }
+
+        .chapters-panel { display: none; margin-top: 20px; border-top: 2px dashed #fde3cf; padding-top: 25px; }
+        .chapters-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 15px; }
+        
+        .chapter-link { display: block; background: #fffcf9; padding: 18px; border-radius: 10px; text-decoration: none; font-size: 1.1rem; font-weight: bold; transition: all 0.2s; }
+        .chapter-link:hover { transform: translateX(5px); }
+        
+        .style-base { border: 2px solid #2cc36b; border-left: 8px solid #2cc36b; color: #218c4e; }
+        .style-base:hover { background: #2cc36b; color: white !important; }
+        
+        .style-pro { border: 2px solid #3498db; border-left: 8px solid #3498db; color: #1f618d; }
+        .style-pro:hover { background: #3498db; color: #ffffff !important; }
+
+        @media (max-width: 600px) {
+            .level-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="alg7.html" class="back-link">← Вернуться к выбору учебника</a>
+        <h1 id="mainTitle">Алгебра 7 класс</h1>
+        <div class="page-title">ШАГ 2: ВЫБЕРИТЕ ПРОГРАММУ ИЗУЧЕНИЯ</div>
+
+        <div class="section-header">Выберите уровень изучения предмета:</div>
+        
+        <div class="level-grid">
+            <button class="btn-base" id="btnBase" onclick="showChapters('base', this)">🟢 БАЗОВЫЙ УРОВЕНЬ</button>
+            <button class="btn-pro" id="btnPro" onclick="showChapters('pro', this)">🔵 УГЛУБЛЁННЫЙ УРОВЕНЬ</button>
+        </div>
+
+        <div class="chapters-panel" id="chaptersPanel">
+            <div class="section-header" id="panelTitle">Доступные главы:</div>
+            <div class="chapters-grid" id="chaptersGrid"></div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const author = urlParams.get('author');
+        
+        if (author === 'makarychev') {
+            document.getElementById('mainTitle').innerText = "Алгебра — Ю. Н. Макарычев";
+        } else if (author === 'merzlyak') {
+            document.getElementById('mainTitle').innerText = "Алгебра — А. Г. Мерзляк";
+        }
+
+        function showChapters(level, buttonElement) {
+            document.getElementById('btnBase').classList.remove('active');
+            document.getElementById('btnPro').classList.remove('active');
+            buttonElement.classList.add('active');
+            
+            const panel = document.getElementById('chaptersPanel');
+            const grid = document.getElementById('chaptersGrid');
+            panel.style.display = 'block';
+            grid.innerHTML = '';
+            
+            let styleClass = (level === 'base') ? 'style-base' : 'style-pro';
+            let marker = (level === 'base') ? '🟢' : '🔹';
+            
+            if (author === 'makarychev') {
+                if (level === 'base') {
+                    grid.innerHTML = `
+                        <a href="alg7_mak_base_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Выражения, тождества, уравнения (§ 1-9)</a>
+                        <a href="alg7_mak_base_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Функции (§ 10-17)</a>
+                        <a href="alg7_mak_base_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Степень с натуральным показателем и одночлены (§ 18-23)</a>
+                        <a href="alg7_mak_base_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Многочлены (§ 24-31)</a>
+                        <a href="alg7_mak_base_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Формулы сокращенного умножения (§ 32-38)</a>
+                        <a href="alg7_mak_base_glava6.html" class="chapter-link ${styleClass}">${marker} Глава 6. Системы линейных уравнений (§ 39-44)</a>
+                    `;
+                } else if (level === 'pro') {
+                    grid.innerHTML = `
+                        <a href="alg7_mak_pro_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Дроби и проценты. Действительные числа (§ 1-7)</a>
+                        <a href="alg7_mak_pro_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Алгебраические выражения и уравнения (§ 8-15)</a>
+                        <a href="alg7_mak_pro_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Степень с натуральным показателем (§ 16-22)</a>
+                        <a href="alg7_mak_pro_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Одночлены и многочлены (§ 23-31)</a>
+                        <a href="alg7_mak_pro_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Разложение многочленов на множители (§ 32-39)</a>
+                        <a href="alg7_mak_pro_glava6.html" class="chapter-link ${styleClass}">${marker} Глава 6. Линейная функция и её свойства (§ 40-46)</a>
+                        <a href="alg7_mak_pro_glava7.html" class="chapter-link ${styleClass}">${marker} Глава 7. Системы уравнений и методы их решения (§ 47-53)</a>
+                    `;
+                }
+            } else if (author === 'merzlyak') {
+                if (level === 'base') {
+                    grid.innerHTML = `
+                        <a href="alg7_merz_base_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Линейное уравнение с одной переменной (§ 1-4)</a>
+                        <a href="alg7_merz_base_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Целые выражения. Степень и одночлены (§ 5-8)</a>
+                        <a href="alg7_merz_base_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Многочлены и формулы сокращённого умножения (§ 9-19)</a>
+                        <a href="alg7_merz_base_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Функции (§ 20-24)</a>
+                        <a href="alg7_merz_base_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Системы линейных уравнений с двумя переменными (§ 25-31)</a>
+                    `;
+                } else if (level === 'pro') {
+                    grid.innerHTML = `
+                        <a href="alg7_merz_pro_glava1.html" class="chapter-link ${styleClass}">${marker} Глава 1. Введение в алгебру. Линейные уравнения (§ 1-6)</a>
+                        <a href="alg7_merz_pro_glava2.html" class="chapter-link ${styleClass}">${marker} Глава 2. Степень с целым показателем. Одночлены (§ 7-12)</a>
+                        <a href="alg7_merz_pro_glava3.html" class="chapter-link ${styleClass}">${marker} Глава 3. Многочлены. Формулы сокращённого умножения (§ 13-24)</a>
+                        <a href="alg7_merz_pro_glava4.html" class="chapter-link ${styleClass}">${marker} Глава 4. Функции и их графики (§ 25-32)</a>
+                        <a href="alg7_merz_pro_glava5.html" class="chapter-link ${styleClass}">${marker} Глава 5. Уравнения с двумя переменными и их системы (§ 33-40)</a>
+                        <a href="alg7_merz_pro_glava6.html" class="chapter-link ${styleClass}">${marker} Глава 6. Элементы комбинаторики и теории множеств (§ 41-45)</a>
+                    `;
+                }
+            }
+            
+            panel.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

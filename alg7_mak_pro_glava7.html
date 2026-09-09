@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 7 — Системы уравнений и методы их решения (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 7. Системы уравнений и методы их решения (Макарычев, Профиль)</h1>
+
+        <!-- Параграф 47 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 47. Исследование числа решений системы двух линейных уравнений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Для системы a₁x + b₁y = c₁ и a₂x + b₂y = c₂: если a₁/a₂ &ne; b₁/b₂ — ровно 1 решение; если a₁/a₂ = b₁/b₂ &ne; c₁/c₂ — решений нет (прямые параллельны); если a₁/a₂ = b₁/b₂ = c₁/c₂ — бесконечно много решений.</p>
+                <div class="example">Пример: 2x + y = 3 и 4x + 2y = 5 не имеют решений, так как 2/4 = 1/2 &ne; 3/5.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 48 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 48. Системы уравнений с параметрами</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Нахождение значений параметров, при которых система имеет единственное решение, не имеет решений или имеет бесконечно много решений.</p>
+                <div class="example">Пример: ax + y = 1 и x + ay = 1. При a = 1 прямые совпадают (&infin; решений); при a = -1 параллельны (&empty;); при a &ne; &plusmn;1 — 1 решение.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 49 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 49. Метод определителей второго порядка (правило Крамера)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Определитель матрицы 2х2: &Delta; = a₁b₂ - a₂b₁. Решение системы находится по формулам: x = &Delta;x / &Delta;, y = &Delta;y / &Delta; (при &Delta; &ne; 0).</p>
+                <div class="example">Формула: &Delta;x получается заменой первого столбца коэффициентов на столбец свободных членов: c₁b₂ - c₂b₁.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 50 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 50. Метод замены переменных при решении систем</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сложные комбинации переменных (например, x + y и xy или 1/x и 1/y) обозначают новыми буквами u и v, решая полученную линейную систему, а затем возвращаясь к x и y.</p>
+                <div class="example">Пример: 2/(x-1) + 3/(y+2) = 5 сводится к 2u + 3v = 5 при u = 1/(x-1), v = 1/(y+2).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 51 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 51. Симметрические системы уравнений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Системы, которые не меняются при замене x на y и y на x. Стандартная подстановка: u = x + y, v = xy. Выражение x² + y² выражается как u² - 2v.</p>
+                <div class="example">Пример: x + y = 5, x² + y² = 13 &rArr; u = 5, u² - 2v = 13 &rArr; 25 - 2v = 13 &rArr; v = 6.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 52 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 52. Системы трех линейных уравнений с тремя переменными (Метод Гаусса)</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Метод последовательного исключения переменных: с помощью первого уравнения исключают переменную x из второго и третьего уравнений, получая ступенчатую систему треугольного вида.</p>
+                <div class="example">Алгоритм: Получив треугольный вид (где в последней строке только переменная z), находят z, затем подстановкой вверх — y и x.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 53 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 53. Олимпиадные текстовые задачи на системы уравнений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Задачи с целочисленными неизвестными (диофантовы уравнения), круговое движение с несколькими участниками и задачи, где переменных больше, чем уравнений, но требуется найти не сами переменные, а значение их комбинации.</p>
+                <div class="example">Пример: Найти стоимость 1 тетради и 1 ручки, зная цену 3 тетрадей с 2 ручками и 2 тетрадей с 3 ручками (сложить оба уравнения).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

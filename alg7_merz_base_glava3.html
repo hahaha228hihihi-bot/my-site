@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 3 — Многочлены и формулы сокращённого умножения (Мерзляк, База)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f9f4; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1e8449; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4efdf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4efdf; border-left: 6px solid #27ae60; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #196f3d; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1e8449; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4efdf; line-height: 1.6; color: #444; }
+        .example { background: #eafaf1; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #1e8449; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 3. Многочлены и формулы сокращённого умножения (Мерзляк, База)</h1>
+
+        <!-- Параграф 9 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 9. Многочлены. Сложение и вычитание</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Определение многочлена, степень многочлена, раскрытие скобок при знаках «+» и «-».</p>
+                <div class="example">Пример: (4a² - 3) + (2a² + 1) = 6a² - 2.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 10 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 10. Умножение одночлена на многочлен</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Распределительное свойство: одночлен перемножается с каждым слагаемым внутри скобок.</p>
+                <div class="example">Пример: 3x(x - 4) = 3x² - 12x.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 11 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 11. Вынесение общего множителя за скобки</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Нахождение НОД коэффициентов и общих буквенных множителей в минимальной степени.</p>
+                <div class="example">Пример: 15a²b - 10ab = 5ab(3a - 2).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 12 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 12. Умножение многочлена на многочлен</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Почленное перемножение членов двух многочленов с приведением подобных слагаемых.</p>
+                <div class="example">Пример: (a + 3)(b - 2) = ab - 2a + 3b - 6.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 13 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 13. Разложение многочлена на множители способом группировки</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Объединение слагаемых в пары или группы с последующим вынесением общего двучлена.</p>
+                <div class="example">Пример: xy - 2y + 3x - 6 = y(x - 2) + 3(x - 2) = (x - 2)(y + 3).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 14 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 14. Произведение разности и суммы двух выражений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Формула разности квадратов: (a - b)(a + b) = a² - b².</p>
+                <div class="example">Пример: (3x - 1)(3x + 1) = 9x² - 1.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 15 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 15. Разность квадратов двух выражений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Разложение на множители по формуле: a² - b² = (a - b)(a + b).</p>
+                <div class="example">Пример: 16 - y² = (4 - y)(4 + y).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 16 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 16. Квадрат суммы и квадрат разности</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Формулы: (a &plusmn; b)² = a² &plusmn; 2ab + b².</p>
+                <div class="example">Пример: (2x - 5)² = 4x² - 20x + 25.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 17 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 17. Преобразование многочлена в квадрат суммы или разности</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Сворачивание трехчлена вида a² &plusmn; 2ab + b² в квадрат двучлена.</p>
+                <div class="example">Пример: x² + 8x + 16 = (x + 4)².</div>
+            </div>
+        </div>
+
+        <!-- Параграф 18 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 18. Сумма и разность кубов</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Формулы: a³ &plusmn; b³ = (a &plusmn; b)(a² &mp; ab + b²).</p>
+                <div class="example">Пример: m³ + 8 = (m + 2)(m² - 2m + 4).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 19 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 19. Применение различных способов разложения на множители</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Комбинирование вынесения за скобки, группировки и формул сокращенного умножения.</p>
+                <div class="example">Пример: 2x² - 18 = 2(x² - 9) = 2(x - 3)(x + 3).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

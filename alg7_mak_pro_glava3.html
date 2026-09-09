@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 3 — Степень с натуральным показателем (Углублённый уровень)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 3. Степень с натуральным показателем (Макарычев, Профиль)</h1>
+
+        <!-- Параграф 16 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 16. Определение степени. Знак степени с целым основанием</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Степень с четным показателем всегда неотрицательна: (-a)<sup>2n</sup> = a<sup>2n</sup> &ge; 0. Степень с нечетным показателем сохраняет знак основания: (-a)<sup>2n+1</sup> = -a<sup>2n+1</sup>. Любое ненулевое число в нулевой степени равно единице: a<sup>0</sup> = 1.</p>
+                <div class="example">Пример: (-3)<sup>4</sup> = 81, но (-3)<sup>3</sup> = -27.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 17 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 17. Свойства степени с натуральным показателем</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Основные законы: a<sup>m</sup> * a<sup>n</sup> = a<sup>m+n</sup>; a<sup>m</sup> : a<sup>n</sup> = a<sup>m-n</sup> (при m &gt; n, a &ne; 0); (a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup>; (ab)<sup>n</sup> = a<sup>n</sup> * b<sup>n</sup>; (a/b)<sup>n</sup> = a<sup>n</sup> / b<sup>n</sup> (b &ne; 0).</p>
+                <div class="example">Пример: (2<sup>3</sup> * 4<sup>2</sup>) / 8 = (2<sup>3</sup> * 2<sup>4</sup>) / 2<sup>3</sup> = 2<sup>4</sup> = 16.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 18 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 18. Преобразование выражений, содержащих степени</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Приведение чисел к степеням с одинаковым простым основанием. Вынесение степени за скобки при разложении сумм на множители для последующего сокращения дробей.</p>
+                <div class="example">Пример: (2<sup>n+2</sup> - 2<sup>n</sup>) / 2<sup>n</sup> = 2<sup>n</sup>(2<sup>2</sup> - 1) / 2<sup>n</sup> = 4 - 1 = 3.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 19 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 19. Сравнение степеней</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Для сравнения двух степеней их приводят либо к одинаковому основанию (если a &gt; 1, то больше та степень, у которой больше показатель), либо к одинаковому показателю степени.</p>
+                <div class="example">Пример: Сравнить 2<sup>30</sup> и 3<sup>20</sup>: 2<sup>30</sup> = (2<sup>3</sup>)<sup>10</sup> = 8<sup>10</sup>; 3<sup>20</sup> = (3<sup>2</sup>)<sup>10</sup> = 9<sup>10</sup>. Так как 9 &gt; 8, то 3<sup>20</sup> &gt; 2<sup>30</sup>.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 20 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 20. Понятие о степени с целым отрицательным показателем</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>По определению, для любого a &ne; 0 и натурального n: a<sup>-n</sup> = 1 / a<sup>n</sup>. Дробь (a/b)<sup>-n</sup> = (b/a)<sup>n</sup>. Все свойства степеней сохраняются и для целых отрицательных показателей.</p>
+                <div class="example">Пример: 2<sup>-3</sup> = 1 / 2<sup>3</sup> = 1/8; (2/3)<sup>-2</sup> = (3/2)<sup>2</sup> = 9/4.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 21 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 21. Стандартный вид числа и порядок величины</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Стандартным видом числа называют запись a * 10<sup>n</sup>, где 1 &le; a &lt; 10, а n — целое число. Показатель n называется порядком числа и показывает масштаб физической величины.</p>
+                <div class="example">Пример: 350 000 = 3,5 * 10<sup>5</sup>; 0,00042 = 4,2 * 10<sup>-4</sup>.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 22 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 22. Задачи на последнюю цифру степени и делимость</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Последние цифры степеней циклически повторяются с периодом не более 4. Для нахождения последней цифры a<sup>n</sup> показатель n делят с остатком на длину цикла.</p>
+                <div class="example">Пример: Степени числа 2 оканчиваются на 2, 4, 8, 6 (цикл 4). 2<sup>43</sup> = 2<sup>4*10 + 3</sup>, значит оканчивается на ту же цифру, что и 2<sup>3</sup>, то есть на 8.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

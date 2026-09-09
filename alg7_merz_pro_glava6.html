@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 6 — Элементы комбинаторики и теории множеств (Мерзляк, Профиль)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f7fa; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1f618d; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4e6f1; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #2980b9; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4e6f1; border-left: 6px solid #3498db; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #2c3e50; }
+        .btn-toggle { background: #2980b9; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1f618d; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4e6f1; line-height: 1.6; color: #444; }
+        .example { background: #ebf5fb; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #2980b9; color: #2c3e50; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 6. Элементы комбинаторики и теории множеств (Мерзляк, Профиль)</h1>
+
+        <!-- Параграф 41 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 41. Множества и операции над ними</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Понятие подмножества (&sube;), пустого множества (&empty;). Операции объединения (A &cup; B) и пересечения (A &cap; B). Иллюстрация операций с помощью кругов Эйлера.</p>
+                <div class="example">Пример: Если A = {1, 2, 3}, B = {2, 3, 4}, то A &cap; B = {2, 3}, а A &cup; B = {1, 2, 3, 4}.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 42 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 42. Правила суммы и произведения в комбинаторике</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Правило сложения: если объект A выбирается m способами, а B — k способами (выборы не пересекаются), то выбор «A или B» возможен m + k способами. Правило умножения: выбор пары «A и B» возможен m * k способами.</p>
+                <div class="example">Пример: В меню 3 супа и 4 вторых блюда. Обед из супа и второго можно составить 3 * 4 = 12 способами.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 43 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 43. Перестановки и факториал</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Факториал числа: n! = 1 * 2 * 3 * ... * n (по определению 0! = 1). Число перестановок из n различных элементов равно Pₙ = n!.</p>
+                <div class="example">Пример: 5 человек могут встать в очередь P₅ = 5! = 1 * 2 * 3 * 4 * 5 = 120 различными способами.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 44 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 44. Размещения и сочетания</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Размещения (порядок элементов важен): A(n, k) = n! / (n - k)!. Сочетания (порядок не имеет значения): C(n, k) = n! / (k! * (n - k)!).</p>
+                <div class="example">Пример: Выбрать двух дежурных из 10 учеников (порядок не важен): C(10, 2) = (10 * 9) / (1 * 2) = 45 способов.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 45 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 45. Метод математической индукции и логические задачи</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Принцип математической индукции: 1) База индукции (проверка утверждения для n = 1); 2) Индукционный переход (доказательство истинности для n = k + 1 в предположении верности для n = k). Принцип Дирихле.</p>
+                <div class="example">Принцип Дирихле: Если 10 кроликов посадить в 9 клеток, то хотя бы в одной клетке окажется не менее двух кроликов.</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>

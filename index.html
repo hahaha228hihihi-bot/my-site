@@ -11,32 +11,140 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #fcf9f5; color: #333; padding-bottom: 60px; }
-        header { background: #d35400; color: white; text-align: center; padding: 40px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { font-size: 2.3rem; margin-bottom: 10px; }
-        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 25px; color: #555; font-size: 1.3rem; }
+        header { background: #d35400; color: white; text-align: center; padding: 35px 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+        .container { max-width: 1000px; margin: 25px auto; padding: 0 20px; }
+        .section-title { text-align: center; margin-bottom: 20px; color: #555; font-size: 1.25rem; }
         
-        .class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 40px; }
-        .class-btn { background: white; border: 2px solid #ff9f43; color: #e67e22; padding: 15px 10px; border-radius: 10px; cursor: pointer; font-size: 1.1rem; font-weight: bold; text-align: center; }
+        /* Компактный блок поиска */
+        .search-wrapper { margin: 0 auto 25px auto; max-width: 650px; }
+        .search-input-box { position: relative; display: flex; align-items: center; gap: 8px; }
+        .search-input { width: 100%; padding: 12px 16px 12px 42px; font-size: 1rem; border: 2px solid #ff9f43; border-radius: 10px; outline: none; transition: all 0.2s; background: #fff; }
+        .search-input:focus { border-color: #d35400; box-shadow: 0 3px 12px rgba(211, 84, 0, 0.15); }
+        .search-icon { position: absolute; left: 14px; font-size: 1.1rem; color: #7f8c8d; pointer-events: none; }
+        
+        .btn-toggle-filters { background: #fff; border: 2px solid #ff9f43; color: #d35400; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-size: 0.9rem; font-weight: bold; white-space: nowrap; transition: all 0.2s; }
+        .btn-toggle-filters:hover { background: #ff9f43; color: white; }
+        
+        /* Скрываемое меню параметров */
+        .search-filters-panel { display: none; margin-top: 10px; padding: 16px; background: white; border: 1px solid #ffd5b3; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.04); }
+        .filters-group { margin-bottom: 12px; }
+        .filters-group:last-child { margin-bottom: 0; }
+        .filters-title { font-size: 0.8rem; font-weight: bold; color: #7f8c8d; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .search-filters { display: flex; flex-wrap: wrap; gap: 6px; }
+        .filter-chip { background: #fffcf9; border: 1px solid #ffd5b3; color: #d35400; padding: 4px 10px; border-radius: 14px; font-size: 0.8rem; font-weight: 600; cursor: pointer; transition: all 0.15s; }
+        .filter-chip:hover { background: #fde3cf; }
+        .filter-chip.active { background: #e67e22; color: #fff; border-color: #e67e22; }
+        
+        .search-results { display: none; margin-top: 12px; background: white; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); max-height: 350px; overflow-y: auto; border: 1px solid #fde3cf; }
+        .search-item { display: block; padding: 12px 16px; text-decoration: none; border-bottom: 1px solid #f9f0ea; transition: background 0.15s; }
+        .search-item:last-child { border-bottom: none; }
+        .search-item:hover { background: #fff7f2; }
+        .search-item-title { font-weight: bold; color: #2c3e50; font-size: 1rem; }
+        .search-item-meta { font-size: 0.8rem; color: #7f8c8d; margin-top: 4px; display: flex; align-items: center; gap: 8px; }
+        .badge-subj { display: inline-block; padding: 2px 7px; border-radius: 5px; font-size: 0.75rem; font-weight: bold; color: white; background: #e67e22; }
+        
+        .badge-alg { background: #e67e22; }
+        .badge-geom { background: #d35400; }
+        .badge-math { background: #f39c12; }
+        .badge-fiz { background: #2980b9; }
+        .badge-chem { background: #16a085; }
+        .badge-rus { background: #27ae60; }
+        .badge-eng { background: #8e44ad; }
+        .badge-bio { background: #2ecc71; }
+        .badge-geog { background: #1abc9c; }
+        .badge-histor { background: #c0392b; }
+        .badge-obsh { background: #9b59b6; }
+        .badge-info { background: #34495e; }
+        .badge-astro { background: #2c3e50; }
+        .badge-obzr { background: #7f8c8d; }
+        .badge-econ { background: #b7950b; }
+        .badge-pravo { background: #7d3c98; }
+        .badge-okr { background: #27ae60; }
+        .badge-vist { background: #e74c3c; }
+
+        .no-results { padding: 18px; text-align: center; color: #7f8c8d; font-style: italic; font-size: 0.95rem; }
+
+        /* Сетка классов */
+        .class-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 10px; margin-bottom: 35px; }
+        .class-btn { background: white; border: 2px solid #ff9f43; color: #e67e22; padding: 12px 8px; border-radius: 10px; cursor: pointer; font-size: 1rem; font-weight: bold; text-align: center; transition: all 0.2s; }
         .class-btn:hover { background: #ff9f43; color: white; transform: translateY(-2px); }
         .class-btn.active { background: #e67e22; border-color: #e67e22; color: white; }
         
-        .subjects-panel { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: none; }
-        .subjects-panel h2 { color: #d35400; margin-bottom: 20px; border-bottom: 2px solid #fde3cf; padding-bottom: 10px; }
-        .subject-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; align-items: start; }
-        .subject-item { background: #fffcf9; padding: 15px; border-radius: 8px; border-left: 5px solid #ff9f43; text-decoration: none; color: #333; font-weight: 500; transition: all 0.2s; display: block; min-height: 54px; }
-        .subject-item:hover { background: #fdf2e9; transform: translateX(5px); }
-        .not-available-msg { font-size: 1.2rem; color: #7f8c8d; text-align: center; padding: 20px 0; font-style: italic; font-weight: 500; width: 100%; grid-column: 1 / -1; }
+        /* Панель предметов */
+        .subjects-panel { background: white; border-radius: 12px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); display: none; }
+        .subjects-panel h2 { color: #d35400; margin-bottom: 18px; border-bottom: 2px solid #fde3cf; padding-bottom: 8px; font-size: 1.4rem; }
+        .subject-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; align-items: start; }
+        .subject-item { background: #fffcf9; padding: 14px; border-radius: 8px; border-left: 5px solid #ff9f43; text-decoration: none; color: #333; font-weight: 500; transition: all 0.2s; display: block; }
+        .subject-item:hover { background: #fdf2e9; transform: translateX(4px); }
     </style>
 </head>
 <body>
 
     <header>
         <h1>📚 Школьный Архив</h1>
-        <p>Полный справочник учебных материалов с 1 по 7 класс (временно)</p>
+        <p>Полный справочник учебных материалов с 1 по 11 класс</p>
     </header>
 
     <div class="container">
+        <!-- Поиск с фильтрацией по классу и всем предметам -->
+        <div class="search-wrapper">
+            <div class="search-input-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="siteSearchInput" class="search-input" placeholder="Поиск тем, формул или терминов..." oninput="handleSearch()">
+                <button type="button" class="btn-toggle-filters" onclick="toggleFilterMenu()">Фильтры ⚙️</button>
+            </div>
+            
+            <div class="search-filters-panel" id="searchFiltersPanel">
+                <!-- Фильтр по классам -->
+                <div class="filters-group">
+                    <div class="filters-title">Класс:</div>
+                    <div class="search-filters" id="gradeFilterBox">
+                        <button class="filter-chip active" onclick="setGradeFilter('all', this)">Все классы</button>
+                        <button class="filter-chip" onclick="setGradeFilter(1, this)">1</button>
+                        <button class="filter-chip" onclick="setGradeFilter(2, this)">2</button>
+                        <button class="filter-chip" onclick="setGradeFilter(3, this)">3</button>
+                        <button class="filter-chip" onclick="setGradeFilter(4, this)">4</button>
+                        <button class="filter-chip" onclick="setGradeFilter(5, this)">5</button>
+                        <button class="filter-chip" onclick="setGradeFilter(6, this)">6</button>
+                        <button class="filter-chip" onclick="setGradeFilter(7, this)">7</button>
+                        <button class="filter-chip" onclick="setGradeFilter(8, this)">8</button>
+                        <button class="filter-chip" onclick="setGradeFilter(9, this)">9</button>
+                        <button class="filter-chip" onclick="setGradeFilter(10, this)">10</button>
+                        <button class="filter-chip" onclick="setGradeFilter(11, this)">11</button>
+                    </div>
+                </div>
+
+                <!-- Фильтр по всем предметам -->
+                <div class="filters-group">
+                    <div class="filters-title">Предмет:</div>
+                    <div class="search-filters" id="subjectFilterBox">
+                        <button class="filter-chip active" onclick="setSubjectFilter('all', this)">Все предметы</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('alg', this)">Алгебра</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('geom', this)">Геометрия</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('math', this)">Математика</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('fiz', this)">Физика</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('chem', this)">Химия</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('rus', this)">Русский язык</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('eng', this)">Иностранный язык</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('info', this)">Информатика</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('bio', this)">Биология</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('geog', this)">География</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('histor', this)">История</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('obsh', this)">Обществознание</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('obzr', this)">ОБЗР</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('astro', this)">Астрономия</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('econ', this)">Экономика</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('pravo', this)">Право</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('okr', this)">Окружающий мир</button>
+                        <button class="filter-chip" onclick="setSubjectFilter('vist', this)">Статистика</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="search-results" id="searchResultsBox"></div>
+        </div>
+
         <p class="section-title">Выбери класс, чтобы увидеть список предметов:</p>
         <div class="class-grid">
             <button class="class-btn" onclick="showClass(1)">1 класс</button>
@@ -51,6 +159,7 @@
             <button class="class-btn" onclick="showClass(10)">10 класс</button>
             <button class="class-btn" onclick="showClass(11)">11 класс</button>
         </div>
+
         <div class="subjects-panel" id="subjectsPanel">
             <h2 id="panelTitle">Предметы</h2>
             <div class="subject-list" id="subjectList"></div>
@@ -65,8 +174,39 @@
             4: ["Русский язык", "Математика", "Окружающий мир", "Иностранный язык"],
             5: ["Русский язык", "Математика", "История", "География", "Биология", "Информатика", "Иностранный язык"],
             6: ["Русский язык", "Математика", "История", "Обществознание", "География", "Биология", "Информатика", "Иностранный язык"],
-            7: ["Русский язык", "Алгебра", "Геометрия", "Вероятность и статистика", "Информатика", "История", "Обществознание", "География", "Физика", "Биология", "Иностранный язык"]
+            7: ["Русский язык", "Алгебра", "Геометрия", "Вероятность и статистика", "Информатика", "История", "Обществознание", "География", "Физика", "Биология", "Иностранный язык"],
+            8: ["Русский язык", "Алгебра", "Геометрия", "Вероятность и статистика", "Физика", "Химия", "Биология", "География", "История", "Обществознание", "Информатика", "ОБЗР", "Иностранный язык"],
+            9: ["Русский язык", "Алгебра", "Геометрия", "Вероятность и статистика", "Физика", "Химия", "Биология", "География", "История", "Обществознание", "Информатика", "ОБЗР", "Иностранный язык"],
+            10: ["Русский язык", "Алгебра", "Геометрия", "Вероятность и статистика", "Физика", "Химия", "Биология", "Астрономия", "География", "История", "Обществознание", "Экономика", "Право", "Информатика", "ОБЗР", "Иностранный язык"],
+            11: ["Русский язык", "Алгебра", "Геометрия", "Вероятность и статистика", "Физика", "Химия", "Биология", "Астрономия", "География", "История", "Обществознание", "Экономика", "Право", "Информатика", "ОБЗР", "Иностранный язык"]
         };
+
+        const subjectPrefixes = {
+            "Математика": "math",
+            "Алгебра": "alg",
+            "Геометрия": "geom",
+            "Русский язык": "rus",
+            "Физика": "fiz",
+            "Химия": "chem",
+            "Биология": "bio",
+            "Астрономия": "astro",
+            "ОБЗР": "obzr",
+            "Экономика": "econ",
+            "Право": "pravo",
+            "Информатика": "info",
+            "История": "histor",
+            "География": "geog",
+            "Обществознание": "obsh",
+            "Окружающий мир": "okr",
+            "Иностранный язык": "eng",
+            "Вероятность и статистика": "vist"
+        };
+
+        function getSubjectLink(subject, classNumber) {
+            if (subject === "Физика" && classNumber === 7) return "fizika7.html";
+            const prefix = subjectPrefixes[subject];
+            return prefix ? `${prefix}${classNumber}.html` : "#";
+        }
 
         function showClass(classNumber) {
             const panel = document.getElementById('subjectsPanel');
@@ -75,139 +215,120 @@
             const listContainer = document.getElementById('subjectList');
             listContainer.innerHTML = '';
             
-            if (classNumber >= 8) {
-                const message = document.createElement('div');
-                message.className = 'not-available-msg';
-                message.innerText = '🔒 Этот класс пока недоступен. Материалы появятся в новом учебном году!';
-                listContainer.appendChild(message);
-            } else {
-                data[classNumber].forEach(subject => {
-                    const item = document.createElement('a');
-                    item.className = 'subject-item';
-                    item.innerText = `📖 ${subject}`;
-                    
-                    if (subject === "Математика" && classNumber === 1) {
-                        item.href = "math1.html";
-                    } else if (subject === "Русский язык" && classNumber === 1) {
-                        item.href = "rus1.html";
-                    } else if (subject === "Окружающий мир" && classNumber === 1) {
-                        item.href = "okr1.html";
-                    } 
-                    else if (subject === "Математика" && classNumber === 2) {
-                        item.href = "math2.html";
-                    } else if (subject === "Русский язык" && classNumber === 2) {
-                        item.href = "rus2.html";
-                    } else if (subject === "Окружающий мир" && classNumber === 2) {
-                        item.href = "okr2.html";
-                    } else if (subject === "Иностранный язык" && classNumber === 2) {
-                        item.href = "eng2.html";
-                    }
-                    else if (subject === "Математика" && classNumber === 3) {
-                        item.href = "math3.html";
-                    } else if (subject === "Русский язык" && classNumber === 3) {
-                        item.href = "rus3.html";
-                    } else if (subject === "Окружающий мир" && classNumber === 3) {
-                        item.href = "okr3.html";
-                    } else if (subject === "Иностранный язык" && classNumber === 3) {
-                        item.href = "eng3.html";
-                    }
-                    else if (subject === "Математика" && classNumber === 4) {
-                        item.href = "math4.html";
-                    } else if (subject === "Русский язык" && classNumber === 4) {
-                        item.href = "rus4.html";
-                    } else if (subject === "Окружающий мир" && classNumber === 4) {
-                        item.href = "okr4.html";
-                    } else if (subject === "Иностранный язык" && classNumber === 4) {
-                        item.href = "eng4.html";
-                    }
-                    else if (subject === "Математика" && classNumber === 5) {
-                        item.href = "math5.html";
-	     }
-                    else if (subject === "Русский язык" && classNumber === 5) {
-                        item.href = "rus5.html";
-	    }
-                    else if (subject === "История" && classNumber === 5) {
-                        item.href = "histor5.html";
-	    }
-                    else if (subject === "География" && classNumber === 5) {
-                        item.href = "geog5.html";
-	    }
-                    else if (subject === "Биология" && classNumber === 5) {
-                        item.href = "bio5.html";
-	    }
-                    else if (subject === "Информатика" && classNumber === 5) {
-                        item.href = "info5.html";
-	    }
-                    else if (subject === "Иностранный язык" && classNumber === 5) {
-                        item.href = "eng5.html";
-                    }
-	     else if (subject === "Математика" && classNumber === 6) {
-                        item.href = "math6.html";
-	     }
-                    else if (subject === "Русский язык" && classNumber === 6) {
-                        item.href = "rus6.html";
-	    }
-                    else if (subject === "История" && classNumber === 6) {
-                        item.href = "histor6.html";
-	    }
-                    else if (subject === "География" && classNumber === 6) {
-                        item.href = "geog6.html";
-	    }
-                    else if (subject === "Биология" && classNumber === 6) {
-                        item.href = "bio6.html";
-	    }
-                    else if (subject === "Информатика" && classNumber === 6) {
-                        item.href = "info6.html";
-	    }
-                    else if (subject === "Иностранный язык" && classNumber === 6) {
-                        item.href = "eng6.html";
-	    }
-                    else if (subject === "Обществознание" && classNumber === 6) {
-                        item.href = "obsh6.html";
-                    }
-                    else if (subject === "Физика" && classNumber === 7) {
-                        item.href = "fizika7.html";
-	    }
-                    else if (subject === "Алгебра" && classNumber === 7) {
-                        item.href = "alg7.html"; 
-                    }
-                    else if (subject === "Иностранный язык" && classNumber === 7) {
-                        item.href = "eng7.html"; 
-	    }
-                    else if (subject === "Геометрия" && classNumber === 7) {
-                        item.href = "geom7.html"; 
-	    }
-                    else if (subject === "Вероятность и статистика" && classNumber === 7) {
-                        item.href = "vist7.html";  
-	    }
-                    else if (subject === "Биология" && classNumber === 7) {
-                        item.href = "bio7.html";
-	    }
-                    else if (subject === "Информатика" && classNumber === 7) {
-                        item.href = "info7.html";  
-	    }
-                    else if (subject === "География" && classNumber === 7) {
-                        item.href = "geog7.html";
-  	    }
-                    else if (subject === "История" && classNumber === 7) {
-                        item.href = "histor7.html"; 
-	    }
-                    else if (subject === "Обществознание" && classNumber === 7) {
-                        item.href = "obsh7.html";
-                    } else if (subject === "Русский язык" && classNumber === 7) {
-                        item.href = "rus7.html";
-                    } else {
-                        item.href = "#";
-                    }
-                    listContainer.appendChild(item);
-                });
-            }
+            data[classNumber].forEach(subject => {
+                const item = document.createElement('a');
+                item.className = 'subject-item';
+                item.innerText = `📖 ${subject}`;
+                item.href = getSubjectLink(subject, classNumber);
+                listContainer.appendChild(item);
+            });
 
             const buttons = document.querySelectorAll('.class-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             const clickedBtn = Array.from(buttons).find(btn => btn.textContent === classNumber + " класс");
             if (clickedBtn) clickedBtn.classList.add('active');
             panel.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // ================= ПОИСКОВАЯ СИСТЕМА =================
+        let currentSubjectFilter = 'all';
+        let currentGradeFilter = 'all';
+
+        function toggleFilterMenu() {
+            const panel = document.getElementById('searchFiltersPanel');
+            panel.style.display = (panel.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function setSubjectFilter(filter, button) {
+            currentSubjectFilter = filter;
+            document.querySelectorAll('#subjectFilterBox .filter-chip').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            handleSearch();
+        }
+
+        function setGradeFilter(grade, button) {
+            currentGradeFilter = grade;
+            document.querySelectorAll('#gradeFilterBox .filter-chip').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            handleSearch();
+        }
+
+        const subjNames = {
+            alg: "Алгебра",
+            geom: "Геометрия",
+            math: "Математика",
+            fiz: "Физика",
+            chem: "Химия",
+            rus: "Русский",
+            eng: "Английский",
+            bio: "Биология",
+            geog: "География",
+            histor: "История",
+            obsh: "Обществознание",
+            info: "Информатика",
+            astro: "Астрономия",
+            obzr: "ОБЗР",
+            econ: "Экономика",
+            pravo: "Право",
+            okr: "Окружающий мир",
+            vist: "Статистика"
+        };
+
+        const searchDatabase = [
+            { title: "Уравнение и его корни. Линейные уравнения", subj: "alg", grade: 7, gradeText: "7 класс", link: "alg7_mak_base_glava1.html", tags: "уравнение корень линейное равенство тождество неизвестная" },
+            { title: "Линейная функция и её график (y = kx + b)", subj: "alg", grade: 7, gradeText: "7 класс", link: "alg7_mak_base_glava2.html", tags: "функция аргумент график прямая пропорциональность парабола координата" },
+            { title: "Свойства степеней и одночлены", subj: "alg", grade: 7, gradeText: "7 класс", link: "alg7_mak_base_glava3.html", tags: "степень показатель основание умножение одночлен стандартный вид" },
+            { title: "Многочлены и способ группировки", subj: "alg", grade: 7, gradeText: "7 класс", link: "alg7_mak_base_glava4.html", tags: "многочлен подобные слагаемые скобки группировка разложение вынесение" },
+            { title: "Формулы сокращенного умножения (ФСУ)", subj: "alg", grade: 7, gradeText: "7 класс", link: "alg7_mak_base_glava5.html", tags: "квадрат суммы квадрат разности разность квадратов куб сумма кубов формулы" },
+            { title: "Системы линейных уравнений (подстановка и сложение)", subj: "alg", grade: 7, gradeText: "7 класс", link: "alg7_mak_base_glava6.html", tags: "система уравнений способ подстановки сложения две переменные пересечение" },
+            { title: "Теорема Безу и схема Горнера", subj: "alg", grade: 7, gradeText: "7 класс (Профиль)", link: "alg7_mak_pro_glava4.html", tags: "безу горнер деление уголком многочлен остаток корни делимость" },
+            { title: "Метод Крамера и определители второго порядка", subj: "alg", grade: 7, gradeText: "7 класс (Профиль)", link: "alg7_mak_pro_glava7.html", tags: "крамер определитель матрица дельта системы уравнений" },
+            { title: "Физические методы изучения природы. Наблюдения и опыты", subj: "fiz", grade: 7, gradeText: "7 класс", link: "glava1.html", tags: "физика явления опыт наблюдение измерение погрешность величины СИ" },
+            { title: "Первоначальные сведения о строении вещества", subj: "fiz", grade: 7, gradeText: "7 класс", link: "base_glava2.html", tags: "молекулы атомы диффузия броуновское движение агрегатные состояния" },
+            { title: "Взаимодействие тел. Масса и плотность", subj: "fiz", grade: 7, gradeText: "7 класс", link: "base_glava3.html", tags: "скорость инерция сила тяжести масса плотность динамометр вес" },
+            { title: "Давление твердых тел, жидкостей и газов", subj: "fiz", grade: 7, gradeText: "7 класс", link: "base_glava4.html", tags: "давление закон паскаля сообщающиеся сосуды барометр атмосфера манометр" },
+            { title: "Архимедова сила и плавание тел", subj: "fiz", grade: 7, gradeText: "7 класс", link: "glava5.html", tags: "архимед выталкивающая сила плавание судов воздухоплавание плотность погружение" },
+            { title: "Работа, мощность и простые механизмы", subj: "fiz", grade: 7, gradeText: "7 класс", link: "base_glava5.html", tags: "работа мощность джоуль ватт рычаг блок кпд кинетическая потенциальная энергия" },
+            { title: "Причастие и причастный оборот", subj: "rus", grade: 7, gradeText: "7 класс", link: "rus7_glava1.html", tags: "причастие суффиксы действительные страдательные зависимые слова запятые" },
+            { title: "Деепричастие и деепричастный оборот", subj: "rus", grade: 7, gradeText: "7 класс", link: "rus7_glava2.html", tags: "деепричастие добавочное действие что делая сделав запятые обособление" },
+            { title: "Служебные части речи: Предлог, Союз, Частица", subj: "rus", grade: 7, gradeText: "7 класс", link: "rus7_glava3.html", tags: "предлог союз частица не ни слитное раздельное правописание производные" },
+            { title: "Present Perfect vs Past Simple", subj: "eng", grade: 7, gradeText: "7 класс", link: "eng7_glava1.html", tags: "present perfect past simple время глагол have has v3 ed irregular verbs" },
+            { title: "Passive Voice (Страдательный залог)", subj: "eng", grade: 7, gradeText: "7 класс", link: "eng7_glava2.html", tags: "passive voice пассивный залог to be v3 by агенс кем сделано" },
+            { title: "Conditionals (Условные предложения 0, 1, 2)", subj: "eng", grade: 7, gradeText: "7 класс", link: "eng7_glava3.html", tags: "conditionals if would will условие нулевой первый второй тип" }
+        ];
+
+        function handleSearch() {
+            const query = document.getElementById('siteSearchInput').value.trim().toLowerCase();
+            const resultsBox = document.getElementById('searchResultsBox');
+
+            if (!query && currentSubjectFilter === 'all' && currentGradeFilter === 'all') {
+                resultsBox.style.display = 'none';
+                resultsBox.innerHTML = '';
+                return;
+            }
+
+            const filtered = searchDatabase.filter(item => {
+                const matchesSubject = (currentSubjectFilter === 'all' || item.subj === currentSubjectFilter);
+                const matchesGrade = (currentGradeFilter === 'all' || item.grade === currentGradeFilter);
+                const matchesQuery = !query || item.title.toLowerCase().includes(query) || item.tags.toLowerCase().includes(query);
+                return matchesSubject && matchesGrade && matchesQuery;
+            });
+
+            if (filtered.length === 0) {
+                resultsBox.innerHTML = '<div class="no-results">Ничего не найдено по выбранным критериям.</div>';
+            } else {
+                resultsBox.innerHTML = filtered.map(item => `
+                    <a href="${item.link}" class="search-item">
+                        <div class="search-item-title">${item.title}</div>
+                        <div class="search-item-meta">
+                            <span class="badge-subj badge-${item.subj}">${subjNames[item.subj] || item.subj}</span>
+                            <span>${item.gradeText}</span>
+                        </div>
+                    </a>
+                `).join('');
+            }
+
+            resultsBox.style.display = 'block';
         }
     </script>
     <link rel="manifest" href="manifest.json">

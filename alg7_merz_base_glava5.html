@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глава 5 — Системы линейных уравнений (Мерзляк, База)</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f2f9f4; color: #333; padding: 40px 20px; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        h1 { color: #1e8449; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #d4efdf; padding-bottom: 10px; }
+        .back-link { display: inline-block; margin-bottom: 20px; color: #27ae60; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .topic-card { background: #fdfefe; border: 1px solid #d4efdf; border-left: 6px solid #27ae60; padding: 20px; border-radius: 8px; margin-bottom: 15px; }
+        .topic-header { display: flex; justify-content: space-between; align-items: center; }
+        .topic-name { font-size: 1.1rem; font-weight: bold; color: #196f3d; }
+        .btn-toggle { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-toggle:hover { background: #1e8449; }
+        .topic-details { display: none; margin-top: 15px; padding-top: 15px; border-top: 1px dashed #d4efdf; line-height: 1.6; color: #444; }
+        .example { background: #eafaf1; padding: 10px; border-radius: 5px; margin-top: 8px; font-style: italic; border-left: 3px solid #27ae60; color: #1e8449; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Назад к списку глав</a>
+        <h1>Глава 5. Системы линейных уравнений с двумя переменными (Мерзляк, База)</h1>
+
+        <!-- Параграф 25 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 25. Уравнения с двумя переменными</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Решение уравнения с двумя переменными — пара чисел (x; y). Равносильные преобразования уравнений с двумя переменными.</p>
+                <div class="example">Пример: Для x + y = 10 решениями являются пары (5; 5), (7; 3), (0; 10).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 26 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 26. Линейное уравнение с двумя переменными и его график</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Уравнение ax + by = c. Графиком является прямая линия при наличии хотя бы одного ненулевого коэффициента.</p>
+                <div class="example">Пример: График 2x - y = 4 проходит через (2; 0) и (0; -4).</div>
+            </div>
+        </div>
+
+        <!-- Параграф 27 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 27. Системы уравнений с двумя переменными</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Определение системы, общее решение. Число решений: 1 решение, ни одного решения или бесконечно много.</p>
+                <div class="example">Свойство: Пересечение прямых даёт точку решения.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 28 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 28. Графический метод решения систем</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Построение двух прямых в одной системе координат и нахождение точки их пересечения.</p>
+                <div class="example">Пример: Найти координаты точки пересечения графиков на чертеже.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 29 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 29. Решение систем методом подстановки</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Выражение одной переменной через другую из простого уравнения и подстановка в другое.</p>
+                <div class="example">Пример: Из x - y = 2 выразить x = y + 2.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 30 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 30. Решение систем методом сложения</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Домножение уравнений для взаимного уничтожения одной переменной при почленном сложении.</p>
+                <div class="example">Пример: Сложить 3x + 2y = 8 и 5x - 2y = 8 &rArr; 8x = 16 &rArr; x = 2.</div>
+            </div>
+        </div>
+
+        <!-- Параграф 31 -->
+        <div class="topic-card">
+            <div class="topic-header">
+                <div class="topic-name">§ 31. Решение текстовых задач с помощью систем уравнений</div>
+                <button class="btn-toggle" onclick="toggleTopic(this)">Развернуть</button>
+            </div>
+            <div class="topic-details">
+                <p>Задачи на движение по реке, стоимость товаров и совместную работу с двумя переменными.</p>
+                <div class="example">Пример: Скорость по течению (v + u), против течения (v - u).</div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleTopic(button) {
+            const card = button.closest('.topic-card');
+            const details = card.querySelector('.topic-details');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+                button.innerText = 'Развернуть';
+            } else {
+                details.style.display = 'block';
+                button.innerText = 'Свернуть';
+            }
+        }
+    </script>
+</body>
+</html>
